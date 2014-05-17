@@ -1,0 +1,104 @@
+
+.base{
+   background-color: #3c3c3c;
+}
+body{
+    background-color: #dbdbdb;
+}
+#banner{
+   background-color: #a94442;
+   padding-top: 0px;
+   color: #f5ffff;
+   border: #000 0px solid;
+   margin-top: 0px;
+   margin-top: 0px;
+}
+#bannerUP{
+   background-color: #3c3c3c;
+   padding-top: 0px;
+   color: #f5ffff;
+   border: #000 0px solid;
+   margin-top: 0px;
+   margin-top: 0px;
+}
+#contenido{
+   overflow: hidden;
+   padding: 10px;
+   margin: 50px;
+}
+section[class=centro]{
+    margin: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    width: 200px;
+    height: 100px;
+}
+.grupo-empresa{
+    
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: #3c3c3c;
+    background-size: 200px 150px;
+    background-repeat: no-repeat;
+    float: left;
+    box-shadow: 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+#grupo-Min{
+    width: 50px;
+    height: 50px;
+    background-color: #3c3c3c;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    border-radius: 5px 5px 5px 5px;
+}
+.grupo-empresa:hover{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: rgba(60, 63, 65, 0.35);
+    background-size: 200px 150px;
+    background-repeat: no-repeat;
+    float: left;
+    box-shadow: #f0e8dc 0px 0px 30px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+section article{
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+a[class=revisar]{
+    background-color: coral;
+    text-align: center;
+}
+table{
+    margin: 0 auto;
+    background-color: #f5ffff;
+}
+#detalle{
+    float: right;
+    margin-bottom: 50px;
+    padding-right: 20px;
+}
+#detallege{
+    float: left;
+    margin-bottom: 50px;
+    padding-left: 20px;
+}
+article[class=representante]{
+    margin: 0px;
+    width: 180px;
+    height: 40px;
+    color: #FDFCFA;
+    text-align: center;
+    background-color: rgba(162, 3, 28, 0.70);
+}
+footer{
+    background-color: #3c3c3c;
+    height: 150px;
+    float: botton;
+}

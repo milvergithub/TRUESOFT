@@ -1,0 +1,68 @@
+#imagen{
+    float: left;
+    width: 310px;
+    height:280px;
+    border: 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 5px 5px 5px 5px;
+    display: inline;
+    text-align: center;
+}
+#imagen img{
+        margin-top: 5px;
+}
+#contenido{
+    border: 1px solid #000000;
+    overflow: auto;
+    min-height: 290px;
+}
+#form{
+    text-align: center;
+    display: block;
+}
+#form div{
+    text-align: center;
+    display: block;
+}
+.preview{
+    height: 150px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+.messages{
+        font-family: sans-serif;
+        display: none;
+    }
+    .info{
+        padding: 10px;
+        border-radius: 10px;
+        background: orange;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .before{
+        padding: 10px;
+        border-radius: 10px;
+        background: blue;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .success{
+        padding: 10px;
+        border-radius: 10px;
+        background: green;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .error{
+        padding: 10px;
+        border-radius: 10px;
+        background: red;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
