@@ -1,5 +1,5 @@
 <?php include 'php/head.php'; ?>
-<form  class="form-group" method="POST" action="subirDocumentoConv.php" enctype="multipart/form-data">
+<form  class="form-group" method="POST" action="subirDocumentoConv.php" enctype="multipart/form-data" id="formularioCrearDocLectura">
     <div class="form-group table-responsive"> 
         <table class="table table-hover" id="tablaDocumtosLectura">
             <tr>
@@ -10,15 +10,21 @@
             <?php include 'php/documentosLectura.php'; ?>
             <tr>
                 <td>
-                   <input class="form-control" type="text" name="nombredoc" placeholder="nombre"/> 
+                   <div class="control-group">
+                      <input class="form-control" type="text" name="nombredoc" placeholder="nombre" id="nombredoc"/> 
+                   </div>
                 </td>
-                
                 <td>
-                    <input class="btn btn-primary btn-sm" name="archivo" type="file"/> 
+                   <div class="control-group">
+                     <input class="btn btn-primary btn-sm" name="archivo" type="file" id="archivo"/> 
+                     <span class="glyphicon glyphicon-search"></span>
+                   </div>
                 </td>
-                
                 <td>
-                    <input class="btn btn-primary btn-sm" type="submit"/>
+                   <div class="control-group">
+                     <input class="btn btn-primary btn-sm" type="submit" value='Subir Documento'/>
+                     <span class="glyphicon glyphicon-upload"></span>
+                   </div>
                 </td>
             </tr>
         </table>

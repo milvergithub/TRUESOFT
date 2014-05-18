@@ -1,5 +1,88 @@
 $(function(){
-   /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA*/
+    var elementosNota=document.getElementsByName("formularioEvaluacionIndividual");
+    for (x=0;x<elementosNota.length;x++){
+        $("#formularioEvaluacionIndividual"+(x+1)).validate({
+            rules:{
+                nota:{
+                    required:true,
+                    number:true
+                }
+            },
+            messages:{
+                nota:{
+                    required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese una nota</p>',
+                    number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">Ingrese un numero</p>'
+                }
+            }
+        });
+    }
+   /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+   $("#formularioCrearConvocatoria").validate({
+      rules:{
+         nombreconv: {
+            required:true,
+            minlength:3,
+            maxlength:25
+         },
+         fecha:{
+            required:true,
+            date:true
+         }
+      },
+      messages: {
+         nombreconv :{
+            required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">Ingrese un nombre</p>',
+            minlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como minimo 3 caracteres</p>',
+            maxlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como maximo de 25 caracteres</p>'
+         },
+         fecha :{
+            required:'<p style="color: rgba(170, 0, 0, 0.76)">Ingrese una fecha</p>',
+            date:'<p style="color: rgba(170, 0, 0, 0.76)">Formato invalido</p>'
+         }
+      },
+      submitHandler:function(form){
+      
+      },
+      highlight: function(element) {
+         $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+      },
+      success: function(element) {
+        element
+        .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
+      }
+   });
+   $("#formularioCrearDocLectura").validate({
+      rules:{
+         nombredoc:{
+            required:true,
+            minlength:3,
+            maxlength:25
+         },
+         archivo:{
+            required:true
+         }
+      },
+      messages: {
+         nombredoc :{
+            required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">Ingrese un nombre</p>',
+            minlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como minimo 3 caracteres</p>',
+            maxlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como maximo de 25 caracteres</p>'
+         },
+         archivo :{
+            required:'<p style="color: rgba(170, 0, 0, 0.76)">Cargue un archivo</p>'
+         }
+      },
+      submitHandler:function(form){
+      
+      },
+      highlight: function(element) {
+         $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+      },
+      success: function(element) {
+        element
+        .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
+      }
+   });
    $("#formularioCrearDocEntrega").validate({
       rules:{
          nombre :{
@@ -36,7 +119,7 @@ $(function(){
          }
       },
       submitHandler:function(form){
-    var dataString = 'nombre='+$('#nombre').val()+'&tipo='+$('#tipo').val()+'&calificacion='+$('#calificacion').val()+'&documento='+$('#documento').val();    
+      var dataString = 'nombre='+$('#nombre').val()+'&tipo='+$('#tipo').val()+'&calificacion='+$('#calificacion').val()+'&documento='+$('#documento').val();    
             $.ajax({
                 type: "POST",
                 url:"php/validarDocumentosEntrega.php",

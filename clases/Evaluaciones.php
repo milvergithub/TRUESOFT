@@ -44,27 +44,29 @@ class Evaluaciones {
       $cantidad=  pg_affected_rows($documentos);
       echo '<tr><td><h3>integrantes</h3></td>';
       while ($regDoc = pg_fetch_assoc($documentos)) {
-         echo "<td>".$regDoc['nombrearch']."</td>";
+         echo "<th>".$regDoc['nombrearch']."</th>";
       }
       echo "</tr>";
+      $contador=1;
       while ($regInt=  pg_fetch_assoc($integrantes)) {
          echo "<tr>";
-         echo '<td>'.$regInt['nombres'].'</td>';
+         echo '<th>'.$regInt['nombres'].'</th>';
          while ($regDocI = pg_fetch_assoc($documentosPer)) {
             echo '<td>
-                     <form id="formularioNotaArchivo" class="form" method="POST">
+                     <form action="php/procesarNota.php" class="form" name="formularioEvaluacionIndividual" method="POST" id="formularioEvaluacionIndividual'.$contador.'">
                         <input type="hidden" name="codigoArchivo" value="'.$regDocI['codarch'].'"/>
                         <input type="hidden" name="codigoIntegrante" value="'.$regInt['codinteg'].'"/>
-                        <input type="text" name="nota" class="form-control input-sm"/>
+                        <input type="text" name="nota" class="form-control input-sm" id="nota"/>
                         <input type="submit" value="Evaluar" class="btn btn-primary"/>
                      </form>
                   </td>';
+            $contador=$contador+1;
          }
          $documentosPer=  $this->dameDocumentosEntregados($codEmp);
          echo "</tr>";
       }
       
-      
+      echo '<td colspan="'.($cantidad+1).'">(*) Integrantes de la grupo empresa</td>';
    }
    function dameCodigoConvocatoria($codEmp) {
       $resultadoDCC=  $this->conexion->obtenerCodigosApartirDeCodEmp($codEmp);

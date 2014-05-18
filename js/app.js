@@ -7,6 +7,8 @@ function inicio(){
    buscador();
 }
 function init(){
+   $('input[type=file]').bootstrapFileInput();
+   $('.file-inputs').bootstrapFileInput();
    $("#logoin").change(function(){
       readURL(this);
    });
