@@ -1,7 +1,12 @@
 <?php include 'php/head.php'; ?>
-<form  class="form-group" method="POST" action="subirDocumentoConv.php" enctype="multipart/form-data" id="formularioCrearDocLectura">
+<div class="container container-fluid">
+   <h3>CREAR DOCUMENTOS DE ENTREGA</h3>
+   <div id="mensaje">
+      
+   </div>
+   <form  class="form-group" method="POST" enctype="multipart/form-data" id="formularioCrearDocLectura">
     <div class="form-group table-responsive"> 
-        <table class="table table-hover" id="tablaDocumtosLectura">
+        <table class="table table-hover table-bordered table-condensed table-striped" id="tablaDocumtosLectura">
             <tr>
                 <td><span class="glyphicon">Nombre</span></td>
                 <td>archivo <span class="glyphicon glyphicon-paperclip"></span></td>
@@ -31,3 +36,7 @@
         
     </div>     
 </form>
+</div>
+<div id="mensajeDocumentosLectura">
+   
+</div>

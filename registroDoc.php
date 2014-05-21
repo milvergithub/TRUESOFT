@@ -65,6 +65,6 @@ include 'php/head.php';
             <input class="form-control input-sm" type="text" name="telefono" id="telefono"/><br/><br/>
          </div>
          <input class="btn btn-primary" type="submit" value="Registrar" />
-       </form>
+      </form>
    </div>
 </html>

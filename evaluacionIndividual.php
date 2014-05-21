@@ -7,6 +7,6 @@ $evalInd=new Evaluaciones();
 <div class="table-responsive">
    <table class="table table-bordered table-hover">
       <caption class="caption panel-heading h3">Evaluacion Individual</caption>
-      <?php $evalInd->imprimirEvaluacionPersonal(4) ?>
+      <?php $evalInd->imprimirEvaluacionPersonal(1) ?>
    </table>
 </div>

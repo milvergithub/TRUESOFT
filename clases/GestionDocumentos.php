@@ -99,7 +99,7 @@ class GestionDocumentos {
    function darDocumentosConfiguracion($codConv, $codUsu) {
        $retsultDDC = $this->conexion->darDocumnetoSubir($codConv);
        while ($restDDC = pg_fetch_assoc($retsultDDC)) {
-           echo '<form  method="POST" action="subirConfiguracionDocumento.php" enctype="multipart/form-data">
+           echo '<form  method="POST" action="php/subirConfiguracionDocumento.php" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
@@ -151,7 +151,7 @@ class GestionDocumentos {
        $resultDAE = $this->conexion->devolverArchivosEmpresa($codEmp);
        
        while ($restDAE = pg_fetch_assoc($resultDAE)) {
-           echo '<form  method="POST" action="subirEvaluacionGrupalEmpresa.php" enctype="multipart/form-data">
+           echo '<form  method="POST" action="php/subirEvaluacionGrupalEmpresa.php" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>

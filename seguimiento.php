@@ -58,7 +58,7 @@ session_start();
             }
             else{
                if(isset($_GET[md5("codEmp")])){
-                include 'evaluarEmpresa.php';
+                include 'php/evaluarEmpresa.php';
                }
                else {
                    $emp->getGrupoEmpresas($_SESSION['coduser']);

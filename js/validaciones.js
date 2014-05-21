@@ -17,7 +17,15 @@ $(function(){
         });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
-   $("#formularioCrearConvocatoria").validate({
+    $("#formularioRegistroRep").validate({
+       rules:{
+
+       },
+       messages:{
+
+       }
+    });
+    $("#formularioCrearConvocatoria").validate({
       rules:{
          nombreconv: {
             required:true,
@@ -41,7 +49,17 @@ $(function(){
          }
       },
       submitHandler:function(form){
-      
+         var dataString = 'nombreconv='+$('#nombreconv').val()+'&fecha='+$('#fechai').val();    
+         $.ajax({
+             type: "POST",
+             url:"php/subirCrearConvocatoria.php",
+             data: dataString,
+             success: function(data){
+                 $("#mensajeRegistroConvocatoria").html(data);
+                 $("#mensajeRegistroConvocatoria").show();
+                 //$("#formid").hide();
+             }
+         });
       },
       highlight: function(element) {
          $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
@@ -73,7 +91,25 @@ $(function(){
          }
       },
       submitHandler:function(form){
-      
+          var nombre=$("#nombredoc").val();
+          var archivoDato = new FormData();
+          archivoDato.append( 'archivo', $( '#archivo' )[0].files[0] );
+          archivoDato.append("nombredoc",nombre);
+            $.ajax({
+                type: "POST",
+                url:"php/subirDocumentoConv.php",
+                enctype:'multipart/form-data',
+                data: archivoDato,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeDocumentosLectura").html(data);
+                    $("#mensajeDocumentosLectura").show();
+                    //$("#formid").hide();
+                }
+            });
       },
       highlight: function(element) {
          $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');

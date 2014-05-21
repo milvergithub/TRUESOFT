@@ -365,6 +365,10 @@ class  ConexionTIS
        $resultadoOAE=  $this->Consultas($sqlOAE);
        return $resultadoOAE;
     }
+    function insertarNotaArchivosEntrega($codArch,$codInt,$nota) {
+       $sqlINAE="SELECT * FROM insertar_nota_integrante_archivo(".$codInt.",".$codArch.",".$nota.")";
+       $this->Insertar($sqlINAE);
+    }
     /*********************************  EVALUACION DE ARCHIVOS GE  ********************************/
     
     /*********************************  SUBIDA DE ARCHIVOS Y CONFIGURAION *************************/

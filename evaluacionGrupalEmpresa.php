@@ -1,6 +1,6 @@
 <?php
     include 'php/head.php';
-    include './clases/GestionDocumentos.php';
+    include 'clases/GestionDocumentos.php';
     
     $gestion = new GestionDocumentos();
     $codEmp = 1;    

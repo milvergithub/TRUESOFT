@@ -35,7 +35,7 @@
          <?php
       }
       ?>
-      <form class="form-group col-lg-8 well" action="php/regValid.php" method="post">
+      <form class="form-group col-lg-8 well" action="php/regValid.php" method="post" id="formularioRegistroRep">
          <span class="glyphicon glyphicon-user">Usuario:</span>  
          <input class="form-control input-sm" type="text" maxlength="25" size="25" name="nombreuser" />
          <span class="glyphicon">Grupo:</span>

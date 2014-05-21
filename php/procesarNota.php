@@ -1,5 +1,7 @@
 <?php
-echo "nota = ".$_POST['nota']."<br>";
-echo "codigoArchivo = ".$_POST['codigoArchivo']."<br>";
-echo "codigoIntegrante = ".$_POST['codigoIntegrante']."<br>";
+include '../clases/ConexionTIS.php';
+
+$conexINA=new ConexionTIS();
+$conexINA->insertarNotaArchivosEntrega($_POST['codigoArchivo'], $_POST['codigoIntegrante'], $_POST['nota']);
+echo "Evaluado";
 ?>
