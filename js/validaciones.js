@@ -155,17 +155,25 @@ $(function(){
          }
       },
       submitHandler:function(form){
-      var dataString = 'nombre='+$('#nombre').val()+'&tipo='+$('#tipo').val()+'&calificacion='+$('#calificacion').val()+'&documento='+$('#documento').val();    
-            $.ajax({
-                type: "POST",
-                url:"php/validarDocumentosEntrega.php",
-                data: dataString,
-                success: function(data){
-                    $("#mensajeDocumentos").html(data);
-                    $("#mensajeDocumentos").show();
-                    //$("#formid").hide();
-                }
-            });
+         var archivoDato = new FormData();
+         archivoDato.append("nombre",$('#nombre').val());
+         archivoDato.append("tipo",$('#tipo').val());
+         archivoDato.append("calificacion",$('#calificacion').val());
+         archivoDato.append("documento",$('#documento')[0].files[0]);
+         $.ajax({
+             type: "POST",
+             url:"php/validarDocumentosEntrega.php",
+             enctype:'multipart/form-data',
+             data: archivoDato,
+             cache: false,
+             contentType: false,
+             processData: false,
+             mimeType: 'multipart/form-data',
+             success: function(data){
+                 $("#mensajeDocumentos").html(data);
+                 $("#mensajeDocumentos").show();
+             }
+         });   
       },
       highlight: function(element) {
          $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');

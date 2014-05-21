@@ -157,25 +157,6 @@ function anadirIntegrantes(){
    }
    soloNumerosTelefono();
 }
-function anadirDocumetosPresentacion(){
-    var elemetoDP=document.getElementById("tablaDocumentosPresentacion");
-    elemetoDP.innerHTML+="<tr>\n\
-                           <td>\n\
-                              <input class='form-control input-sm' type='text' name='nombreA[]'/>\n\
-                           </td>\n\
-                           <td>\n\
-                              <select class='form-control' name='tipoA[]'>\n\
-                                 <option value='1'>presentacion parte A</option>\n\
-                                 <option value='2'>presentacion parte B</option>\n\
-                              </select>\n\
-                           </td>\n\
-                           <td>\n\
-                              <input class='form-control input-sm' type='text' name='calificacionA[]'/>\n\
-                           </td>\n\
-                           <td>\n\
-                              <input class='btn btn-primary btn-sm' type='file' name='archivoA[]'/></td>\n\
-                           </tr>";
-}
 
 
 
