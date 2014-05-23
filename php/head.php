@@ -4,6 +4,13 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="css/bootstrap.css">
+   <?php
+   if (isset($_REQUEST['seguimiento'])) {
+   ?>
+   <link rel="stylesheet" href="css/base.css"/>
+   <?php
+   }
+   ?>
    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
    <script type="text/javascript" src="js/bootstrap.min.js"></script>
    <script type="text/javascript" src="js/bootstrap.file-input.js" ></script>

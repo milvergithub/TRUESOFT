@@ -3,7 +3,7 @@ session_start();
 if(isset ($_REQUEST[md5("errorlogin")])){
     $errorlogin=TRUE;
 }
-if(isset($_REQUEST[md5("registro")])||isset($_REQUEST[md5("registrocamposvacios")])||isset($_REQUEST[md5("registrocontrasenasdiferentes")])||(isset($_REQUEST[md5("registroUsuarioExiste")]))||(isset($_REQUEST[md5("emailExiste")]))){//isset($_REQUEST[md5("emailExiste")])
+if(isset($_REQUEST[md5("registro")])){
    $registro=TRUE;
 }
 ?>
@@ -25,7 +25,7 @@ if(isset($_REQUEST[md5("registro")])||isset($_REQUEST[md5("registrocamposvacios"
              </div>
             <?php
             }
-            if ((isset($_REQUEST[md5("registroCompleto")]))||(isset($_REQUEST[md5("registroEmpresa")])) || (isset($_REQUEST[md5('registroEmpresaIntegrantes')])) || (isset($_REQUEST[md5('errorNombreGrupoEmpresa')])) || (isset($_REQUEST[md5('continuarRegistroEmpresaAIntegrantes')])) || (isset($_REQUEST[md5("registroEmpresaHorario")])) || (isset($_REQUEST[md5('RegistroEmpresaAIntegrantes')]))) {
+            if ((isset($_REQUEST[md5("registroCompleto")]))||(isset($_REQUEST[md5("registroEmpresa")])) || (isset($_REQUEST[md5('registroEmpresaIntegrantes')]))|| (isset($_REQUEST[md5('continuarRegistroEmpresaAIntegrantes')])) || (isset($_REQUEST[md5("registroEmpresaHorario")])) || (isset($_REQUEST[md5('RegistroEmpresaAIntegrantes')]))) {
                include 'php/registroGE.php';
 }
             if ($registro) {
@@ -34,8 +34,36 @@ if(isset($_REQUEST[md5("registro")])||isset($_REQUEST[md5("registrocamposvacios"
             if (isset($_REQUEST[md5("consultaNombreEmpresas")])) {
                include 'php/consultaGE.php';
             }
-            if (isset($_REQUEST[md5("evaluarEmpresaArchivos")])) {
-               include 'EmpresasAEvaluar.php';
+            if (isset($_REQUEST["evaluararchivos"])) {
+               include_once './php/EmpresasAEvaluar.php';
+            }
+            if (isset($_REQUEST['propuestas'])) {
+               include_once 'php/evaluacionpropuesta.php';
+            }
+            if (isset($_REQUEST['individual'])) {
+               include_once './php/evaluacionIndividualEmpresa.php';
+            }
+            if (isset($_REQUEST['grupal'])) {
+               include_once './php/evaluacionGrupalEmpresa.php';
+            }
+            if (isset($_REQUEST['seguimiento'])) {
+               include_once 'php/seguimiento.php';
+            }
+            if(isset($_GET[md5("codEmp")])){
+               
+               include 'php/evaluarEmpresa.php';
+            }
+            if (isset($_REQUEST['registrodocentes'])) {
+               require_once 'php/registroDoc.php';
+            }
+            if (isset($_REQUEST['creardocumentolectura'])){
+               require_once 'php/crearDocumento.php';
+            }
+            if (isset($_REQUEST['creardocumentoentrega'])) {
+               require_once './php/crearDocumentosEntrega.php';
+            }
+            if (isset($_REQUEST['crearconv'])) {
+               require_once './php/crearConvocatoria.php';
             }
             ?>
          <?php

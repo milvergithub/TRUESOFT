@@ -25,8 +25,8 @@ class Evaluaciones {
                      <?php
                            echo '<input type="hidden" name="codEmp" value="'.$regIEAEA['codemp'].'"/>';
                      ?>
-                     <input class="btn btn-primary" name="grupal" type="submit" value="Grupal" onclick="this.form.action = 'evaluacionGrupalEmpresa.php'"/>
-                     <input class="btn btn-primary" name="individual" type="submit" value="Individual"  onclick="this.form.action = 'evaluacionIndividual.php'"/>
+                     <input class="btn btn-primary" name="grupal" type="submit" value="Grupal" onclick="this.form.action = 'index.php?grupal'"/>
+                     <input class="btn btn-primary" name="individual" type="submit" value="Individual"  onclick="this.form.action = 'index.php?individual'"/>
                   </p>
                </div>
             </div>

@@ -37,5 +37,12 @@ class Acceso {
        }
        return $resDNU;
     }
+    public function getNombreRol($codUser){
+       $resultadoNR=$this->conexion->dameNombreRolUsuario($codUser);
+        while($regNU=pg_fetch_assoc($resultadoNR)){
+            $resNU=$regNU['nombrerol'];
+        }
+        return $resNU;
+    }
 }
 ?>

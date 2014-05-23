@@ -1,13 +1,12 @@
-<?php include 'php/head.php'; ?>
 <div class="container container-fluid">
-   <h3>CREAR DOCUMENTOS DE ENTREGA</h3>
    <div id="mensaje">
       
    </div>
    <form  class="form-group" method="POST" enctype="multipart/form-data" id="formularioCrearDocLectura">
     <div class="form-group table-responsive"> 
         <table class="table table-hover table-bordered table-condensed table-striped" id="tablaDocumtosLectura">
-            <tr>
+           <caption class="caption"><h3>CREAR DOCUMENTOS DE ENTREGA</h3></caption> 
+           <tr>
                 <td><span class="glyphicon">Nombre</span></td>
                 <td>archivo <span class="glyphicon glyphicon-paperclip"></span></td>
                 <td>descargas <span class="glyphicon glyphicon-download-alt"></span></td>

@@ -1,41 +1,9 @@
-<!DOCTYPE html>
-<html>
-<?php
-include 'php/head.php';
-?>
-   <?php
-      if (isset($_REQUEST[md5("registrocamposvaciosDoc")])) {
-         ?>
-       <div class='alert alert-danger col-lg-8'>
-         los campos no deben estar vacios !!!
-       </div>
-         <?php
-      }
-      if (isset($_REQUEST[md5("registroUsuarioExisteDoc")])) {
-         ?>
-         <div class='alert alert-danger col-lg-8'>
-            El usuario ya Existe !!!
-         </div>
-         <?php
-      }
-      if (isset($_REQUEST[md5("emailExisteDoc")])) {
-         ?>
-         <div class='alert alert-danger col-lg-8'>
-            Email ya Existe !!!
-         </div>
-         <?php
-      }
-      if (isset($_REQUEST[md5("grupoExisteDoc")])) {
-         ?>
-          
-         <?php
-      }
-      ?>
+<div class="row">
    <div class="container container-fluid center-block">
       <h2>Registro de Usuario-Docente</h2>
       <h4>(*) Requerimientos importantes</h4>
-      <div id="ok" class=""></div>
-      <form class="form-group col-lg-8 panel panel-body" action="php/validarRegistroDoc.php" method="post" id="formularioRegistroDoc">
+      <div id="ok" class=" container container-fluid"></div>
+      <form class="form-group col-lg-8 panel panel-body well" action="php/validarRegistroDoc.php" method="post" id="formularioRegistroDoc">
          <div class="control-group">
             <span class="glyphicon glyphicon-user">Usuario:</span>  
             <input class="form-control input-sm" type="text" name="nombreuser" id="nombreuser"/>  		
@@ -67,4 +35,4 @@ include 'php/head.php';
          <input class="btn btn-primary" type="submit" value="Registrar" />
       </form>
    </div>
-</html>
+</div>

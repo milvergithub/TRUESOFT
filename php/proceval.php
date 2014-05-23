@@ -1,5 +1,5 @@
 <?php
-require 'clases/ConexionTIS.php';
+require '../clases/ConexionTIS.php';
 //cantidad de registros a llenar
 $cantidad=$_POST['cantidad'];
 
@@ -74,7 +74,7 @@ $conx=new ConexionTIS();
                        //( codint        , asist     , lic     , justf        , part         , nt  , obs)
 $conx->evaluarIntegrantes($codIntegrantes,$asistentes,$licencia,$participacion,$justificacion,$nota,$observacion,$cantidad,$_POST['codEmp']);
 
-header("Location:seguimiento.php");
+header("Location:index.php?seguimiento");
 
 
 

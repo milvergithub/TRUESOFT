@@ -157,7 +157,69 @@ function anadirIntegrantes(){
    }
    soloNumerosTelefono();
 }
+function clickAsistencia(num){
+   var asistencia=document.getElementById("cba"+num);
+   var licencia=document.getElementById("cbl"+num);
+   var nota=document.getElementById("nn"+num);
+   var observacion=document.getElementById("tao"+num);
+   var justificacion=document.getElementById("taj"+num);
 
+   if(!asistencia.checked){
+       nota.disabled=true;
+       observacion.disabled=true;
+       justificacion.disabled=false;
+   }
+   else{
+       justificacion.disabled=true;
+       observacion.disabled=false;
+       licencia.checked=false;
+       nota.disabled=false;
+   }
+
+}
+function clickLicencia(num){
+   var asistencia=document.getElementById("cba"+num);
+   var licencia=document.getElementById("cbl"+num);
+   var nota=document.getElementById("nn"+num);
+   var observacion=document.getElementById("tao"+num);
+   var justificacion=document.getElementById("taj"+num);
+   var participacion=document.getElementById("cbp"+num);
+   if(!licencia.checked){
+       nota.disabled=false;
+       justificacion.disabled=true;
+       observacion.disabled=false;
+       participacion.checked=false;
+
+   }
+   else{
+       justificacion.disabled=false;
+       asistencia.checked=false;
+       nota.disabled=true;
+       observacion.disabled=true;
+       participacion.checked=false;
+   }
+}
+function clickParticipacion(num){
+   var asistencia=document.getElementById("cba"+num);
+   var licencia=document.getElementById("cbl"+num);
+   var nota=document.getElementById("nn"+num);
+   var observacion=document.getElementById("tao"+num);
+   var justificacion=document.getElementById("taj"+num);
+   var participacion=document.getElementById("cbp"+num);
+   if(!participacion.checked){
+       nota.disabled=true;
+       observacion.disabled=true;
+       justificacion.disabled=true;
+
+   }
+   else{
+       justificacion.disabled=true;
+       asistencia.checked=true;
+       nota.disabled=false;
+       observacion.disabled=false;
+       licencia.checked=false;
+   }
+}
 
 
 

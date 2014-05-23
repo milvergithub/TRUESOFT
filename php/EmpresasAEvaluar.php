@@ -1,5 +1,4 @@
 <?php
-include 'php/head.php';
 include 'clases/Evaluaciones.php';
 $eval=new Evaluaciones();
 ?>

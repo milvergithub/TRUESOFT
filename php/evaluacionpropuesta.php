@@ -1,6 +1,5 @@
 
 <?php
-   include 'php/head.php';
    include 'clases/GestionDocumentos.php';
    $gest = new GestionDocumentos();
    $codConv = 1;

@@ -29,6 +29,11 @@ class  ConexionTIS
           pg_query($conex,$sqlInsert);
        }
     }
+    function dameNombreRolUsuario($coduser){
+        $sqlDNRU="SELECT * FROM  dame_nombre_rol(".$coduser.") AS nombrerol";
+        $resDNRU=$this->Consultas($sqlDNRU);
+        return $resDNRU;
+    }
     function dameNombreUsuario($codUser) {
        $sqlDNU="SELECT * FROM dame_nombre_usuario(".$codUser.") AS nombre";
        $resDNU=  $this->Consultas($sqlDNU);
@@ -124,7 +129,7 @@ class  ConexionTIS
                     }
                     else{
                        //echo '<a href="historialseguimiento.php?'.md5("codEmp").'='.$row["codemp"].'" class="btn btn-success btn-sm btn-left" id="detallege">asistencias</a>';
-                       echo '<a href="seguimiento.php?'.md5("codEmp").'='.$row["codemp"].'" class="btn btn-primary btn-sm btn-right" id="detalle">evaluar empresa</a>';
+                       echo '<a href="index.php?'.md5("codEmp").'='.$row["codemp"].'" class="btn btn-primary btn-sm btn-right" id="detalle">evaluar empresa</a>';
                     }
             ?></article><?php
         }

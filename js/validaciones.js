@@ -19,11 +19,103 @@ $(function(){
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
     $("#formularioRegistroRep").validate({
        rules:{
-
+           nombreuser: {
+               required:true,
+               minlength:3,
+               maxlength:25
+           },
+           grupo:{
+               required:true
+           },
+           nombres:{
+               required:true,
+               minlength:3,
+               maxlength:25
+           },
+           apellidos:{
+               required:true,
+               minlength:3,
+               maxlength:25
+           },
+           password:{
+               required:true,
+               minlength:3,
+               maxlength:16
+           },
+           email:{
+               email:true
+           },
+           telefono:{
+               number:true,
+               minlength:5,
+               maxlength:10
+           }
        },
        messages:{
-
-       }
+           nombreuser: {
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese nombre de usuario</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">mas de 3 caracteres</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">menor a 25 caracteres</p>'
+           },
+           grupo:{
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">seleciona un grupo</p>'
+           },
+           nombres:{
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese su nombre</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 3 caracteres</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 25 caracteres</p>'
+           },
+           apellidos:{
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese apellidos</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 3 caracteres</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 25 caracteres</p>'
+           },
+           password:{
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese su contrasena</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 3 caracteres</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 25 caracteres</p>'
+           },
+           email:{
+               email:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">email no es valido</p>'
+           },
+           telefono:{
+               number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese numeros</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 5 digitos</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 10 digitos</p>'
+           }
+       },
+        submitHandler:function(form){
+            var datos =new FormData();
+            datos.append("nombreuser",$("#nombreuser").val());
+            datos.append("grupo",$("#grupo").val());
+            datos.append("nombres",$("#nombres").val());
+            datos.append("apellidos",$("#apellidos").val());
+            datos.append("password",$("#password").val());
+            datos.append("email",$("#email").val());
+            datos.append("telefono",$("#telefono").val());
+            $.ajax({
+                type: "POST",
+                url:"php/validarRegistroRep.php",
+                enctype:'multipart/form-data',
+                data: datos,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeRegistroRepresentante").html(data);
+                    $("#mensajeRegistroRepresentante").show();
+                    //$("#formid").hide();
+                }
+            });
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+        },
+        success: function(element) {
+            element
+                .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
+        }
     });
     $("#formularioCrearConvocatoria").validate({
       rules:{

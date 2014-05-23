@@ -1,5 +1,3 @@
-
-<?php include 'php/head.php'; ?>
 <h2>CREAR CONVOCATORIA</h2>
 <div>
  <div class="container container-fluid">
