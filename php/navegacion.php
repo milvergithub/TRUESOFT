@@ -20,7 +20,7 @@
             echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'">buscar</a></li>';
             
             if ($_SESSION['coduser']!=NULL) {
-               echo '<li><a href="php/controlEstado.php">registro</a></li>';
+               echo '<li><a href="php/controlEstado.php">registro empresa</a></li>';
                echo '<li><a href="index.php?seguimiento">seguimiento</a></li>';
                echo '<li><a href="index.php?propuestas">Subir Propuestas</a></li>';
                echo '<li><a href="index.php?evaluararchivos">Evaluar Archivos</a></li>';

@@ -11,10 +11,9 @@
      </div>
    </div><br><br>
    <div  class="table-responsive">
-     <table class="table table-condensed table-hover">
-         <thead>
-            <tr><th class="col-lg-2">gestion</th><th class="col-lg-2">convocatoria</th><th class="col-lg-2">nombre</th><th>logo</th></tr>
-         </thead>
+     <table class="table table-hover table-bordered table-striped">
+        <caption class="caption h3">Empresas Registradas</caption> 
+        <tr><th class="col-lg-2">gestion</th><th class="col-lg-2">convocatoria</th><th class="col-lg-2">nombre</th><th>logo</th></tr>
          <tbody id="tablaGE">
            <?php 
               include 'php/TablaGrupoEmpresas.php';

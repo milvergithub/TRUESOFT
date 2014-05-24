@@ -25,7 +25,7 @@ if(isset($_REQUEST[md5("registro")])){
              </div>
             <?php
             }
-            if ((isset($_REQUEST[md5("registroCompleto")]))||(isset($_REQUEST[md5("registroEmpresa")])) || (isset($_REQUEST[md5('registroEmpresaIntegrantes')]))|| (isset($_REQUEST[md5('continuarRegistroEmpresaAIntegrantes')])) || (isset($_REQUEST[md5("registroEmpresaHorario")])) || (isset($_REQUEST[md5('RegistroEmpresaAIntegrantes')]))) {
+            if ((isset($_REQUEST[md5("registroCompleto")]))||(isset($_REQUEST["registroEmpresa"])) || (isset($_REQUEST[md5('registroEmpresaIntegrantes')]))||(isset($_REQUEST["registroEmpresaHorario"])) || (isset($_REQUEST['RegistroEmpresaAIntegrantes']))) {
                include 'php/registroGE.php';
 }
             if ($registro) {

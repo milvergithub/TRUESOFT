@@ -17,6 +17,84 @@ $(function(){
         });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+    $("#formularioRegistroIntegrantes").validate({
+       rules:{
+           nombres:{
+               required:true,
+               minlength:3,
+               maxlength:25
+           },
+           carnets:{
+               required:true,
+               number:true,
+               minlength:5,
+               maxlength:10
+           },
+           telefonos:{
+               number:true,
+               minlength:5,
+               maxlength:10
+           },
+           emails:{
+               email:true,
+               maxlength:25
+           }
+       },
+       messages:{
+           nombres:{
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese su nombre</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 3 caracteres</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 25 caracteres</p>'
+           },
+           carnets:{
+               number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese un numero</p>',
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese su numero de carnet</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 5 caracteres</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 10 caracteres</p>'
+           },
+           telefonos:{
+               number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese un numero</p>',
+               minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 5 caracteres</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 10 caracteres</p>'
+           },
+           emails:{
+               email:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">email invalido</p>',
+               maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 25 caracteres</p>'
+           }
+       },
+        submitHandler:function(form){
+            var datos =new FormData();
+            datos.append("nombres",$("#nombres").val());
+            datos.append("carnets",$("#carnets").val());
+            datos.append("telefonos",$("#telefonos").val());
+            datos.append("emails",$("#emails").val());
+            datos.append("fotos",$( '#fotos' )[0].files[0]);
+            datos.append("nombreGE",$("#nombreGE").val());
+            $.ajax({
+                type: "POST",
+                url:"php/validarIntegrantesGE.php",
+                enctype:'multipart/form-data',
+                data: datos,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeFormularioRegistroIntegrante").html(data);
+                    $("#mensajeFormularioRegistroIntegrante").show();
+                    //$("#formid").hide();
+                }
+            });
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+        },
+        success: function(element) {
+            element
+                .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
+        }
+
+    });
     $("#formularioRegistroRep").validate({
        rules:{
            nombreuser: {

@@ -97,7 +97,7 @@ class GrupoEmpresa {
        $resulEmp=  $this->coneccion->getEmpresas();
        while ($regEmp = pg_fetch_assoc($resulEmp)) {
           //getEmpresasTodos(gestion,convocatoria,nombre,logo)
-          echo '<tr><td>'.$regEmp['gestion'].'</td><td>'.$regEmp['convocatoria'].'</td><td>'.$regEmp['nombre'].'</td><td><img src="img/logos/logo2.jpg" class="img-responsive col-sm-2 col-md-2"></td></tr>';
+          echo '<tr><td>'.$regEmp['gestion'].'</td><td>'.$regEmp['convocatoria'].'</td><td>'.$regEmp['nombre'].'</td><td><img src="img/logos/logo2.jpg" width="80" height="80"></td></tr>';
        }
     }
 

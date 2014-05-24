@@ -40,13 +40,13 @@ class  ConexionTIS
        return $resDNU;
     }
     
-    function Consultas($Consulta)
+    function Consultas($sql)
     {
         $conx=$this->Conectar();
         if(!$conx) return 0; //Si no se pudo conectar
         else
         {   //Valor es resultado de base de dato y Consulta es la Consulta a realizar
-            $Resultado=pg_query($conx,$Consulta);
+            $Resultado=pg_query($conx,$sql);
             return $Resultado;// retorna si fue afectada una fila
         }
     }
@@ -199,7 +199,7 @@ class  ConexionTIS
        }
     }
     function registrarIntegrantes($nombGE,$nombres,$cis,$telfs,$emails,$fotos) {
-       $sqlRGEI="SELECT * FROM registro_integrantes('".$nombGE."',".$nombres.",".$cis.",".$telfs.",".$emails.",".$fotos.")";
+       $sqlRGEI="SELECT * FROM registro_integrantes('".$nombGE."','".$nombres."','".$cis."','".$telfs."','".$emails."','".$fotos."')";
        $ress=$this->Insertar($sqlRGEI);
     }
     function getEmpresas() {
@@ -460,6 +460,23 @@ class  ConexionTIS
         $sqlIEG = "SELECT * FROM insertarevaluaciongrupal(".$codEmp.", ".$codArch.", ".$nota.");";
         $this->Insertar($sqlIEG);
     }
+    /*=========================  INICI REGISTRO DE INTEGRANTES  ==========================================*/
+    function verificarUnicoCarnetIntegrante($numero,$nombre) {
+       $sqlVUCI="SELECT * FROM verificar_carnet_unico(".$numero.",'".$nombre."') AS unico";
+       $resVUCI=  $this->Consultas($sqlVUCI);
+       return $resVUCI;
+    }
+    function dameIntegrantesRegistrados($codEmp) {
+       $sqlDIR="SELECT * FROM dame_integrantes_empresa(".$codEmp.")";
+       $resDIR=  $this->Consultas($sqlDIR);
+       return $resDIR;
+    }
+    function dameCodigoEmpresaANombre($nombre) {
+       $sqlDCEAN="SELECT * FROM dame_codigoempresaanombre('".$nombre."') AS codemp";
+       $resDCEAN=  $this->Consultas($sqlDCEAN);
+       return $resDCEAN;
+    }
+    /*=========================  FINAL REGISTRO DE INTEGRANTES ===========================================*/
 }
 //fin clase conexion
 ?>

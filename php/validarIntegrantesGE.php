@@ -1,44 +1,45 @@
 <?php
 session_start();
-include '../clases/ConexionTIS.php';
+include '../clases/RegistroTIS.php';
 $codUserRep=$_SESSION['coduser'];
 $nombres=$_POST['nombres'];
 $carnets=$_POST['carnets'];
 $telefonos=$_POST['telefonos'];
 $emails=$_POST['emails'];
-$fotos=$_POST['fotos'];
+$fotos=$_FILES['fotos']['name'];
 
-for ($fot = 0; $fot < count($nombres); $fot++) {
-   if ($fotos[$fot]==NULL) {
-      $fotos[$fot]="foto.png";
-   }
-}
-for ($tel = 0; $tel < count($nombres); $tel++) {
-   if (trim($telefonos[$tel])==NULL) {
-      $telefonos[$tel]=-1;
-   }
-}
-for ($ema = 0; $ema < count($nombres); $ema++) {
-   if (trim($emails[$ema])==NULL) {
-      $emails[$ema]="*";
-   }
-}
 
-   echo 'codUser = '.$codUserRep."<br>";
-   echo 'nombre Grupo Empresa = '.$_POST['nombreGE']."<br>";
-   $nombresVal="'".implode(";", $nombres)."'";
-   $carnetsVal="'".implode(";", $carnets)."'";
-   $telefonosVal="'".implode(";", $telefonos)."'";
-   $emailsVal="'".implode(";", $emails)."'";
-   $fotosVal="'".implode(";", $fotos)."'";
+if($fotos==NULL) {
+   $fotos="foto.png";
+}
+else{
    
-   $sqlRGEI="SELECT * FROM registro_integrantes('".$_POST['nombreGE']."',".$nombresVal.",".$carnetsVal.",".$telefonosVal.",".$emailsVal.",".$fotosVal.")";
-   echo 'SQL = '.$sqlRGEI;
+}
+if (trim($telefonos)==NULL) {
+   $telefonos=-1;
+}
+if (trim($emails)==NULL) {
+   $emails="*";
+}
+   $nombresVal=$nombres;
+   $carnetsVal=$carnets;
+   $telefonosVal=$telefonos;
+   $emailsVal=$emails;
+   $fotosVal=$fotos;
+$registroI=new RegistroTIS();
+if ($registroI->verificarCIUnicoIntegrante($carnetsVal,$_POST['nombreGE'])=="t") {
    $conexion=new ConexionTIS();
    $conexion->registrarIntegrantes($_POST['nombreGE'], $nombresVal, $carnetsVal, $telefonosVal, $emailsVal, $fotosVal);
-   echo '<script type="text/javascript">
-            window.location="controlEstado.php";
-         </script>';
+   echo "<div class='alert alert-success col-lg-8'>
+            Registro realizado !!!
+         </div>";
+   
+}
+else{
+   echo "<div class='alert alert-danger col-lg-8'>
+            El numero de carnet ya esta siendo usada!!!
+         </div>";
+}
     
    
 ?>

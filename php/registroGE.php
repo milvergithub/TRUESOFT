@@ -6,14 +6,14 @@ else{
    $error=FALSE;
 }
 ?>
-<div class="container panel panel-info">
+<div class="container panel panel-info col-lg-12">
    <?php
-   if (isset($_REQUEST[md5("registroEmpresaHorario")])) {
+   if (isset($_REQUEST["registroEmpresaHorario"])) {
    ?>
-   <div class="container container-fluid">
+   <div class="container container-fluid col-lg-12">
       <ul class="pager">
          <li class="previous"><a href="">Grupo Empresa &rarr;</a></li>
-         <li class="previous"><a href="">&numsp;Integrantes  &rarr;&numsp;&numsp;</a></li>
+         <li class="previous"><a href="index.php?RegistroEmpresaAIntegrantes">&numsp;Integrantes  &rarr;&numsp;&numsp;</a></li>
          <li class="previous disabled "><a >&numsp;&numsp;&numsp;Horario&rarr;&numsp;&numsp;&numsp;</a></li>
       </ul>
       <div class="progress progress-striped active">
@@ -23,15 +23,15 @@ else{
          </div>
       </div>
       <form class="form col-lg-6" action="" method="POST">
-         <span>seleccione grupo</span>
+         <span class="glyphicon">grupo</span>
          <select id="elegirgrupo"  class="form-control" name="grupoDoc" onchange="enviarGrupo(this.value)">
             <?php include 'docentes.php'; ?>
          </select><br/>
-         <span>seleccione dia presentacion</span>
+         <span class="glyphicon">dia</span>
          <select id="elegirdia"  class="form-control" name="dia" onchange="enviarDia(this.value)">
             <option value="-1">seleccione grupo</option> 
          </select><br/>
-         <span>seleccione hora presentacion</span>
+         <span class="glyphicon">hora</span>
          <select id="elegirhorario"  class="form-control" name="horario">
             <option value="-1">seleccione dia</option>
          </select><br/>
@@ -60,60 +60,68 @@ else{
    </div>
    <?php
    }
-   if ($_REQUEST[md5('RegistroEmpresaAIntegrantes')]||(isset($_REQUEST[md5('continuarRegistroEmpresaAIntegrantes')]))||(isset($_REQUEST[md5('RegistroEmpresaAIntegrantes')]))){
+   if ((isset($_REQUEST['RegistroEmpresaAIntegrantes']))){
       ?>
-   <div class="container container-fluid">
+   <div class="container container-fluid col-lg-12">
       <ul class="pager">
          <li class="previous"><a href="">Grupo Empresa &rarr;</a></li>
          <li class="previous disabled"><a >&#32;Integrantes  &rarr;&#32;&#32;</a></li>
          <li class="previous disabled "><a >&#32;&#32;&#32;Horario&rarr;&#32;&#32;&#32;</a></li>
       </ul>
-      <div class="progress progress-striped active">
+      <div class="progress progress-striped active col-lg-12">
          <span class="">33% completado</span>
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
            <span class="sr-only success">33% completado</span>
          </div>
       </div>
-      <form class="form-horizontal panel panel-default" role="form" action="php/validarIntegrantesGE.php" method="post" >
-        <div class="panel panel-heading panel-success well-lg">
+      <div class="panel panel-heading panel-success well-lg">
            <div class="form-group">
-              <label for="" class="col-lg-2 control-label">Nombre Empresa</label>
-              <div class="col-lg-10">
-                 <h3 class="h3">
+              <label for="" class="col-lg-12 h4 control-label">Nombre Empresa : 
                  <?php
                        include 'clases/GrupoEmpresas.php';
                        $empresas=new GrupoEmpresa();
-                       echo $empresas->dameNombreEmpresa($_SESSION['coduser']);
+                       echo " ".$empresas->dameNombreEmpresa($_SESSION['coduser'])."";
                  ?>
-                 </h3>
-                 <input type="hidden" name="nombreGE" value="<?php echo $empresas->dameNombreEmpresa($_SESSION['coduser']); ?>" />
-              </div>
-              <div class="" id="mensaje">
+              </label><br/>
+           </div>
+      </div>
+      <div class="table-responsive">
+         <?php
+                 include_once 'php/tablaIntegrantes.php';
+         ?>
+      </div>
+      <div class="" id="mensajeFormularioRegistroIntegrante">
 
-              </div>
-           </div>
-        </div>
-        <div class="form-group col-lg-11" id="integrantes" >
-           <label for="anadir" class="col-lg-2 control-label"><h3 class="h2">Formulario Registros Integrantes</h3></label>
-           <div class="col-lg-4" >
-              <button id="anadir" type="button" class="btn btn-primary" onclick="anadirIntegrantes();">anadir integrante + </button>
-           </div><br/><br/>
-           <div class="col-lg-7 container container-fluid" id="cantidadIntegrantes" >
-              <?php include 'php/formularios.php'; ?>
-           </div>
-        </div>
-        <div class="form-group">
-           <div class="col-lg-10">
-              <button type="submit" id="btnRegistrar" class="btn btn-primary navbar-right">Registrar</button>
-           </div>
-        </div>
+      </div>
+      <label class="control-label"><h3 class="h2">Formulario Registros Integrantes</h3></label>
+      <form class="form well col-lg-8" method="post" id="formularioRegistroIntegrantes">
+         <div class="control-group">
+            <span class="">Nombres * :</span>
+            <input type='text' class='form-control input-sm' name='nombres' placeholder='nombre integrante' id="nombres" required='true'>
+         </div>
+         <div class="control-group">
+            <span class="">C.I. * : </span>
+            <input type='text' class='form-control input-sm' name='carnets' placeholder='numero ci' id='carnets' required='true'>
+         </div>
+         <div class="control-group">
+             <span class='glyphicon glyphicon-earphone'> Telefono:</span>
+             <input type='text' class='form-control input-sm' name='telefonos' id='telefonos' placeholder='telefono'>
+         </div>
+         <div class="control-group">
+             <span class='glyphicon glyphicon-envelope'> Email:</span>
+             <input type='text' class='form-control input-sm' name='emails' id="emails" placeholder='ejemplo@dominio.com'><br/>
+         </div>
+         <span class='glyphicon glyphicon-picture'></span>
+         <input type='file' class='btn btn-primary btn-sm' name='fotos' id="fotos" title='subir foto &triangleq;'><br/><br/>
+         <input type="hidden" name="nombreGE" value="<?php echo $empresas->dameNombreEmpresa($_SESSION['coduser']); ?>" id="nombreGE"/>
+         <button type="submit" id="btnRegistrar" class="btn btn-primary navbar-right">Registrar</button>
       </form>
    </div>
       <?php
    }
-   if (isset($_REQUEST[md5('registroEmpresa')])||(isset($_REQUEST[md5('errorNombreGrupoEmpresa')]))) {
+   if (isset($_REQUEST['registroEmpresa'])) {
      ?>
-     <div class="well-lg container">
+     <div class="well-lg container col-lg-12">
          <ul class="pager">
             <li class="previous disabled"><a >Grupo Empresa &rarr;</a></li>
             <li class="previous disabled"><a >&#32;Integrantes  &rarr;&#32;&#32;</a></li>
@@ -151,27 +159,16 @@ else{
            </div>
         </form>
         <div >
-          <?php
-             if ($error) {
-                ?>
-                <div class='alert alert-danger col-lg-11'>
-                  Por normas de registro en la grupoempresaTIS usted debe registrar un nombre para su grupo empresa que no 
-                  este registrado
-                  en los registros existentes en la fundaempresaTIS para consultar empresas existentes haga click
-                  <?php echo '<a href="index.php?'.md5("consultaNombreEmpresas").'" class="btn btn-link" >Aqui</a>'; ?>
-                </div>
-                <?php
-             }
-             else{
-                ?>
-                <div class='alert alert-warning col-lg-11'>
-                   Por normas de registro en la grupoempresaTIS usted debe registrar un nombre para su grupo empresa que no 
-                   este registrado
-                   en los registros existentes en la fundaempresaTIS para consultar empresas existentes haga click
-                   <?php echo '<a href="index.php?'.md5("consultaNombreEmpresas").'" class="btn btn-link" >Aqui</a>'; ?>
-                </div>
-                <?php
-             }
+         <?php    
+         ?>
+           <div id="mensajeRegistroGrupoEmpresa" class='alert alert-warning col-lg-12'>
+            Por normas de registro en la grupoempresaTIS usted debe registrar un nombre para su grupo empresa que no 
+            este registrado
+            en los registros existentes en la fundaempresaTIS para consultar empresas existentes haga click
+            <?php echo '<a href="index.php?'.md5("consultaNombreEmpresas").'" class="btn btn-link" >Aqui</a>'; ?>
+         </div>
+         <?php
+            
           ?>
         </div>
      </div>

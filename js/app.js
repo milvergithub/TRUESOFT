@@ -129,34 +129,6 @@ function validarNumero(id){
    var valor=elemento.value;
    alert(valor);
 }
-function anadirIntegrantes(){
-   var elementos=document.getElementsByName("nombres[]");
-   cantidad=elementos.length;
-
-   if(cantidad<5){
-       var elemento=document.getElementById("cantidadIntegrantes");
-       elemento.innerHTML+= "<div class='form-group panel panel-info well'>\n\
-                              <div class='form-group'>\n\
-                                 <label for='integ"+(cantidad+1)+"' class='col-lg-3 control-label'>integrante"+(cantidad+1)+"</label>\n\
-                                 <div class='col-lg-7'>\n\
-                                 </div>\n\
-                              </div>\n\
-                              Nombres * :<input type='text' class='form-control input-sm' name='nombres[]' placeholder='nombre integrante' required='true'>\n\
-                              C.I. *: <input type='text' id='carnet"+(cantidad+1)+"' class='form-control input-sm' name='carnets[]' placeholder='numero ci' required='true'>\n\
-                              <span class='glyphicon glyphicon-earphone'> Telefono:</span>\n\
-                              <input type='text' id='telefono"+(cantidad+1)+"' class='form-control input-sm' name='telefonos[]' placeholder='telefono'>\n\
-                              <span class='glyphicon glyphicon-envelope'> Email:</span>\n\
-                              <input type='text' class='form-control input-sm' name='emails[]' placeholder='ejemplo@dominio.com'>\n\
-                              <span class='glyphicon glyphicon-open'></span>\n\
-                              <input type='file' class='btn btn-primary btn-sm' name='fotos[]' title='subir foto &triangleq;' src=''>\n\
-                             </div>";
-   }
-   else{
-      var elementosms=document.getElementById("mensaje");
-      elementosms.innerHTML="<div class='alert alert-danger'>no puede integrar mas de 5 integrantes a grupo empresa</div>";
-   }
-   soloNumerosTelefono();
-}
 function clickAsistencia(num){
    var asistencia=document.getElementById("cba"+num);
    var licencia=document.getElementById("cbl"+num);
