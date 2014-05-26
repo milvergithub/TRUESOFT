@@ -123,8 +123,7 @@ else{
          <div class="control-group">
            <img src="img/fotos/foto.png" height="100" width="100" id="fotoIntegrante">
          </div>
-         <span class='glyphicon glyphicon-picture'></span>
-         <input type='file' class='btn btn-primary btn-sm' name='fotos' id="fotos" title='Escoger foto'><br/><br/>
+         <input type='file' class='btn btn-primary btn-sm' name='fotos' id="fotos" title='Escoger foto &#x02007;'><br/><br/>
          <input type="hidden" name="nombreGE" value="<?php echo $empresas->dameNombreEmpresa($_SESSION['coduser']); ?>" id="nombreGE"/>
          <button type="submit" id="btnRegistrar" class="btn btn-primary navbar-right">Registrar</button>
       </form>
@@ -148,7 +147,7 @@ else{
          <div id="mensajeRegistroGrupoEmpresa" class="col-lg-12">
            
          </div>
-        <form action="php/validarNombreGE.php" method="POST" id="formularioRegistroGE" enctype="multipart/form-data">
+        <form method="POST" id="formularioRegistroGE" enctype="multipart/form-data">
            <div class="form-horizontal">
              <div class="form-group">
                 <label for="nombreGE" class="col-lg-3 control-label " >Nombre para la Grupo Empresa</label>
@@ -160,7 +159,7 @@ else{
                 <label for="logo" class="col-lg-2 control-label">subir logo</label>
                 <div class="col-lg-6">
                    <input type="file" id="logo" value="imagen" name="logo" class="btn btn-primary" title="subir logo"/>
-                   <img id="logoimg" src="img/defecto.png" class="img-thumbnail img-rounded col-sm-5"/>
+                   <img id="logoimg" src="img/logos/defecto.png" class="img-thumbnail img-rounded col-sm-5"/>
                 </div>
               </div>
               <div class="form-group">
@@ -174,17 +173,12 @@ else{
            </div>
         </form>
         <div >
-         <?php    
-         ?>
            <div id="" class='alert alert-warning col-lg-12'>
             Por normas de registro en la grupoempresaTIS usted debe registrar un nombre para su grupo empresa que no 
             este registrado
             en los registros existentes en la fundaempresaTIS para consultar empresas existentes haga click
             <?php echo '<a href="index.php?'.md5("consultaNombreEmpresas").'" class="btn btn-link" >Aqui</a>'; ?>
          </div>
-         <?php
-            
-          ?>
         </div>
      </div>
      <?php

@@ -10,9 +10,28 @@ if (($existe=="t") |($_POST['nombreGE']=="")|(validarNombre($_POST['nombreGE']))
             </div>";
 }
 else{
-   $_SESSION['nombreGE']=$_POST['nombreGE'];
-   $conexx=new ConexionTIS();
-   $conexx->registroEmpresaAndContrato($_SESSION['coduser'], $_POST['nombreGE'], $_FILES['logo']['name']);
+   if (formatoValidoLogo($_FILES['logo']['name'])) {
+      $_SESSION['nombreGE']=$_POST['nombreGE'];
+      $extencion=  strtolower(array_pop(explode(".", $_FILES['logo']['name'])));
+      if ($_FILES['logo']['name'] !=NULL){
+         $imagen=$_POST['nombreGE'].".".$extencion;
+         $subida=new GestionFiles();
+         $subida->guardarDocumento($_FILES['logo']['tmp_name'],"../img/logos/".$imagen);
+      }
+      else{
+         $imagen="defecto.png";
+      }
+      $conexx=new ConexionTIS();
+      $conexx->registroEmpresaAndContrato($_SESSION['coduser'], $_POST['nombreGE'], "img/logos/".$imagen);
+      echo "<div class='alert alert-success col-lg-12'>
+               registro realizado bienvenido !!!
+            </div>";
+   }
+   else{
+       echo "<div class='alert alert-danger col-lg-12'>
+               El formato de la imagen no es valida suba con formato JPG,PNG o GIF !!!
+            </div>";
+   }
    
 }
 function validarNombre($p) {

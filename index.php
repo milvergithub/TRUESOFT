@@ -47,11 +47,20 @@ if(isset($_REQUEST[md5("registro")])){
                include_once './php/evaluacionGrupalEmpresa.php';
             }
             if (isset($_REQUEST['seguimiento'])) {
-               include_once 'php/seguimiento.php';
+               if ($_SESSION['coduser']!=NULL) {
+                  include_once 'php/seguimiento.php';
+               }
+               else{
+                  include_once './php/ERROR.php';
+               }
             }
             if(isset($_GET[md5("codEmp")])){
-               
-               include 'php/evaluarEmpresa.php';
+               if (is_numeric($_GET[md5("codEmp")])) {
+                  include 'php/evaluarEmpresa.php';
+               }
+               else{
+                  include_once './php/ERROR.php';
+               }
             }
             if (isset($_REQUEST['registrodocentes'])) {
                require_once 'php/registroDoc.php';

@@ -5,7 +5,7 @@
    <form id="formularioCrearDocEntrega" class="form-group panel-info" method="post" enctype="multipart/form-data">
       <table class="table table-hover table-bordered table-condensed table-striped" id="tablaDocumentosPresentacion">
          <caption class="caption"><h3>CREAR DOCUMENTOS DE ENTREGA</h3></caption>
-         <tr><td>nombre</td><td>tipo</td><td>calificacion</td><td>archivo<span class="glyphicon glyphicon-open"></span></td><td><span class="glyphicon glyphicon-export"></span></td></tr>         
+         <tr><th><span class="glyphicon glyphicon-file h3"></span></th><th>Nombre</th><th>tipo</th><th>calificacion</th><th>archivo<span class="glyphicon glyphicon-file h3"></span></th><th><span class="glyphicon glyphicon-download-alt h3"></span></th></tr>         
          <?php include 'php/documentosEntrega.php'; ?>
          <tr>
             <td>

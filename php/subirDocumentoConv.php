@@ -9,6 +9,7 @@ $conex = new ConexionTIS();
   $archivo = $_FILES["archivo"]['name'];
   $origenDoc = $_FILES['archivo']['tmp_name'];
   $destino =  "../files/convocatorias/".$nombDoc.".pdf";
+  $destinoReal="files/convocatorias/".$nombDoc.".pdf";
   echo 'nonbre anterior del archivoes: '.$archivo.'<br>';
   echo 'docum= '.$nombDoc.'<br>';
   echo 'prueba= '.$origenDoc.'<br>';
@@ -17,7 +18,7 @@ $conex = new ConexionTIS();
   $esvalido = $gestion->validarExtensionArchivo($archivo);
   if($esvalido == TRUE){
       $gestion->guardarDocumento($origenDoc, $destino);
-      $conex->subirDocumentos($codConv, $nombDoc, 0, 0, $destino);
+      $conex->subirDocumentos($codConv, $nombDoc, 0, 0, $destinoReal);
       echo 'documento copiado con exito';
     }else{
         echo 'el formato del archivo no es pdf';

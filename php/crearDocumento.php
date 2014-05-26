@@ -5,11 +5,12 @@
    <form  class="form-group" method="POST" enctype="multipart/form-data" id="formularioCrearDocLectura">
     <div class="form-group table-responsive"> 
         <table class="table table-hover table-bordered table-condensed table-striped" id="tablaDocumtosLectura">
-           <caption class="caption"><h3>CREAR DOCUMENTOS DE ENTREGA</h3></caption> 
-           <tr>
-                <td><span class="glyphicon">Nombre</span></td>
-                <td>archivo <span class="glyphicon glyphicon-paperclip"></span></td>
-                <td>descargas <span class="glyphicon glyphicon-download-alt"></span></td>
+            <caption class="caption"><h3>CREAR DOCUMENTOS DE ENTREGA</h3></caption> 
+            <tr>
+               <td><span class="glyphicon glyphicon-file h3"></span></td>
+               <td><span class="glyphicon">Nombre</span></td>
+               <td><span class="glyphicon glyphicon-paperclip h3"></span></td>
+               <td><span class="glyphicon glyphicon-download-alt h3"></span></td>
             </tr>
             <?php include 'php/documentosLectura.php'; ?>
             <tr>

@@ -20,6 +20,9 @@ class GestionDocumentos {
       while ($regDTDCA = pg_fetch_assoc($resultadoDTDCA)) {
          echo '<tr>
             <td>
+               <img src="img/iconos/iconoPDF2.png" width="50" height="50"/>
+            </td>
+            <td>
                '.$regDTDCA['nombre'].'
             </td>
             <td>
@@ -55,16 +58,19 @@ class GestionDocumentos {
        $resultadoDTDL=  $this->conexion->dameDocumentosLectura($codConv);
        while ($regDTDL = pg_fetch_assoc($resultadoDTDL)) {
            echo '<tr>
-                <td>
-                   '.$regDTDL['nombdoc'].' 
-                </td>
-                <td>
-                    '.$regDTDL['rutadoc'].'
-                </td>
-                <td>
-                    <a href="'.$regDTDL['rutadoc'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-download-alt"></span></a>
-                </td>
-            </tr>';
+                     <td>
+                        <img src="img/iconos/iconoPDF2.png" width="50" height="50"/>
+                     </td>
+                     <td>
+                        '.$regDTDL['nombdoc'].' 
+                     </td>
+                     <td>
+                         '.$regDTDL['rutadoc'].'
+                     </td>
+                     <td>
+                         <a href="'.$regDTDL['rutadoc'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-download-alt"></span></a>
+                     </td>
+                 </tr>';
        }
    }
    
@@ -73,9 +79,9 @@ class GestionDocumentos {
        $retsultDTDS = $this->conexion->darDocumnetoSubir($codConv);
        while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
            echo '<form  method="POST" action="upload.php" enctype="multipart/form-data">
-                  <div class="col-sm-3 col-md-3">
+                  <div class="col-xs-8 col-sm-4 col-md-3">
                      <div class="thumbnail">
-                        <img src="img/iconos/iconoPDF1.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
+                        <img src="img/iconos/iconoPDF1.png" class="img-rounded col-xs-8 col-sm-12 col-md-10" alt="Generic placeholder thumbnail"/>
                      </div>
                      <div class="caption">
                         <h3>'.$restDTDS['nombdoc'].'</h3>

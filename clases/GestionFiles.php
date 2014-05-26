@@ -5,7 +5,7 @@ class GestionFiles {
    }
    function validarExtensionImagen($archivo) {
       $extencion=  strtolower(array_pop(explode(".", $archivo)));
-      if (($extencion=="jpg")||($extencion=="png")||($extencion=="gif")) {
+      if (($extencion=="jpg")||($extencion=="png")||($extencion=="gif")||($extencion==NULL)) {
          $res=TRUE;
       }
       else {

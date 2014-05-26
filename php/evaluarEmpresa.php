@@ -1,6 +1,6 @@
 <?php
 include 'clases/GrupoEmpresas.php';
-    $cod=$_GET[md5('codEmp')];
+$cod=$_GET[md5('codEmp')];
 ?>
 <form method="post" action="php/proceval.php" name="evaluar" role="form">
     <div class="table-responsive">

@@ -67,7 +67,7 @@ class GrupoEmpresa {
         $contador=1;
             while ($reg = pg_fetch_assoc($resultado)) {
                 echo "<tr>
-                        <td><img src='img/fotos/foto.png' width='50px' height='50px'></td>
+                        <td><img src='img/fotos/".$reg['foto']."' width='50px' height='50px'></td>
                         <td><input type='hidden' value='".$reg["codint"]."' name='codint".$contador."' ></td><td>".$reg["nombre"]."</td>
                         <td><input class='checkbox' value='1' checked='true' type='checkbox' name='asistencia".$contador."' id='cba".$contador."' onclick='clickAsistencia(".$contador.")'></td>
                         <td><input class='checkbox' type='checkbox' name='licencia".$contador."' id='cbl".$contador."' onclick='clickLicencia(".$contador.")'></td>
@@ -99,7 +99,13 @@ class GrupoEmpresa {
        $resulEmp=  $this->coneccion->getEmpresas();
        while ($regEmp = pg_fetch_assoc($resulEmp)) {
           //getEmpresasTodos(gestion,convocatoria,nombre,logo)
-          echo '<tr><td>'.$regEmp['gestion'].'</td><td>'.$regEmp['convocatoria'].'</td><td>'.$regEmp['nombre'].'</td><td><img src="img/logos/logo2.jpg" width="80" height="80"></td></tr>';
+          echo '<tr>
+                  <td>'.$regEmp['gestion'].'</td>
+                  <td>'.$regEmp['convocatoria'].'</td>
+                  <td>'.$regEmp['nombre'].'</td>
+                  <td><img class="img-thumbnail img-rounded" src="'.$regEmp['logo'].'" width="80" height="80">
+                  </td>
+                </tr>';
        }
     }
 

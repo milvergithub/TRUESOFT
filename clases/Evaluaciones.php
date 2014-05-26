@@ -15,12 +15,14 @@ class Evaluaciones {
       while ($regIEAEA = pg_fetch_assoc($resultadoIEAEA)) {
       ?>
          <form  method="POST" class="form empresa">
-            <div class="col-sm-3 col-md-2">
+            <div class="col-sm-5 col-md-3 col-xs-10 ">
                <div class="thumbnail">
-                  <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" />
+                  <?php
+                        echo "<img  src='img/logos/logo2.jpg' class='img-rounded col-xs-8 col-sm-10 col-md-10' />";
+                  ?>
                </div>
                <div class="caption">
-                  <h3> <?php echo "Nombre Empresa"; ?></h3>
+                  <h3> <?php echo $regIEAEA['nombreemp']; ?></h3>
                   <p>
                      <?php
                            echo '<input type="hidden" name="codEmp" value="'.$regIEAEA['codemp'].'"/>';

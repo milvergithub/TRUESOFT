@@ -119,7 +119,7 @@ class  ConexionTIS
         $cantidad=  pg_affected_rows($resultado);
         while ($row = pg_fetch_assoc($resultado)) {
             
-            ?><article style="background-image: url( <?php echo $row["logoemp"]; ?>)" class="grupo-empresa"><?php
+            ?><article style="background-image: url(<?php echo $row["logoemp"]; ?>)" class="grupo-empresa"><?php
                     echo $row['grupodoc']."<br>";
                     echo "<section class='centro'>".$row['nombreemp']."</section>";
                     echo '<article class="representante">'.$this->getRepresentante($row["codemp"]).'</article>';
