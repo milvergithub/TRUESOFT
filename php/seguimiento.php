@@ -19,6 +19,9 @@ session_start();
  }
  else{
     if(isset($_GET[md5("codEmp")])){
+        if(is_numeric($_GET["codEmp"])){
+            echo("numero");
+        }
      include 'php/evaluarEmpresa.php';
     }
     else {

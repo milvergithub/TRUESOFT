@@ -17,6 +17,94 @@ $(function(){
         });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+    $("#formularioRegistroGE").validate({
+        rules:{
+            nombreGE:{
+                required:true,
+                minlength:3,
+                maxlength:30
+            }
+        },
+        submitHandler:function(form){
+            var datos =new FormData();
+            datos.append("logo",$( '#logo' )[0].files[0]);
+            datos.append("nombreGE",$("#nombreGE").val());
+            $.ajax({
+                type: "POST",
+                url:"php/validarNombreGE.php",
+                enctype:'multipart/form-data',
+                data: datos,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeRegistroGrupoEmpresa").html(data);
+                    $("#mensajeRegistroGrupoEmpresa").show();
+                    //$("#formid").hide();
+                }
+            });
+        },
+        messages:{
+            nombreGE:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese nombre para la empresa</p>',
+                minlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">minimo 3 caracteres</p>',
+                maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">maximo 30 caracteres</p>'
+            }
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+        },
+        success: function(element) {
+            element
+                .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
+        }
+    });
+
+    $("#formularioRegistroHorario").validate({
+        rules:{
+            grupoDoc:{
+                required:true
+            },
+            dia:{
+                required:true
+            },
+            horario:{
+                required:true
+            }
+        },
+        messages:{
+            grupoDoc:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">selecione su grupo</p>'
+            },
+            dia:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">selecione dia</p>'
+            },
+            horario:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">selecione horario</p>'
+            }
+        },
+        submitHandler:function(form){
+            var datos = 'grupoDoc='+$('#elegirgrupo').val()+'&dia='+$('#elegirdia').val()+'&horario='+$('#elegirhorario').val();
+            $.ajax({
+                type: "POST",
+                url:"php/validarHorarioGE.php",
+                data: dataString,
+                success: function(data){
+                    $("#mensajeFormularioHorario").html(data);
+                    $("#mensajeFormularioHorario").show();
+                }
+            });
+        },
+
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+        },
+        success: function(element) {
+            element
+                .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
+        }
+    });
     $("#formularioRegistroIntegrantes").validate({
        rules:{
            nombres:{

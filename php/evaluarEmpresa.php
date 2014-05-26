@@ -7,7 +7,7 @@ include 'clases/GrupoEmpresas.php';
         <table class="table table-striped table-hover table-bordered table-condensed">
            <caption class="caption panel-heading h2">Evaluacion de seguimiento semanal</caption>
             <thead>
-               <tr><th></th><th class="h4">INTEGRANTE</th><th class="h4">ASISTENCIA</th><th class="h4">LICENCIA</th><th class="h4">PARTICIPACION</th><th class="h4">JUSTIFICACION</th><th class="h4">CALIFICACION</th><th class="h4">OBSERVACIONES</th></tr>
+               <tr><th></th><td></td></td><th class="h4">INTEGRANTE</th><th class="h4">ASISTENCIA</th><th class="h4">LICENCIA</th><th class="h4">PARTICIPACION</th><th class="h4">JUSTIFICACION</th><th class="h4">CALIFICACION</th><th class="h4">OBSERVACIONES</th></tr>
             </thead>
             <tbody>
                 <?php

@@ -83,6 +83,14 @@ class RegistroTIS {
                   </td></tr>';
       }
    }
+   function cuantosIntegrantesTieneEmpresa($nombre) {
+      $codEmp=  $this->dameCodigoEmpresaANombre($nombre);
+      $resultadoCITE=  $this->conexion->siYaSeRegistroIntegrantes($codEmp);
+      while ($regCITE = pg_fetch_assoc($resultadoCITE)) {
+         $resCITE=$regCITE['existe'];
+      }
+      return $resCITE;
+   }
    /*=============================  FINAL  REGISTRO INTEGRANTES ====================================*/
 }
 ?>

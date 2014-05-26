@@ -5,6 +5,7 @@ class GrupoEmpresa {
     function __construct() {
         $this->coneccion=new ConexionTIS();
     }
+
     public function dameNombreEmpresa($codUser) {
        $resultadoDNE=  $this->coneccion->dameNombreDeLaEmpresa($codUser);
        while ($regDNE = pg_fetch_assoc($resultadoDNE)) {
@@ -66,6 +67,7 @@ class GrupoEmpresa {
         $contador=1;
             while ($reg = pg_fetch_assoc($resultado)) {
                 echo "<tr>
+                        <td><img src='img/fotos/foto.png' width='50px' height='50px'></td>
                         <td><input type='hidden' value='".$reg["codint"]."' name='codint".$contador."' ></td><td>".$reg["nombre"]."</td>
                         <td><input class='checkbox' value='1' checked='true' type='checkbox' name='asistencia".$contador."' id='cba".$contador."' onclick='clickAsistencia(".$contador.")'></td>
                         <td><input class='checkbox' type='checkbox' name='licencia".$contador."' id='cbl".$contador."' onclick='clickLicencia(".$contador.")'></td>
@@ -103,6 +105,7 @@ class GrupoEmpresa {
 
 }
 ?>
+
 
 
 

@@ -28,12 +28,18 @@ if (trim($emails)==NULL) {
    $fotosVal=$fotos;
 $registroI=new RegistroTIS();
 if ($registroI->verificarCIUnicoIntegrante($carnetsVal,$_POST['nombreGE'])=="t") {
-   $conexion=new ConexionTIS();
-   $conexion->registrarIntegrantes($_POST['nombreGE'], $nombresVal, $carnetsVal, $telefonosVal, $emailsVal, $fotosVal);
-   echo "<div class='alert alert-success col-lg-8'>
-            Registro realizado !!!
-         </div>";
-   
+   if ($registroI->cuantosIntegrantesTieneEmpresa($_POST['nombreGE'])<5) {
+      $conexion=new ConexionTIS();
+      $conexion->registrarIntegrantes($_POST['nombreGE'], $nombresVal, $carnetsVal, $telefonosVal, $emailsVal, $fotosVal);
+      echo "<div class='alert alert-success col-lg-8'>
+               Registro realizado !!!
+            </div>";
+   }
+   else{
+      echo "<div class='alert alert-danger col-lg-8'>
+               la cantidad maxima de integrantes es  5 !!!
+            </div>";
+   }
 }
 else{
    echo "<div class='alert alert-danger col-lg-8'>

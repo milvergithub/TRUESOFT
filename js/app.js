@@ -9,17 +9,29 @@ function inicio(){
 function init(){
    $('input[type=file]').bootstrapFileInput();
    $('.file-inputs').bootstrapFileInput();
-   $("#logoin").change(function(){
+   $("#logo").change(function(){
       readURL(this);
    });
+   $("#fotos").change(function(){
+     previsualizar(this);
+   });
 }
+function previsualizar(input){
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+         $('#fotoIntegrante').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+   }
+}
+
 function readURL(input) {
    if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
          $('#logoimg').attr('src', e.target.result);
       }
-
       reader.readAsDataURL(input.files[0]);
    }
 }

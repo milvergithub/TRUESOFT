@@ -4,16 +4,15 @@ include '../clases/GrupoEmpresas.php';
 include '../clases/GestionFiles.php';
 $ge=new GrupoEmpresa();
 $existe=$ge->getUnicoEmpresa($_POST['nombreGE']);
-echo "".$existe;
 if (($existe=="t") |($_POST['nombreGE']=="")|(validarNombre($_POST['nombreGE']))) {
-   echo '<script type="text/javascript">
-            window.location="../index.php?'.md5('errorNombreGrupoEmpresa').'";
-         </script>';
+   echo "<div class='alert alert-danger col-lg-12'>
+               El nombre de la grupo empresa ya esta siendo usada !!!
+            </div>";
 }
 else{
    $_SESSION['nombreGE']=$_POST['nombreGE'];
    $conexx=new ConexionTIS();
-   $conexx->registroEmpresaAndContrato($_SESSION['coduser'], $_POST['nombreGE'], $_POST['logo']);
+   $conexx->registroEmpresaAndContrato($_SESSION['coduser'], $_POST['nombreGE'], $_FILES['logo']['name']);
    
 }
 function validarNombre($p) {

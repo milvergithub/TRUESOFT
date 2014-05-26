@@ -22,19 +22,28 @@ else{
            <span class="sr-only success">66% completado</span>
          </div>
       </div>
-      <form class="form col-lg-6" action="" method="POST">
-         <span class="glyphicon">grupo</span>
-         <select id="elegirgrupo"  class="form-control" name="grupoDoc" onchange="enviarGrupo(this.value)">
-            <?php include 'docentes.php'; ?>
-         </select><br/>
-         <span class="glyphicon">dia</span>
-         <select id="elegirdia"  class="form-control" name="dia" onchange="enviarDia(this.value)">
-            <option value="-1">seleccione grupo</option> 
-         </select><br/>
-         <span class="glyphicon">hora</span>
-         <select id="elegirhorario"  class="form-control" name="horario">
-            <option value="-1">seleccione dia</option>
-         </select><br/>
+      <div id="mensajeFormularioHorario">
+
+      </div>
+      <form class="form col-lg-6" action="" method="POST" id="formularioRegistroHorario">
+         <div class="control-group">
+            <span class="glyphicon">grupo</span>
+            <select id="elegirgrupo"  class="form-control" name="grupoDoc" onchange="enviarGrupo(this.value)">
+               <?php include 'docentes.php'; ?>
+            </select>
+         </div>
+         <div class="control-group">
+            <span class="glyphicon">dia</span>
+            <select id="elegirdia"  class="form-control" name="dia" onchange="enviarDia(this.value)">
+               <option value="">seleccione grupo</option> 
+            </select>
+         </div>
+         <div class="control-group">
+            <span class="glyphicon">hora</span>
+            <select id="elegirhorario"  class="form-control" name="horario">
+               <option value="">seleccione dia</option>
+            </select>
+         </div><br/>
          <input type="submit" class="btn btn-primary btn-sm navbar-right" value="validar horario"/><br/><br/>
       </form>
    </div>
@@ -111,8 +120,11 @@ else{
              <span class='glyphicon glyphicon-envelope'> Email:</span>
              <input type='text' class='form-control input-sm' name='emails' id="emails" placeholder='ejemplo@dominio.com'><br/>
          </div>
+         <div class="control-group">
+           <img src="img/fotos/foto.png" height="100" width="100" id="fotoIntegrante">
+         </div>
          <span class='glyphicon glyphicon-picture'></span>
-         <input type='file' class='btn btn-primary btn-sm' name='fotos' id="fotos" title='subir foto &triangleq;'><br/><br/>
+         <input type='file' class='btn btn-primary btn-sm' name='fotos' id="fotos" title='Escoger foto'><br/><br/>
          <input type="hidden" name="nombreGE" value="<?php echo $empresas->dameNombreEmpresa($_SESSION['coduser']); ?>" id="nombreGE"/>
          <button type="submit" id="btnRegistrar" class="btn btn-primary navbar-right">Registrar</button>
       </form>
@@ -133,18 +145,21 @@ else{
               <span class="sr-only success">0% completado</span>
             </div>
          </div>
+         <div id="mensajeRegistroGrupoEmpresa" class="col-lg-12">
+           
+         </div>
         <form action="php/validarNombreGE.php" method="POST" id="formularioRegistroGE" enctype="multipart/form-data">
            <div class="form-horizontal">
              <div class="form-group">
                 <label for="nombreGE" class="col-lg-3 control-label " >Nombre para la Grupo Empresa</label>
-                <div class="col-lg-3">
+                <div class="control-group col-lg-3">
                    <input type="text" class="form-control input-sm" id="nombreGE" name="nombreGE" placeholder="nombre grupo empresa" required="true">
                 </div>
              </div>
               <div class="form-group">
                 <label for="logo" class="col-lg-2 control-label">subir logo</label>
                 <div class="col-lg-6">
-                   <input type="file" id="logoin" value="imagen" name="logo" class="btn btn-primary" title="subir logo"/>
+                   <input type="file" id="logo" value="imagen" name="logo" class="btn btn-primary" title="subir logo"/>
                    <img id="logoimg" src="img/defecto.png" class="img-thumbnail img-rounded col-sm-5"/>
                 </div>
               </div>
@@ -161,7 +176,7 @@ else{
         <div >
          <?php    
          ?>
-           <div id="mensajeRegistroGrupoEmpresa" class='alert alert-warning col-lg-12'>
+           <div id="" class='alert alert-warning col-lg-12'>
             Por normas de registro en la grupoempresaTIS usted debe registrar un nombre para su grupo empresa que no 
             este registrado
             en los registros existentes en la fundaempresaTIS para consultar empresas existentes haga click

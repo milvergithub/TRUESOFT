@@ -29,6 +29,7 @@ if ($cantidadHPT>0) {
    }
 
    $contadorHora=0;
+   echo '<option value="">seleccione horario</option>';
    while (($regDHPAUX = pg_fetch_assoc($resultadoDHPAUX))) {
       echo "<option value='".$regDHPAUX['codpresnt']."'>".(dameFormato(($horasPresentacion[$contadorHora]-1),((int)$horaMinutosSegundo[0]), ((int)$horaMinutosSegundo[1]), $incremento))."</option>";
       $contadorHora=$contadorHora+1;
