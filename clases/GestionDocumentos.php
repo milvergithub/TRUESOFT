@@ -15,6 +15,27 @@ class GestionDocumentos {
          echo '<option value="'.$regDDTP['codigo'].'">'.$regDDTP['nombre'].'</option>';
       }
    }
+   function verificarLimiteEntregaDocumentos($codUser) {
+      $resultadoVLED=  $this->conexion->verificarFechaLimiteEntrega($codUser);
+      while ($regVLED = pg_fetch_assoc($resultadoVLED)) {
+         $resVLED=$regVLED['limite'];
+      }
+      return $resVLED;
+   }
+   function obtenerCodigoConvocatoriaLimiteEntreDoc($codUser) {
+      $resultadoOCCLED=  $this->conexion->verificarFechaLimiteEntrega($codUser);
+      while ($regOCCLED = pg_fetch_assoc($resultadoOCCLED)) {
+         $resOCCLED=$regOCCLED['codconv'];
+      }
+      return $resOCCLED;
+   }
+   function obtenerFechaLimiteDocumentos($codUser) {
+      $resultadoOFLD=  $this->conexion->verificarFechaLimiteEntrega($codUser);
+      while ($regOFLD = pg_fetch_assoc($resultadoOFLD)) {
+         $resOFLD=$regOFLD['fechalim'];
+      }
+      return $resOFLD;
+   }
    function dameTodoDocumentosConvActual($codConv) {
       $resultadoDTDCA=  $this->conexion->dameDocumentosSubidosPorLaConvocatoria($codConv);
       while ($regDTDCA = pg_fetch_assoc($resultadoDTDCA)) {
@@ -78,8 +99,8 @@ class GestionDocumentos {
    {
        $retsultDTDS = $this->conexion->darDocumnetoSubir($codConv);
        while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
-           echo '<form  method="POST" action="upload.php" enctype="multipart/form-data">
-                  <div class="col-xs-8 col-sm-4 col-md-3">
+           echo '<form method="POST" action="upload.php" enctype="multipart/form-data">
+                  <div class="well col-xs-8 col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/iconos/iconoPDF1.png" class="img-rounded col-xs-8 col-sm-12 col-md-10" alt="Generic placeholder thumbnail"/>
                      </div>

@@ -351,6 +351,11 @@ class  ConexionTIS
        $resONTC=  $this->Consultas($sqlONTC);
        return $resONTC;
     }
+    function verificarFechaLimiteEntrega($codUser) {
+       $sqlVFLE="SELECT * FROM verificar_fecha_limite(".$codUser.")";
+       $resVFLE=  $this->Consultas($sqlVFLE);
+       return $resVFLE;
+    }
     /*********************************  FINAL  GESTION DOCUMENTOS  *********************************/
     /**/
     /*********************************  EVALUACION DE ARCHIVOS GE  ********************************/

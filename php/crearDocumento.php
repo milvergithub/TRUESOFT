@@ -4,7 +4,7 @@
    </div>
    <form  class="form-group" method="POST" enctype="multipart/form-data" id="formularioCrearDocLectura">
     <div class="form-group table-responsive"> 
-        <table class="table table-hover table-bordered table-condensed table-striped" id="tablaDocumtosLectura">
+        <table class="table table-hover table-bordered table-striped" id="tablaDocumtosLectura">
             <caption class="caption"><h3>CREAR DOCUMENTOS DE ENTREGA</h3></caption> 
             <tr>
                <td><span class="glyphicon glyphicon-file h3"></span></td>

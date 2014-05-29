@@ -4,7 +4,6 @@
    background-color: #927360;
 }
 body{
-    background-color: #FDFCFA;
 }
 #banner{
    background-color: #3c3c3c;
@@ -66,7 +65,7 @@ section[class=centro]{
     background-size: 200px 150px;
     background-repeat: no-repeat;
     float: left;
-    box-shadow: #f0e8dc 0px 0px 30px 10px;
+    box-shadow: #1d5987 0px 0px 30px 5px;
     border-radius: 10px 10px 10px 10px;
 }
 section article{

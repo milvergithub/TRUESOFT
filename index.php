@@ -10,7 +10,7 @@ if(isset($_REQUEST[md5("registro")])){
 <!DOCTYPE html>
 <html>
    <?php include 'php/head.php'; ?>
-   <body>
+   <body style="background:url(img/fondoo.png);" >
        <?php
        include 'php/navegacion.php';
        ?>

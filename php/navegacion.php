@@ -20,15 +20,21 @@
             echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'">buscar</a></li>';
             
             if ($_SESSION['coduser']!=NULL) {
-               echo '<li><a href="php/controlEstado.php">registro empresa</a></li>';
-               echo '<li><a href="index.php?seguimiento">seguimiento</a></li>';
-               echo '<li><a href="index.php?propuestas">Subir Propuestas</a></li>';
-               echo '<li><a href="index.php?evaluararchivos">Evaluar Archivos</a></li>';
-               echo '<li><a href="index.php?registrodocentes">Registrar docente</a></li>';
-               echo '<li><a href="index.php?creardocumentolectura">Crear documento</a></li>';
-               echo '<li><a href="index.php?creardocumentoentrega">Crear entregables</a></li>';
-               echo '<li><a href="index.php?crearconv">Crear Convocatoria</a></li>';
-               echo '<li class="divider"></li>';
+               if ($_SESSION['nombreRol']=="administrador") {
+                  echo '<li><a href="index.php?registrodocentes">Registrar docente</a></li>';
+                  echo '<li><a href="index.php?creardocumentolectura">Crear documento</a></li>';
+                  echo '<li><a href="index.php?creardocumentoentrega">Crear entregables</a></li>';
+                  echo '<li><a href="index.php?crearconv">Crear Convocatoria</a></li>';
+                  echo '<li class="divider"></li>';
+               }
+               if ($_SESSION['nombreRol']=="docente") {
+                  echo '<li><a href="index.php?seguimiento">seguimiento</a></li>';
+                  echo '<li><a href="index.php?evaluararchivos">Evaluar Archivos</a></li>';
+               }
+               if ($_SESSION['nombreRol']=="representante") {
+                  echo '<li><a href="php/controlEstado.php">registro empresa</a></li>';
+                  echo '<li><a href="index.php?propuestas">Subir Propuestas</a></li>';
+               }
             }
             ?>
          </ul>

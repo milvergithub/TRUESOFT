@@ -7,7 +7,12 @@
 	$email = $_POST["email"];
 	$telf = $_POST["telefono"];
 	$nroGrupo = $_POST["grupo"];
-	
+	if (trim($telf)==NULL) {
+       $telf=0;
+    }
+    if (trim($email)==NULL) {
+       $email="*";
+    }
     $nombreCompl = $name." ".$lname;
     $registroRep=new RegistroTIS();
     if ($registroRep->usuarioUnico($username)=='t') {

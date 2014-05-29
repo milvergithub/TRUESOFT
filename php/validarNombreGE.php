@@ -24,7 +24,10 @@ else{
       $conexx=new ConexionTIS();
       $conexx->registroEmpresaAndContrato($_SESSION['coduser'], $_POST['nombreGE'], "img/logos/".$imagen);
       echo "<div class='alert alert-success col-lg-12'>
-               registro realizado bienvenido !!!
+               registro realizado bienvenido<strong class='h4'> se redirecionara en 5 segundos </strong>!!!
+               <script language='JavaScript'>
+                  setTimeout(\"location.href='php/controlEstado.php'\", 5000);
+               </script>
             </div>";
    }
    else{

@@ -3,6 +3,7 @@ x=$(document);
 x.ready(inicio);
 function inicio(){
    init();
+   updateSMSChat()
    soloNumerosTelefono();
    buscador();
 }
@@ -14,6 +15,21 @@ function init(){
    });
    $("#fotos").change(function(){
      previsualizar(this);
+   });
+}
+function updateSMSChat(){
+   setTimeout( "updateSMS()", 3000 );
+}
+function updateSMS(){
+   var dataString = 'id=' + '{$id}';
+   $.ajax({
+      type: 'POST',
+      url: 'testprocess.php',
+      data: dataString,
+      dataType: 'json',
+      success: function(data) {
+         $('.upstatus').html(data);
+      }
    });
 }
 function previsualizar(input){
@@ -115,6 +131,7 @@ function soloNumerosTelefono(){
    $(document).ready(function(){
    $("input[id^='telefono']").keydown(soloNumeros);
    $("input[id^='carnet']").keydown(soloNumeros);
+   $("input[id^='nn']").keydown(soloNumeros);
    });
 }
 function soloNumeros(event){

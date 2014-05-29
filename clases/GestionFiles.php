@@ -30,8 +30,11 @@ class GestionFiles {
    }
    function guardarDocumento($origenDoc,$rutaDestDoc) {
       if ($origenDoc !=NULL) {
+         if (file_exists($rutaDestDoc)) {
+            unlink($rutaDestDoc);
+         }
          copy($origenDoc, $rutaDestDoc);
-         //chmod($rutaDestDoc,777);
+         chmod($rutaDestDoc,0777);
       }   
    }
 }

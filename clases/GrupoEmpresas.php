@@ -73,7 +73,7 @@ class GrupoEmpresa {
                         <td><input class='checkbox' type='checkbox' name='licencia".$contador."' id='cbl".$contador."' onclick='clickLicencia(".$contador.")'></td>
                         <td><input class='checkbox' type='checkbox' name='participacion".$contador."' id='cbp".$contador."' onclick='clickParticipacion(".$contador.")'></td>
                         <td><textarea class='form-control' name='justificacion".$contador."' id='taj".$contador."' disabled='false'></textarea></td>
-                        <td><input class='form-control' type='number' min='0' max='100' value='0' name='nota".$contador."' id='nn".$contador."' disabled='false' ></td>
+                        <td><input class='form-control' type='text' maxlength='3' value='0' name='nota".$contador."' id='nn".$contador."' disabled='false' ></td>
                         <td><textarea class='form-control' name='obs".$contador."' id='tao".$contador."' disabled='false'></textarea>
                      </tr>";
                 $contador=$contador+1;
