@@ -1,4 +1,4 @@
-<div class="panel panel-success">
+<div class="panel panel-primary">
    <div class="panel panel-heading">
       <h3 class="panel-title">FundaempresaTIS</h3>
    </div>

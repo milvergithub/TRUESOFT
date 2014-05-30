@@ -11,7 +11,7 @@
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
      <ul class="nav navbar-nav navbar-left">
-        <li><a href="index.php">Inicio</a></li>
+        <li><a href="index.php"><span class="glyphicon glyphicon-home">Home</span></a></li>
         <li class="divider"></li>
         <li class="dropdown"><!--Menu grupo empresas-->
          <a href="" class="dropdown-toggle" data-toggle="dropdown">Grupo Empresas<b class="caret"></b></a>

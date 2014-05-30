@@ -85,6 +85,13 @@ class Evaluaciones {
       $resultadoDDE=  $this->conexion->obtenerArchivosEntregados($codEmp);
       return $resultadoDDE;
    }
+   function dameCodigoGrupoQueSoy($codUser) {
+      $resultadoDCGQS=  $this->conexion->getCodigoGrupo($codUser);
+      while ($regDCGQS = pg_fetch_assoc($resultadoDCGQS)) {
+         $resDCGQS=$regDCGQS['codgrupo'];
+      }
+      return $resDCGQS;
+   }
 }
 ?>
 

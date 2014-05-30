@@ -69,6 +69,7 @@ class GrupoEmpresa {
                 echo "<tr>
                         <td><img src='img/fotos/".$reg['foto']."' width='50px' height='50px'></td>
                         <td><input type='hidden' value='".$reg["codint"]."' name='codint".$contador."' ></td><td>".$reg["nombre"]."</td>
+                        <td>tipo</td>   
                         <td><input class='checkbox' value='1' checked='true' type='checkbox' name='asistencia".$contador."' id='cba".$contador."' onclick='clickAsistencia(".$contador.")'></td>
                         <td><input class='checkbox' type='checkbox' name='licencia".$contador."' id='cbl".$contador."' onclick='clickLicencia(".$contador.")'></td>
                         <td><input class='checkbox' type='checkbox' name='participacion".$contador."' id='cbp".$contador."' onclick='clickParticipacion(".$contador.")'></td>

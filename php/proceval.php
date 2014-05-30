@@ -74,7 +74,7 @@ $conx=new ConexionTIS();
                        //( codint        , asist     , lic     , justf        , part         , nt  , obs)
 $conx->evaluarIntegrantes($codIntegrantes,$asistentes,$licencia,$participacion,$justificacion,$nota,$observacion,$cantidad,$_POST['codEmp']);
 
-header("Location:index.php?seguimiento");
+header("Location:../index.php?seguimiento");
 
 
 

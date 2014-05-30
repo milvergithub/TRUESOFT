@@ -14,7 +14,7 @@ if(isset($_REQUEST[md5("registro")])){
        <?php
        include 'php/navegacion.php';
        ?>
-       <div class="container container-fluid" >
+      <div class="container container-fluid">
         <div id="contenido" class="container">
            <?php
             if ($errorlogin) {
@@ -27,7 +27,7 @@ if(isset($_REQUEST[md5("registro")])){
             }
             if ((isset($_REQUEST[md5("registroCompleto")]))||(isset($_REQUEST["registroEmpresa"])) || (isset($_REQUEST[md5('registroEmpresaIntegrantes')]))||(isset($_REQUEST["registroEmpresaHorario"])) || (isset($_REQUEST['RegistroEmpresaAIntegrantes']))) {
                include 'php/registroGE.php';
-}
+            }
             if ($registro) {
                include 'php/registro.php';
             }
@@ -51,7 +51,7 @@ if(isset($_REQUEST[md5("registro")])){
                   include_once 'php/seguimiento.php';
                }
                else{
-                  include_once './php/ERROR.php';
+                  include_once './php/error.php';
                }
             }
             if(isset($_GET[md5("codEmp")])){
@@ -59,7 +59,7 @@ if(isset($_REQUEST[md5("registro")])){
                   include 'php/evaluarEmpresa.php';
                }
                else{
-                  include_once './php/ERROR.php';
+                  include_once './php/error.php';
                }
             }
             if (isset($_REQUEST['registrodocentes'])) {

@@ -114,6 +114,12 @@ class  ConexionTIS
 
        return $resulCU;
     }
+    /*===========================     INICIO REUNION EVALUATIVO      ============================*/
+    function dameTiposEvaluaciones() {
+       $sqlDTE="SELECT * FROM dame_tipo_evaluaciones()";
+       $resDTE=  $this->Consultas($sqlDTE);
+       return $resDTE;
+    }
     function getGruposDoc($grupo){
         $resultado= $this->Consultas("SELECT * FROM getgrupoempresas(".$grupo.");");
         $cantidad=  pg_affected_rows($resultado);
@@ -444,8 +450,8 @@ class  ConexionTIS
         return $resDDS;
     }
     
-    function insertarArchivosEmp($codEmp, $codGest, $codConv, $codDoc, $nombre, $ruta, $parte) {
-        $sqlIAE= "SELECT * FROM insertararchivoemp(".$codEmp.", ".$codGest.", ".$codConv.", ".$codDoc.", '".$nombre."', '".$ruta."', '".$parte."');";
+    function insertarArchivosEmp($codUser, $codDoc, $nombre, $ruta, $parte) {
+        $sqlIAE= "SELECT * FROM insertararchivoemp(".$codUser.", ".$codDoc.", '".$nombre."', '".$ruta."', '".$parte."');";
         $this->Insertar($sqlIAE);
     }
     // para configurar notas de los documentos

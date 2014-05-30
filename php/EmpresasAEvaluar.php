@@ -5,7 +5,8 @@ $eval=new Evaluaciones();
 <div class="container container-fluid">
     <div class="row">
 <?php
-$eval->ImprimirEmpresasAEvaluarArchivos(1);
+$codGrupo=$eval->dameCodigoGrupoQueSoy($_SESSION['coduser']);
+$eval->ImprimirEmpresasAEvaluarArchivos($codGrupo);
 ?>   
     </div>
 </div>

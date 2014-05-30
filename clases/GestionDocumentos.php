@@ -110,7 +110,6 @@ class GestionDocumentos {
                         <p>
                            <input name="codigoDoc" type="hidden" value="'.$restDTDS['coddoc'].'"/>
                            <input name="nombredoc" type="hidden" value="'.$restDTDS['nombdoc'].'"/>
-                           <input name="codigoGest" type="hidden" value="'.$restDTDS['codgest'].'"/>
                            <input name="codigoTipo" type="hidden" value="'.$restDTDS['codtip'].'" />
                            <input name="nombreTip" type="hidden" value="'.$restDTDS['nombtip'].'" />
                            <input class="btn btn-primary btn-sm" name="archivo" type="file"/>

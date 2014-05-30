@@ -7,14 +7,17 @@ $cod=$_GET[md5('codEmp')];
         <table class="table table-striped table-hover table-bordered table-condensed">
            <caption class="caption panel-heading h2">Evaluacion de seguimiento semanal</caption>
             <thead>
-               <tr><th></th><td></td></td><th class="h4">INTEGRANTE</th><th class="h4">ASISTENCIA</th><th class="h4">LICENCIA</th><th class="h4">PARTICIPACION</th><th class="h4">JUSTIFICACION</th><th class="h4">CALIFICACION</th><th class="h4">OBSERVACIONES</th></tr>
+               <tr><th>foto</th><th></th><th class="h4">INTEGRANTE</th><th class="h4">TIPO EVALUACION</th><th class="h4">ASISTENCIA</th><th class="h4">LICENCIA</th><th class="h4">PARTICIPACION</th><th class="h4">JUSTIFICACION</th><th class="h4">CALIFICACION</th><th class="h4">OBSERVACIONES</th></tr>
             </thead>
             <tbody>
                 <?php
                      $emp=new GrupoEmpresa();
                      $emp->dameIntegrantes($cod);
                 ?>
-                <tr><td colspan="8"><input type="submit" value="evaluar" class="btn btn-success bt-lg btn-block"></td></tr>
+                <tr>
+                   <td colspan="6"><input type="submit" value="evaluar" class="btn btn-primary bt-lg btn-block"></td>
+                   <td colspan="4"><a href="index.php?seguimiento" class="btn btn-primary bt-lg btn-block">cancelar</a></td>
+                </tr>
             </tbody>
             <tfoot>
 

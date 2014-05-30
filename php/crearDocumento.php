@@ -4,13 +4,13 @@
    </div>
    <form  class="form-group" method="POST" enctype="multipart/form-data" id="formularioCrearDocLectura">
     <div class="form-group table-responsive"> 
-        <table class="table table-hover table-bordered table-striped" id="tablaDocumtosLectura">
-            <caption class="caption"><h3>CREAR DOCUMENTOS DE ENTREGA</h3></caption> 
+        <table class="table table-bordered table-hover table-condensed table-striped panel-default" id="tablaDocumtosLectura">
+           <caption class="caption panel-heading"><h4>CREAR DOCUMENTOS DE ENTREGA</h4></caption> 
             <tr>
-               <td><span class="glyphicon glyphicon-file h3"></span></td>
-               <td><span class="glyphicon">Nombre</span></td>
-               <td><span class="glyphicon glyphicon-paperclip h3"></span></td>
-               <td><span class="glyphicon glyphicon-download-alt h3"></span></td>
+               <th><span class="glyphicon glyphicon-file h3"></span></th>
+               <th><span class="glyphicon">Nombre</span></th>
+               <th><span class="glyphicon glyphicon-paperclip h3"></span></th>
+               <th><span class="glyphicon glyphicon-download-alt h3"></span></th>
             </tr>
             <?php include 'php/documentosLectura.php'; ?>
             <tr>
