@@ -362,6 +362,11 @@ class  ConexionTIS
        $resVFLE=  $this->Consultas($sqlVFLE);
        return $resVFLE;
     }
+    function dameCodigoUltimaConvocatoria() {
+       $sqlDCUC="SELECT * FROM getultimaconvocatoria()";
+       $resDCUC=  $this->Consultas($sqlDCUC);
+       return $resDCUC;
+    }
     /*********************************  FINAL  GESTION DOCUMENTOS  *********************************/
     /**/
     /*********************************  EVALUACION DE ARCHIVOS GE  ********************************/

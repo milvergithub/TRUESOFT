@@ -196,5 +196,12 @@ class GestionDocumentos {
                 </form>';
        }
    }
+   function dameUltimaConvocatoria() {
+      $resultadoDCUC=  $this->conexion->dameCodigoUltimaConvocatoria();
+      while ($regDCUC = pg_fetch_assoc($resultadoDCUC)) {
+         $resDCUC=$regDCUC['ultimo'];
+      }
+      return $resDCUC;
+   }
 }
 ?>

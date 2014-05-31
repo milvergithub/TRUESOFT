@@ -89,7 +89,7 @@ $(function(){
             $.ajax({
                 type: "POST",
                 url:"php/validarHorarioGE.php",
-                data: dataString,
+                data: datos,
                 success: function(data){
                     $("#mensajeFormularioHorario").html(data);
                     $("#mensajeFormularioHorario").show();

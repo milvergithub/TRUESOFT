@@ -48,7 +48,7 @@
             echo '<li><a href="php/salir.php">LoginOut <span class="glyphicon glyphicon-log-out"></span>&#x02007;&#x02007;&#x02007;&#8199;</a></li>';
          }
          else{
-            echo '<li><a href="index.php?'.md5("registro").'">Registro&#32;&#32;&#32;</a></li>'; 
+            echo '<li><a href="index.php?'.md5("registro").'">Registro</a></li>'; 
             echo '<li><a href="" data-toggle="modal" data-target="#basicModal">LoginIn <span class="glyphicon glyphicon-log-in"></span> &#x02007;&#x02007;&#x02007;&#8199;</a></li>';
          }
         ?>

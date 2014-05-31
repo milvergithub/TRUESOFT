@@ -3,5 +3,5 @@ include '../clases/ConexionTIS.php';
 
 $conexINA=new ConexionTIS();
 $conexINA->insertarNotaArchivosEntrega($_POST['codigoArchivo'], $_POST['codigoIntegrante'], $_POST['nota']);
-echo "Evaluado";
+echo $_POST['nota'];
 ?>

@@ -1,6 +1,8 @@
 <?php
 include 'clases/GestionDocumentos.php';
 $gestionDL=new GestionDocumentos();
-$gestionDL->dameTodoDocumentosLectura(1);
+$codc=$gestionDL->dameUltimaConvocatoria();
+echo "<br/>codigoConv=".$codc;
+$gestionDL->dameTodoDocumentosLectura($codc);
 ?>
 
