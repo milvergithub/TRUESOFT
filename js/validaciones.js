@@ -16,7 +16,63 @@ $(function(){
             }
         });
     }
+    var elementosFormDoc=document.getElementsByName("formularioSubidaDocumentacion");
+    for (z=0;z<elementosFormDoc.length;z++){
+       $("#formularioSubidaDocumentacion"+(z+1)).validate({
+          rules:{
+             archivo:{
+                required:true
+             }
+          },
+          messages:{
+             archivo:{
+                required:'escoger un archivo'
+             }
+          }
+       });
+    }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+    $("#formularioChat").validate({
+        rules:{
+            mensaje:{
+                required:true,
+                maxlength:500
+            }
+        },
+        submitHandler:function(form){
+            var datosChat =new FormData();
+            datosChat.append("mensaje",$( '#mensaje').val());
+            datosChat.append("codUsuario",$("#codUsuario").val());
+            $.ajax({
+                type: "POST",
+                url:"php/enviarMensaje.php",
+                enctype:'multipart/form-data',
+                data: datosChat,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#chat").html(data);
+                    $("#chat").show();
+                    $("#mensaje").val('');
+                }
+            });
+        },
+        messages:{
+            mensaje:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">escriba un mensaje a enviar</p>'
+            },
+            maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">son 500 carateres como maximo</p>'
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+        },
+        success: function(element) {
+            element
+                .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
+        }
+    });
     $("#formularioRegistroGE").validate({
         rules:{
             nombreGE:{
@@ -469,7 +525,6 @@ $(function(){
             maxlength : 16  //para validar campo con maximo 9 caracteres
          },
          emailDoc :{
-            required : true, //para validar campo vacio
             email    : true  //para validar formato email
          },
          telefono : {
@@ -505,7 +560,6 @@ $(function(){
             maxlength : "EL nombre debe tener un maximo de 16 caracteres</p>"
          },
          emailDoc :{
-            required : "<p style='color: #b80000'>debe ingresar un email</p>", //para validar campo vacio
             email    : "<p style='color: #b80000'>debe ingresar un email valido</p>"
          },
          telefono : {

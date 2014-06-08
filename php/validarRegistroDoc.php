@@ -10,6 +10,13 @@ include '../clases/RegistroTIS.php';
    $emailDoc=$_POST['emailDoc'];
    $telefono=$_POST['telefono'];
    
+   if (trim($emailDoc)==NULL) {
+      $emailDoc="*";
+   }
+   if (trim($telefono)==NULL) {
+      $telefono=-1;
+   }
+   
    if((trim($usuariod)==NULL)|(trim($nombresDoc)==NULL)|(trim($apellidosDoc)==NULL)|(trim($grupo)==NULL)|(trim($pass)==NULL)) {
         echo "<div class='alert alert-danger col-lg-8'>
                   Los campos marcados con (*) son requeridos debe llenarlos!!!

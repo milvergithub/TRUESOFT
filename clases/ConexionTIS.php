@@ -493,6 +493,64 @@ class  ConexionTIS
        return $resDCEAN;
     }
     /*=========================  FINAL REGISTRO DE INTEGRANTES ===========================================*/
+    /*=========================  BEGIN FUNCIONES GESTION DOCUMENTOS DOCUMENTACION  ======================*/
+    function dameDocumentacionAEntregar($codConv) {
+       $sqlDDAE="SELECT * FROM dame_documentacion_entregar(".$codConv.");";
+       $resDDAE=  $this->Consultas($sqlDDAE);
+       return $resDDAE;
+    }
+    function dameFechaLimiteEntregaDocumentacion($codUser) {
+       $sqlDFLED="SELECT * FROM verificar_fecha_limite_documentacion(".$codUser.")";
+       $resDFLED=  $this->Consultas($sqlDFLED);
+       return $resDFLED;
+    }
+    /*=========================  FINAL FUNCIONES GESTION DOCUMENTOS DOCUMENTACION  ======================*/
+    
+    /*=========================  BEGIN CONFIGURACIONES  ======================*/
+    //maicol
+    function getUsuariosDocente() {
+          $sqldoc="SELECT * FROM nombredocentes();";
+          $resdoc= $this -> Consultas($sqldoc);
+          return $resdoc;
+    }
+    //maicol
+    function datosDoc() {
+        $sqldoce="SELECT * FROM getdatosdocentes();";
+        $resdoc= $this->Consultas($sqldoce);
+        return $resdoc;
+    }
+    //maicol
+    function getEstadoDoc() {
+        $sqlestdoc="SELECT * FROM getdocestado();";
+        $resp= $this->Consultas($sqlestdoc);
+        return $resp;
+    }
+    //maicol
+    function grupoEmpresaRepre($gest) {
+        $sqlger="SELECT * FROM nombrereprest(".$gest.");";
+        $res= $this->Consultas($sqlger);
+        return $res;
+    }
+    /*=========================  FINAL CONFIGURACIONES  ======================*/
+    
+    /*::::::::::::::::::::::::::: CHAT MENSAJERIA ::::::::::::::::::::::::::::*/
+    
+    /*=========================  BEGIN CHAT  =================================*/
+    function chatDameNombreUsuario($codUser) {
+       $sqlCDNU="SELECT * FROM dame_nombre_usuario(".$codUser.") AS nombre";
+       $resCDNU=  $this->Consultas($sqlCDNU);
+       return $resCDNU;
+    }
+    function insertarMensajeChat($codUser,$mensaje) {
+       $sqlIMC="SELECT * FROM insertar_mensaje_chat(".$codUser.",'".$mensaje."')";
+       $this->Insertar($sqlIMC);
+    }
+    function chatDameMensajesActuales($codUser) {
+       $sqlCDMA="SELECT * FROM dame_mensajes_chat(".$codUser.")";
+       $resCDMA=  $this->Consultas($sqlCDMA);
+       return $resCDMA;
+    }
+    /*=========================  FINAL CHAT  =================================*/
 }
 //fin clase conexion
 ?>

@@ -5,6 +5,7 @@
    <link rel="shortcut icon" href="img/favicon.ico">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="css/bootstrap.css">
+   <link rel="stylesheet" href="css/chat.css">
    <?php
    if (isset($_REQUEST['seguimiento'])) {
    ?>

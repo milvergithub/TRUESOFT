@@ -18,19 +18,25 @@ function init(){
    });
 }
 function updateSMSChat(){
-   setTimeout( "updateSMS()", 3000 );
+   setInterval(function(){
+      updateSMS();
+   },2000);
 }
 function updateSMS(){
-   var dataString = 'id=' + '{$id}';
-   $.ajax({
-      type: 'POST',
-      url: 'testprocess.php',
-      data: dataString,
-      dataType: 'json',
-      success: function(data) {
-         $('.upstatus').html(data);
-      }
+   var dato =12;
+   $.ajax({ 
+      async:true,
+      type: "POST",
+      dataType: "html",
+      contentType: "application/x-www-form-urlencoded",
+      url:"php/obtenerMensajes.php",
+      data:dato,
+      beforeSend:inicioEnvio,
+      success:llegadaChats
    });
+}
+function llegadaChats(datos){
+   $("#chat").html(datos);
 }
 function previsualizar(input){
   if (input.files && input.files[0]) {

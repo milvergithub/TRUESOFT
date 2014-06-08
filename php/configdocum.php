@@ -1,10 +1,8 @@
 <?php
-    include 'php/head.php';
-   include 'clases/GestionDocumentos.php';
+include 'clases/GestionDocumentos.php';
     
     $gestion = new GestionDocumentos();
-    $codConv = 2;
-    $codUsu = 2;
+    $codConv = 1;
 ?>
 
     <h2>
@@ -14,7 +12,7 @@
     <div class="container container-fluid">
            <div class="">
             <?php 
-                $gestion->darDocumentosConfiguracion($codConv, $codUsu);
+                $gestion->darDocumentosConfiguracion($codConv, $_SESSION['coduser']);
             ?>
            </div>
         </div>

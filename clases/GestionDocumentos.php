@@ -203,5 +203,46 @@ class GestionDocumentos {
       }
       return $resDCUC;
    }
+   /*==============================    BEGIN GESTION DOCUMENTACION     ============================*/
+   function verificarFechaLimiteDocumentacion($codUser) {
+      $resultadoDCUC=  $this->conexion->dameFechaLimiteEntregaDocumentacion($codUser);
+      while ($regDCUC = pg_fetch_assoc($resultadoDCUC)) {
+         $resDCUC=$regDCUC['limite'];
+      }
+      return $resDCUC;
+   }
+   function dameFechaLimiteDocumentacion($codUser) {
+      $resultadoDFLD=  $this->conexion->dameFechaLimiteEntregaDocumentacion($codUser);
+      while ($regDFLD = pg_fetch_assoc($resultadoDFLD)) {
+         $resDFLD=$regDFLD['fechalim'];
+      }
+      return $resDFLD;
+   }
+   function dameDocumentosDocumentacionEntrega($codConv) {
+      $resultadoDDDE=  $this->conexion->dameDocumentacionAEntregar($codConv);
+      $contador=1;
+      while ($regDDDE = pg_fetch_assoc($resultadoDDDE)) {
+         echo '<form name="formularioSubidaDocumentacion" action="php/subirValidarDocumentacion.php" method="post" id="formularioSubidaDocumentacion'.$contador.'">
+                    <div class="col-sm-4 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" />
+                        </div>
+                        <div class="caption">
+                            <h3>'.$regDDDE['nombredoc'].'</h3>
+                            <p class="h3">'.$regDDDE['nombretipo'].'</p>
+                            <p> <h3>nota : '.$regDDDE['notadoc'].'</h3></p>
+                            <p>
+                                <input name="codigoDoc" type="hidden" value="'.$regDDDE['coddoc'].'"/>
+                                <input name="codigoTipo" type="hidden" value="'.$regDDDE['codtipo'].'" />
+                                <input class="btn btn-primary" type="file" name="archivo"/>
+                                <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
+                            </p>
+                        </div>
+                    </div>
+               </form>';
+         $contador=$contador+1;
+      }
+   }
+   /*==============================    FINAL GESTION DOCUMENTACION     ============================*/
 }
 ?>

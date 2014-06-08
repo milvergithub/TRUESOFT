@@ -16,7 +16,14 @@ class GrupoEmpresa {
     public function getSimilarEmpresas($cadena) {
        $resultadoSE=  $this->coneccion->getSimilarNombreEmpresa($cadena);
        while ($regSE = pg_fetch_assoc($resultadoSE)) {
-           echo '<tr><td>'.$regSE['gestion'].'</td><td>'.$regSE['conv'].'</td><td>'.$regSE['nombre'].'</td><td><img src="'.$regSE['logo'].'" class="img-responsive col-sm-2 col-md-2"></td></tr>';
+           echo '<tr><'
+                 . 'td>'.$regSE['gestion'].'</td>'
+                 . '<td>'.$regSE['conv'].'</td>'
+                 . '<td>'.$regSE['nombre'].'</td>'
+                 . '<td>'
+                     . '<img src="'.$regSE['logo'].'" class="img-thumbnail img-rounded" width="80" height="80">'
+                 . '</td>'
+              . '</tr>';
        }
     }
     public function siYaRegistroEmpresa($codUser) {

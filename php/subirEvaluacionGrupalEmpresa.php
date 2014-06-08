@@ -1,6 +1,6 @@
 <?php
     
-    include 'clases/ConexionTIS.php';
+    include '../clases/ConexionTIS.php';
     $conex = new ConexionTIS();
     
     $codArch= $_POST['codigoArch'];

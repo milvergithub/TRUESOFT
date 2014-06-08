@@ -29,16 +29,19 @@ if(isset($_REQUEST[md5("registro")])){
                include 'php/registroGE.php';
             }
             if ($registro) {
-               include 'php/registro.php';
+               include_once 'php/registro.php';
             }
             if (isset($_REQUEST[md5("consultaNombreEmpresas")])) {
-               include 'php/consultaGE.php';
+               include_once 'php/consultaGE.php';
             }
             if (isset($_REQUEST["evaluararchivos"])) {
                include_once './php/EmpresasAEvaluar.php';
             }
             if (isset($_REQUEST['propuestas'])) {
-               include_once 'php/evaluacionpropuesta.php';
+               include_once 'php/formEntregaPropuesta.php';
+            }
+            if (isset($_REQUEST['subirdocumentacion'])) {
+               include_once './php/formEntregaDocum.php';
             }
             if (isset($_REQUEST['individual'])) {
                include_once './php/evaluacionIndividualEmpresa.php';
@@ -73,6 +76,18 @@ if(isset($_REQUEST[md5("registro")])){
             }
             if (isset($_REQUEST['crearconv'])) {
                require_once './php/crearConvocatoria.php';
+            }
+            if (isset($_REQUEST['configuracionadmin'])) {
+               require_once 'php/configadmin.php';
+            }
+            if (isset($_REQUEST['configuraciondoc'])) {
+               require_once './php/configdoc.php';
+            }
+            if (isset($_REQUEST['configuraciondocum'])) {
+               require_once './php/configdocum.php';
+            }
+            if (isset($_REQUEST['chat'])) {
+               require_once './php/chatsms.php';
             }
             ?>
          <?php

@@ -1,5 +1,5 @@
 <?php
-    include 'clases/ConexionTIS.php';
+    include '../clases/ConexionTIS.php';
     $conex = new ConexionTIS();
     
     $coddoc= $_POST['codigoDoc'];
