@@ -91,6 +91,12 @@ class RegistroTIS {
       }
       return $resCITE;
    }
+   function getGrupoDisponiblesDocente() {
+      $resultadoGGDD=  $this->conexion->horarioHorarioDisponiblesParaTomar();
+      while ($regGGDD = pg_fetch_assoc($resultadoGGDD)) {
+         echo '<option value="'.$regGGDD['codgrupo'].'">'.$regGGDD['numero'].'</option>';
+      }
+   }
    /*=============================  FINAL  REGISTRO INTEGRANTES ====================================*/
 }
 ?>

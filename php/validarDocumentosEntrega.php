@@ -5,13 +5,16 @@ $gestionDoc=new GestionDocumentos();
 $gestion=new GestionFiles();
 $conexGD=new ConexionTIS();
 
+$codConv=$gestionDoc->dameUltimaConvocatoria();
+
 $nombre=$_POST['nombre'];
 $tipos=$_POST['tipo'];
 $nota=$_POST['calificacion'];
 $documento=$_FILES['documento']['name'];
 
 $origenDoc=$_FILES['documento']['tmp_name'];
-$destino="../files/convocatorias/".$nombre.".pdf";
+$destino="../files/convocatorias/".$nombre.$codConv.".pdf";
+$destinoReal="files/convocatorias/".$nombre.$codConv.".pdf";
 if ($origenDoc==NULL) {
    $destino="nulo";
 }
@@ -21,9 +24,9 @@ echo 'calificacion ='.$nota."<br>";
 echo 'nombre Doc ='.$documento."<br>";
 
 if ($nota>=0) {
-   if ($gestionDoc->verificarNombreDocUnicoConv(1, $nombre)=='t') {
-      if ((($gestionDoc->dameTotalNota(1))+$nota)<=100) {
-         $conexGD->subirDocumentos(1, $nombre,$_POST['tipo'] , $nota, $destino);
+   if ($gestionDoc->verificarNombreDocUnicoConv($codConv, $nombre)=='t') {
+      if ((($gestionDoc->dameTotalNota($codConv))+$nota)<=100) {
+         $conexGD->subirDocumentos($codConv, $nombre,$_POST['tipo'] , $nota, $destinoReal);
          $gestion->guardarDocumento($origenDoc, $destino);
       }
       else{
@@ -43,15 +46,4 @@ else{
             No esta permitido una nota negativa !!!
          </div>';
 }
-
-/*
-if ($gestion->validarExtensionArchivo($documento)==TRUE) {
-   
-}
-else{
-   echo '<div class="alert alert-danger col-lg-8">
-            tipo de documento no es valido debe ser un archivo de tipo PDF
-         </div>';
-}
-*/
 ?>

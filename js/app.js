@@ -37,6 +37,7 @@ function updateSMS(){
 }
 function llegadaChats(datos){
    $("#chat").html(datos);
+   $("#chat").scrollTop($("#chat").height()*100);
 }
 function previsualizar(input){
   if (input.files && input.files[0]) {
@@ -138,6 +139,7 @@ function soloNumerosTelefono(){
    $("input[id^='telefono']").keydown(soloNumeros);
    $("input[id^='carnet']").keydown(soloNumeros);
    $("input[id^='nn']").keydown(soloNumeros);
+   $(".numerico").keydown(soloNumeros);
    });
 }
 function soloNumeros(event){

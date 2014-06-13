@@ -26,6 +26,7 @@
                   echo '<li><a href="index.php?creardocumentoentrega">Crear entregables</a></li>';
                   echo '<li><a href="index.php?crearconv">Crear Convocatoria</a></li>';
                   echo '<li><a href="index.php?configuracionadmin">configuraciones</a></li>';
+                  echo '<li><a href="index.php?creargrupo">crear grupo</a></li>';
                   echo '<li><a href="index.php?chat">Abrir chat</a></li>';
                   echo '<li class="divider"></li>';
                }

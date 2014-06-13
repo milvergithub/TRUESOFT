@@ -18,7 +18,11 @@
          </div>
          <div class="control-group">
             <span class="glyphicon" > NroGrupo</span>
-            <input class="form-control input-sm" type="text" name="nrogrupo" id="nrogrupo"/>
+            <select class="form-control" name="nrogrupo" id="nrogrupo">
+               <?php
+               include_once 'php/GruposDisponibles.php';
+               ?>
+            </select>
          </div>
          <div class="control-group">
             <span class="glyphicon glyphicon-lock">Password:</span>

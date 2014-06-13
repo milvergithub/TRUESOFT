@@ -99,7 +99,7 @@ class GestionDocumentos {
    {
        $retsultDTDS = $this->conexion->darDocumnetoSubir($codConv);
        while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
-           echo '<form method="POST" action="upload.php" enctype="multipart/form-data">
+           echo '<form method="POST" action="php/upload.php" enctype="multipart/form-data">
                   <div class="well col-xs-8 col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/iconos/iconoPDF1.png" class="img-rounded col-xs-8 col-sm-12 col-md-10" alt="Generic placeholder thumbnail"/>
@@ -138,7 +138,7 @@ class GestionDocumentos {
                            <input name="codigoUsuario" type="hidden" value="'.$codUsu.'"/>
                            <p>
                            <h4>Asignar Nota</h4>
-                           <input class="form-control col-lg-1" type="text" name="nota" placeholder="'.$restDDC['nota'].'"/><br>
+                           <input class="form-control col-lg-1 numerico" type="text" name="nota" placeholder="'.$restDDC['nota'].'"/><br>
                            <input class="btn btn-primary" name="enviar" type="submit" value="Actualizar" />
                            </p>
                      </div>
@@ -188,7 +188,7 @@ class GestionDocumentos {
                         <p>
                            <input name="codigoArch" type="hidden" value="'.$restDAE['codarch'].'"/>
                            <input name="codEmp" type="hidden" value="'.$codEmp.'" />
-                           <input class="form-control col-lg-1" type="text" name="nota" placeholder="nota"/><br>
+                           <input class="form-control col-lg-1 numerico" type="text" name="nota" placeholder="nota"/><br>
                            <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
                         </p>
                      </div>
@@ -244,5 +244,176 @@ class GestionDocumentos {
       }
    }
    /*==============================    FINAL GESTION DOCUMENTACION     ============================*/
+   
+   
+   
+   //funcion para cargar archivos de cada empresa
+   function devolverArchivoEmpresaDocumentacion($codEmp) {
+       $resultDAED = $this->conexion->dameArchivosDocumentacion($codEmp);
+       
+       while ($restDAED = pg_fetch_assoc($resultDAED)){
+           echo '<form  method="POST" action="subirEvaluacionGrupalEmpresa.php" enctype="multipart/form-data">
+                  <div class="col-sm-4 col-md-3">
+                     <div class="thumbnail">
+                        <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
+                     </div>
+                     <div class="caption">
+                            <h3>'.$restDAED['nombrearch'].'</h3>
+                            <p>'.$restDAED['partearch'].'</p>
+                            <p>
+                           <input name="codigoArch" type="hidden" value="'.$restDAED['codarch'].'"/>
+                           <input name="codEmp" type="hidden" value="'.$codEmp.'" />
+                           <input class="form-control col-lg-1" type="text" name="nota" placeholder="nota"/><br>
+                           <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
+                        </p>
+                     </div>
+                  </div>
+                </form>';
+       }
+   }
+   //=============================================================================================================
+   //
+   //============================================ para la entrega de documentos ==================================
+   function  dameTodoDocumentoSubidaDumentacion($codConv)
+   {
+       $retsultDTDS = $this->conexion->darDocumnetoSubirDocumentacion($codConv);
+       while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
+           echo '<form  method="POST" action="php/subidaDocumentacion.php" enctype="multipart/form-data">
+                  <div class="col-sm-4 col-md-3">
+                     <div class="thumbnail">
+                        <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
+                     </div>
+                     <div class="caption">
+                        <h3>'.$restDTDS['nombdoc'].'</h3>
+                        <p>'.$restDTDS['nombtip'].'.</p>
+                        <p>
+                           <input name="codigoDoc" type="hidden" value="'.$restDTDS['coddoc'].'"/>
+                           <input name="nombredoc" type="hidden" value="'.$restDTDS['nombdoc'].'"/>
+                           <input name="codigoGest" type="hidden" value="'.$restDTDS['codgest'].'"/>
+                           <input name="codigoTipo" type="hidden" value="'.$restDTDS['codtip'].'" />
+                           <input name="nombreTip" type="hidden" value="'.$restDTDS['nombtip'].'" />
+                           <input name="codigoConv" type="hidden" value="'.$codConv.'" />
+                           <input name="codigoEmp" type="hidden" value="'.$codEmp.'" />    
+                           <input class="btn btn-primary btn-sm" name="archivo" type="file" size="35"/><br>
+                           <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
+                        </p>
+                     </div>
+                  </div>
+               </form>';
+       }
+   }
+   //=================================================================================================================
+   //
+   // funcion para poder ver las notas de toda la grupo empresa ======================================================
+   function verNotasGrupoEmp($codEmp) {
+       $resulDTDI = $this->conexion->dameTodoDatoIntegrante($codEmp);
+       while ($resDTDI = pg_fetch_assoc($resulDTDI)) {
+           $this->darNotas($codEmp, $resDTDI['codinteg'], $resDTDI['nombreinteg']);
+       }
+   }
+   
+   function darNotas($codEmp, $codInteg, $nombInteg) {
+       $resulNFI = $this->conexion->notasFinalesIntegrantes($codEmp, $codInteg);
+       while ($resNFI = pg_fetch_assoc($resulNFI)) {
+           echo '<tr>
+                    <td>
+                        '.$nombInteg.'
+                    </td>
+                    
+                    <td>
+                        '.$resNFI['notagrup'].'
+                    </td>
+                    
+                    <td>
+                        '.$resNFI['notaind'].'
+                    </td>
+                    
+                    <td>
+                        0
+                    </td>
+                    
+                    <td>
+                        '.$resNFI['notadef'].'
+                    </td>
+                    
+                    <td>
+                        '.$resNFI['notafinal'].'
+                    </td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                </tr>';
+       }
+   }
+   
+  // el de arriba es mas suabe ================================================================= 
+   function darNotaPorIntegrante($codEmp, $codInteg) {
+       $resulNFI = $this->conexion->notasFinalesIntegrantes($codEmp, $codInteg);
+       while ($resNFI = pg_fetch_assoc($resulNFI)) {
+        echo '<td>
+                '.$resNFI['notagrup'].'
+            </td>
+            <td>
+                '.$resNFI['notaind'].'
+            </td>
+            <td>
+                '.$resNFI['notadef'].'
+            </td>
+            <td>
+                '.$resNFI['notafinal'].'
+            </td>';
+       }
+   }
+  // ===============================================================================================================================
+   
+   // ===================================== para los grupos =========================================================================
+   function dameGrupoOcupados() {
+       $resulDGO = $this->conexion->dameGruposOcupados();
+       while ($resDGO = pg_fetch_assoc($resulDGO)) {
+        echo '<tr>
+            <td>
+                '.$resDGO['nrogrup'].'
+            </td>
+            <td>
+                '.$resDGO['nombusu'].'
+            </td>
+            <td>
+                '.$resDGO['rolusu'].'
+            </td>
+            </tr>';
+       }
+   }
+   
+   function dameGrupoLibres() {
+       $resulDGL = $this->conexion->dameGruposLibres();
+       while ($resDGL = pg_fetch_assoc($resulDGL)) {
+        echo '<tr>
+                  <form  class="form-group" method="GET" enctype="multipart/form-data">
+                  <td>
+                      '.$resDGL['nrogrup'].'
+                  </td>
+                  <td>
+                      por designar
+                  </td>
+                  <td>
+                      <input type="hidden" name="codgrupo" value="'.$resDGL['codgrup'].'" />
+                      <input class="btn btn-primary" name="formhorario" type="submit" value="Asignar Horarios" onclick="this.form.action = index.php?formhorario"/> 
+                  </td>
+                  </form>
+                  <form  class="form-group" method="POST" action="php/eliminarGrupo.php" enctype="multipart/form-data">
+                  <td>
+                      <input type="hidden" name="codgrupo" value="'.$resDGL['codgrup'].'"/>
+                      <input type="submit" name="submit" value="Eliminar" class="btn btn-link"> 
+                  </td>
+                  </form>
+                  </tr>';
+       }
+   }
+   function verificarGrupoExistencia($grupo) {
+      $resultadoVRU=  $this->conexion->verificandoGrupo($grupo);
+      while ($regVGU = pg_fetch_assoc($resultadoVRU)) {
+         $resVGU=$regVGU['unicog'];
+      }
+      return $resVGU;
+   }
+   // =================================================================================================================================
+  
 }
 ?>

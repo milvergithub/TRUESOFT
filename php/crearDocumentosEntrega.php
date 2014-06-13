@@ -9,6 +9,9 @@
          <?php include 'php/documentosEntrega.php'; ?>
          <tr>
             <td>
+               
+            </td>
+            <td>
                <div class="control-group">
                   <input class="form-control input-sm" type="text" name="nombre" id="nombre"/>
                </div>
@@ -23,7 +26,7 @@
             </td>
             <td>
                <div class="control-group">
-                  <input class="form-control input-sm" type="text" name="calificacion" id="calificacion"/>
+                  <input class="form-control input-sm numerico" type="text" name="calificacion" id="calificacion"/>
                </div>
             </td>
             <td>

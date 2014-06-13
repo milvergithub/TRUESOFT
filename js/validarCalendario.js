@@ -1,4 +1,12 @@
 $(function() {
+   $(".fecha").datepicker({
+        defaultDate: "+1w",
+        numberOfMonths: 1,
+        onClose: function(selectedDate) {
+            saleFoco($(".fecha"));
+            $(".fecha").datepicker("option", "minDate", selectedDate);
+        }
+    });
     $("#fechai").datepicker({
         defaultDate: "+1w",
         numberOfMonths: 1,

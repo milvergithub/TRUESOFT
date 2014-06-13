@@ -367,6 +367,9 @@ class  ConexionTIS
        $resDCUC=  $this->Consultas($sqlDCUC);
        return $resDCUC;
     }
+    function dameCodigoConvocatoriaEnContratoGE($coduser) {
+       
+    }
     /*********************************  FINAL  GESTION DOCUMENTOS  *********************************/
     /**/
     /*********************************  EVALUACION DE ARCHIVOS GE  ********************************/
@@ -454,7 +457,11 @@ class  ConexionTIS
         $resDDS= $this->Consultas($sqlDDS);
         return $resDDS;
     }
-    
+    function dameCodigoEmpresa($codUser) {
+       $sqlDCE="SELECT codemp FROM codigoscontratorep(".$codUser.")";
+       $resDCE=  $this->Consultas($sqlDCE);
+       return $resDCE;
+    }
     function insertarArchivosEmp($codUser, $codDoc, $nombre, $ruta, $parte) {
         $sqlIAE= "SELECT * FROM insertararchivoemp(".$codUser.", ".$codDoc.", '".$nombre."', '".$ruta."', '".$parte."');";
         $this->Insertar($sqlIAE);
@@ -507,6 +514,10 @@ class  ConexionTIS
     /*=========================  FINAL FUNCIONES GESTION DOCUMENTOS DOCUMENTACION  ======================*/
     
     /*=========================  BEGIN CONFIGURACIONES  ======================*/
+    function guardarConfiguracionEstadoGE($codCont,$estado) {
+       $sqlGCEGE="SELECT * FROM guardarestadoconfig(".$codCont.",'".$estado."');";
+       $this->Insertar($sqlGCEGE);
+    }
     //maicol
     function getUsuariosDocente() {
           $sqldoc="SELECT * FROM nombredocentes();";
@@ -526,10 +537,19 @@ class  ConexionTIS
         return $resp;
     }
     //maicol
-    function grupoEmpresaRepre($gest) {
-        $sqlger="SELECT * FROM nombrereprest(".$gest.");";
+    function grupoEmpresaRepre($codUSer) {
+        $sqlger="SELECT * FROM dame_representantes(".$codUSer.");";
         $res= $this->Consultas($sqlger);
         return $res;
+    }
+    function dameCodigoGrupoDeDocente($codUser) {
+       $sqlDCGDD="SELECT codgrupo FROM dame_codigos_usuario(".$codUser.")";
+       $resDCGDD=  $this->Consultas($sqlDCGDD);
+       return $resDCGDD;
+    }
+    function guardarNumeroPresentaciones($codgrupo,$cantidad) {
+       $sqlGNP="SELECT * FROM insertarhorapresent(".$codgrupo.",".$cantidad.")";
+       $this->Insertar($sqlGNP);
     }
     /*=========================  FINAL CONFIGURACIONES  ======================*/
     
@@ -551,6 +571,67 @@ class  ConexionTIS
        return $resCDMA;
     }
     /*=========================  FINAL CHAT  =================================*/
+    /*::::::::::::::::::::::::: BEGIN SETTINGS HORARIO :::::::::::::::::::::::*/
+    function horarioSaveHorarioElegido($codgrupo,$hora,$dia) {
+       $sqlHSE="SELECT * FROM crear_horarios( ".$codgrupo.", '".$hora."', '".$dia."')";
+       $this->Insertar($sqlHSE);
+    }
+    function horarioRemove($codHorario) {
+       $sqlHR="SELECT * FROM borrar_horario_docente(".$codHorario.")";
+       $this->Insertar($sqlHR);
+    }
+    function horarioSiFueAsignada($codgrupo,$hora,$dia) {
+       $sqlHSFA="SELECT * FROM dame_si_esta_hora_asignada(".$codgrupo.",'".$hora."','".$dia."')";
+       $resHSFA=  $this->Consultas($sqlHSFA);
+       return $resHSFA;
+    }
+    function horarioHorariosAsignadosGrupo($codgrupo) {
+       $sqlHHAG="SELECT * FROM dame_horarios(".$codgrupo.")";
+       $resHHAG=  $this->Consultas($sqlHHAG);
+       return $resHHAG;
+    }
+    function horarioHorarioDisponiblesParaTomar() {
+       $sqlHHDPT="SELECT * FROM dame_grupos_disponibles()";
+       $resHHDPT=  $this->Consultas($sqlHHDPT);
+       return $resHHDPT;
+    }
+    /*::::::::::::::::::::::::: FINAL SETTINGS HORARIO :::::::::::::::::::::::*/
+    
+    /*::::::::::::::::::::::::: PRUEBA CARLOS ::::::::::::::::::::::::::::::::*/
+    // ======================= para devolver archivos de tipo de documentacion ===============================
+    function dameArchivosDocumentacion($codEmp) {
+        $sqlDAD= "SELECT * FROM damedocumentosdocumentacion(".$codEmp.");";
+        $resulDAD= $this->Consultas($sqlDAD);
+        return $resulDAD;
+    }
+   
+    function darDocumnetoSubirDocumentacion($codConv) {
+        $sqlDDSD="SELECT * FROM damedocEntregaDocumentacion(".$codConv.");";
+        $resDDSD= $this->Consultas($sqlDDSD);
+        return $resDDSD;
+    }
+    //=================================== fin de archivos de documentacion===================================
+    
+    // ================================== para crear grupos =================================================
+    function dameGruposOcupados() {
+        $sqlDGO = "SELECT * FROM dargruposocupados();";
+        $resDGO = $this->Consultas($sqlDGO);
+        return $resDGO;
+    }
+    
+    function dameGruposLibres() {
+        $sqlDGL = "SELECT * FROM dargrupolibre();";
+        $resDGL = $this->Consultas($sqlDGL);
+        return $resDGL;
+    }
+    function insertarGrupo($nroGrup) {
+        $sqlIG = "SELECT * FROM creargrupo(".$nroGrup.");";
+        $this->Insertar($sqlIG);
+    }
+    function eliminarGrupo($codGrup) {
+        $sqlEG = "SELECT * FROM eliminargrupo(".$codGrup.");";
+        $this->Insertar($sqlEG);
+    }
 }
 //fin clase conexion
 ?>

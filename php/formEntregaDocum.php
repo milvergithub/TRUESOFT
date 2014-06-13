@@ -9,7 +9,7 @@
         <?php
         if ($gest->verificarLimiteEntregaDocumentos($_SESSION['coduser'])=='t') {
            $codConv=$gest->obtenerCodigoConvocatoriaLimiteEntreDoc($_SESSION['coduser']);
-           $gest->dameDocumentosDocumentacionEntrega($codConv);
+           $gest->dameTodoDocumentoSubidaDumentacion($codConv);
         }
         else{
         ?>

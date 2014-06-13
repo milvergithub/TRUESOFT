@@ -32,6 +32,72 @@ $(function(){
        });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+    
+    $("#formularioCrearGrupo").validate({
+        rules:{
+            nrogrupo:{
+                required:true,
+                number:true
+            }
+        },
+        messages:{
+          nrogrupo:{
+              required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese el numero de grupo</p>',
+              number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese un numero entero</p>'
+          }
+        },
+        submitHandler:function(form){
+            var datoNG=new FormData();
+            datoNG.append("nrogrupo",$('#nrogrupo').val());
+            $.ajax({
+                type: "POST",
+                url:"php/subirGrupo.php",
+                enctype:'multipart/form-data',
+                data: datoNG,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#tablagruposLibres").html(data);
+                    $("#tablagruposLibres").show();
+                }
+            });
+        }
+    });
+    $("#formularioNumeroRevisiones").validate({
+       rules:{
+           cantidad:{
+               required:true,
+               number:true
+           }
+       },
+       messages:{
+           cantidad:{
+               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese el numero de revisiones</p>',
+               number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese un numero entero</p>'
+           }
+       },
+       submitHandler:function(form){
+           var datoNR=new FormData();
+           datoNR.append("cantidad",$('#cantidad').val());
+           $.ajax({
+               type: "POST",
+               url:"php/guardarConfNumRev.php",
+               enctype:'multipart/form-data',
+               data: datoNR,
+               cache: false,
+               contentType: false,
+               processData: false,
+               mimeType: 'multipart/form-data',
+               success: function(data){
+                   $("#mensajeNumeroRevisiones").html(data);
+                   $("#mensajeNumeroRevisiones").show();
+               }
+           });
+       }
+    });
+
     $("#formularioChat").validate({
         rules:{
             mensaje:{
@@ -56,6 +122,7 @@ $(function(){
                     $("#chat").html(data);
                     $("#chat").show();
                     $("#mensaje").val('');
+                    $("#chat").scrollTop($("#chat").height()*100);
                 }
             });
         },
@@ -516,8 +583,7 @@ $(function(){
             maxlength : 20  //para validar campo con maximo 9 caracteres
          },
          nrogrupo :{
-            required : true,
-            number : true   //para validar campo solo numeros
+            required : true
          },
          password :{
             required : true,
@@ -551,8 +617,7 @@ $(function(){
             maxlength : "<p style='color: #b80000'>EL nombre debe tener un maximo de 20 caracteres</p>"
          },
          nrogrupo :{
-            required : "<p style='color: #b80000'>debe ingresar un numero para el grupo</p>", //para validar campo vacio
-            number : "<p style='color: #b80000'>debe ingresar un numero entero</p>"
+            required : "<p style='color: #b80000'>seleccione un grupo</p>" //para validar campo vacio
          },
          password :{
             required : "<p style='color: #b80000'>debe ingresar su contrasena</p>", //para validar campo vacio

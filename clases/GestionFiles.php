@@ -37,4 +37,15 @@ class GestionFiles {
          chmod($rutaDestDoc,0777);
       }   
    }
+   // ======================== para validar la extencion del archivo en formato zip ===========================
+   function validarExtensionArchivoDocumentacion($archivo) {
+      $extencion=  strtolower(array_pop(explode(".", $archivo)));
+      if (($extencion=="zip")) {
+         $res=TRUE;
+      }
+      else {
+         $res=FALSE;
+      }
+      return $res;
+   }
 }

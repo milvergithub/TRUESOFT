@@ -89,6 +89,12 @@ if(isset($_REQUEST[md5("registro")])){
             if (isset($_REQUEST['chat'])) {
                require_once './php/chatsms.php';
             }
+            if (isset($_REQUEST['formhorario'])) {
+               require_once './php/formAsignarHorario.php';
+            }
+            if (isset($_REQUEST['creargrupo'])) {
+               require_once './php/crearGrupos.php';
+            }
             ?>
          <?php
             include 'php/loginModal.php';

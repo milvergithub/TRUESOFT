@@ -58,7 +58,7 @@ class Evaluaciones {
                      <form action="php/procesarNota.php" class="form" name="formularioEvaluacionIndividual" method="POST" id="formularioEvaluacionIndividual'.$contador.'">
                         <input type="hidden" name="codigoArchivo" value="'.$regDocI['codarch'].'"/>
                         <input type="hidden" name="codigoIntegrante" value="'.$regInt['codinteg'].'"/>
-                        <input type="text" name="nota" class="form-control input-sm" id="nota"/>
+                        <input type="text" name="nota" class="form-control input-sm numerico" id="nota"/>
                         <input type="submit" value="Evaluar" class="btn btn-primary"/>
                      </form>
                   </td>';

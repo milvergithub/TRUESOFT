@@ -1,5 +1,5 @@
 <?php
-    include 'clases/ConexionTIS.php';
+    include 'ConexionTIS.php';
     
 class config
 {
@@ -21,6 +21,13 @@ class config
                             
                         </tr>';
         }
+    }
+    function dameCodigoGrupoDocente($codUser) {
+       $resultadoDCGD=  $this->conex->dameCodigoGrupoDeDocente($codUser);
+       while ($regDCGD = pg_fetch_assoc($resultadoDCGD)) {
+          $resDCGD=$regDCGD['codgrupo'];
+       }
+       return $resDCGD;
     }
     function obtenerDatosDoc() {
         $rest = $this->conex->datosDoc();
@@ -89,39 +96,34 @@ class config
         }
     }
     //dado la ultima gestion da las grupo empresas
-    function getGrupoComp($gest) {
-        $res = $this->conex->grupoEmpresaRepre($gest);
+    function getGrupoComp($codUser) {
+        $res = $this->conex->grupoEmpresaRepre($codUser);
         while ($reg = pg_fetch_assoc($res)) {
-            if ($reg['estado']=='t') {
-                $est='habilitado';
-                $conf='Deshabilitar';
-            }  else {
-                $est='deshabilitado';
-                $conf='Habilitar';
-            }
             echo '
-                        <tr>
-                        <form action="php/configUsuEst.php" method="post">
-                            <td>
-                                '.$reg['empresa'].'
-                                <input type="hidden" name="nombre" value="'.$reg['codemp'].'">
-                            </td>
-                            <td>
-                                '.$reg['representante'].'
-                            </td>
-                            <td>
-                                '.$est.'
-                                <input type="hidden" name="estado" value="'.$est.'">
-                            </td>
-                            <td>
-                                <input type="submit" value="'.$conf.'" />
-                            </td>
-                            </form>
-                        </tr>';
+                  <tr>
+                      <td>
+                        <input type="hidden" value="'.$reg['estado'].'" name="estado"/>
+                          '.$reg['nombreemp'].'
+                      </td>
+                      <td>
+                          '.$reg['representante'].'
+                      </td>
+                      <td>
+                          <a href="php/saveConfigEstadoGE.php?codContrato='.$reg['codcontrato'].'&estado='.$reg['estado'].'">'.$this->dameFormatoEstado($reg['estado']).'</a>
+                      </td>
+                  </tr>';
         }
+    }
+    function dameFormatoEstado($estado) {
+       if ($estado=="t") {
+          return "Deshabilitar";
+       }
+       else{
+          return "Habilitar";
+       }
     }
 }
 ?>
-
+ 
 
 
