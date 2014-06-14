@@ -1,7 +1,7 @@
 <h2>GRUPOS OCUPADOS</h2>
 
 <form  class="form-group" method="POST" action="darGruposOcupados.php" enctype="multipart/form-data">
-    <div class="form-group table-responsive"> 
+    <div class="form-group table-responsive panel panel-default"> 
         <table class="table table-hover" id="">
             <tr>
                <td><span class="glyphicon">Numero Grupo</span></td>
@@ -20,7 +20,7 @@
 <h2>GRUPOS DISPONIBLES</h2>
 
 
-    <div class="form-group table-responsive"> 
+    <div class="form-group table-responsive panel panel-default"> 
         <table class="table table-hover" id="tablagruposLibres">
             <?php include 'php/darGruposDiponibles.php'; ?>
            
@@ -31,7 +31,7 @@
 <h2>CREACION DE NUEVOS GRUPOS </h2>
 
 <div>
- <div class="container container-fluid">
+ <div class="container container-fluid panel panel-default">
     <div class="row">
        <form  method="POST" action="php/subirGrupo.php" id="formularioCrearGrupo"  enctype="multipart/form-data" class="form col-lg-5">
            <span class="glyphicon">Numero De Grupo :</span>  <br>

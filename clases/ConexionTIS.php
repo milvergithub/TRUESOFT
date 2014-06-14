@@ -551,6 +551,24 @@ class  ConexionTIS
        $sqlGNP="SELECT * FROM insertarhorapresent(".$codgrupo.",".$cantidad.")";
        $this->Insertar($sqlGNP);
     }
+    function dameFechaActualPresentacion($coduser) {
+       $sqlDFAP="SELECT * FROM dame_fecha_propuesta(".$coduser.")";
+       $resDFAP=  $this->Consultas($sqlDFAP);
+       return $resDFAP;
+    }
+    function dameFechaActualDocumentacion($coduser) {
+       $sqlDFAD="SELECT * FROM dame_fecha_documentacion(".$coduser.")";
+       $resDFAD=  $this->Consultas($sqlDFAD);
+       return $resDFAD;
+    }
+    function updateFechaLimiteEntregaProp($fecha,$codgrupo,$codconv) {
+       $sqlUFLEP="SELECT * FROM save_config_endprop('".$fecha."',".$codgrupo.",".$codconv.")";
+       $this->Insertar($sqlUFLEP);
+    }
+    function updateFechaLimiteEntregaDocm($fecha,$codgrupo,$codconv) {
+       $sqlUFLED="SELECT * FROM save_config_enddocum('".$fecha."',".$codgrupo.",".$codconv.")";
+       $this->Insertar($sqlUFLED);
+    }
     /*=========================  FINAL CONFIGURACIONES  ======================*/
     
     /*::::::::::::::::::::::::::: CHAT MENSAJERIA ::::::::::::::::::::::::::::*/

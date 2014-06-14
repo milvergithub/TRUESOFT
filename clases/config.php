@@ -122,6 +122,26 @@ class config
           return "Habilitar";
        }
     }
+    function dameFechaActualLimiteEntregaPartes($coduser) {
+       $resultadoDFALEP=  $this->conex->dameFechaActualPresentacion($coduser);
+       while ($regDFALEP = pg_fetch_assoc($resultadoDFALEP)) {
+          echo '<input class="form-control" type="text" value="'.$regDFALEP['fecha'].'" name="fecha" />
+                <input type="hidden" name="fechaactual" value="'.$regDFALEP['fecha'].'" id="fechaactual" />
+                <input type="hidden" name="codigoconv" value="'.$regDFALEP['codconv'].'" id="codigoconv" />'
+              . '<input type="hidden" name="codgrupo" value="'.$regDFALEP['codgrupo'].'" id="codgrupo" /> ';
+       }
+       return $resDFALEP;
+    }
+    function dameFechaActualLimiteEntregaDocumen($coduser) {
+       $resultadoDFALED=  $this->conex->dameFechaActualDocumentacion($coduser);
+       while ($regDFALED = pg_fetch_assoc($resultadoDFALED)) {
+          echo '<input class="form-control" type="text" value="'.$regDFALED['fecha'].'" name="fechaAA" />
+                <input type="hidden" name="fechaA" value="'.$regDFALED['fecha'].'" id="fechaA" />
+                <input type="hidden" name="codconv" value="'.$regDFALED['codconv'].'" id="codconv" />
+                <input type="hidden" name="codgrupo" value="'.$regDFALED['codgrupo'].'" id="codgrupo" />';
+       }
+       return $resDFALED;
+    }
 }
 ?>
  

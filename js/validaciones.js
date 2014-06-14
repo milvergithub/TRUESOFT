@@ -32,6 +32,77 @@ $(function(){
        });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+    $("#formularioActualizarFechaLimitedocumentacion").validate({
+        rules:{
+            fechaNN:{
+                required:true,
+                date:true
+            }
+        },
+        messages:{
+            fechaNN:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese una fecha</p>',
+                date:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">formato no valido</p>'
+            }
+        },
+        submitHandler:function(form){
+            var datoUFD=new FormData();
+            datoUFD.append("fechaNN",$('#fechaNN').val());
+            datoUFD.append("fechaA",$('#fechaA').val());
+            datoUFD.append("codconv",$('#codconv').val());
+            datoUFD.append("codgrupo",$('#codgrupo').val());
+            $.ajax({
+                type: "POST",
+                url:"php/updateDateEndDocum.php",
+                enctype:'multipart/form-data',
+                data: datoUFD,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeUpdateFechaDocum").html(data);
+                    $("#mensajeUpdateFechaDocum").show();
+                }
+            });
+        }
+    });
+
+    $("#formularioActualizarFechaLimitePropuesta").validate({
+        rules:{
+            fechaNueva:{
+                required:true,
+                date:true
+            }
+        },
+        messages:{
+            fechaNueva:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese una fecha</p>',
+                date:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">formato no valido</p>'
+            }
+        },
+        submitHandler:function(form){
+            var datoUF=new FormData();
+            datoUF.append("fechaNueva",$('#fechaNueva').val());
+            datoUF.append("fechaactual",$('#fechaactual').val());
+            datoUF.append("codgrupo",$('#codgrupo').val());
+            datoUF.append("codigoconv",$('#codigoconv').val());
+            $.ajax({
+                type: "POST",
+                url:"php/updateDateEndProp.php",
+                enctype:'multipart/form-data',
+                data: datoUF,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeUpdateFechaProp").html(data);
+                    $("#mensajeUpdateFechaProp").show();
+                }
+            });
+        }
+    });
     
     $("#formularioCrearGrupo").validate({
         rules:{
