@@ -11,6 +11,7 @@
                <th><span class="glyphicon">Nombre</span></th>
                <th><span class="glyphicon glyphicon-paperclip h3"></span></th>
                <th><span class="glyphicon glyphicon-download-alt h3"></span></th>
+               <th><span class="glyphicon glyphicon-edit h3"></span></th>
             </tr>
             <?php include 'php/documentosLectura.php'; ?>
             <tr>

@@ -214,6 +214,11 @@ class  ConexionTIS
        return $resEmp;
     }
     /*********************************   INICIO REGISTRO REPRESENTANTE DOCENTE  *********************************** */
+    function verificarSiGrupoEsUSado($codGrupo) {
+       $sqlVSGEU="SELECT * FROM verificar_grupo_usado(".$codGrupo.") AS usado;";
+       $resVSGEU=  $this->Consultas($sqlVSGEU);
+       return $resVSGEU;
+    }
     
     function registrarUsuarioRepresentante($codGrupo,$cuenta,$pass,$nombres,$telf,$email) {
        $sqlRUR="SELECT * FROM registrar_representante(".$codGrupo.",'".$cuenta."','".$pass."','".$nombres."',".$telf.",'".$email."')";

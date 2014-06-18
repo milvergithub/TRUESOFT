@@ -1,0 +1,2 @@
+xrandr --output LVDS1 --brightness 0.9
+xgamma -gamma .5

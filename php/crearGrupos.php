@@ -34,9 +34,11 @@
  <div class="container container-fluid panel panel-default">
     <div class="row">
        <form  method="POST" action="php/subirGrupo.php" id="formularioCrearGrupo"  enctype="multipart/form-data" class="form col-lg-5">
-           <span class="glyphicon">Numero De Grupo :</span>  <br>
-           <input type="text" name="nrogrupo" id="nrogrupo" placeholder="numero grupo" class="form-control input-sm numerico"><br>
-           <input type="submit" name="subr" class="btn btn-primary navbar-right"> 
+          <div class="control-group">
+             <span class="glyphicon">Numero De Grupo :</span>  <br>
+            <input type="text" name="nrogrupo" id="nrogrupo" placeholder="numero grupo" class="form-control input-sm numerico">
+          </div>
+          <input type="submit" name="subr" class="btn btn-primary navbar-right"> 
         </form>
     </div>
  </div>

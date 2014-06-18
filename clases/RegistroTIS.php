@@ -24,6 +24,13 @@ class RegistroTIS {
          echo '<option value="'.$regDDA['codgrupo'].'">'.$regDDA['nombre'].'</option>';
       }
    }
+   function grupoUsado($codGrupo) {
+      $resultadoGU=  $this->conexion->verificarSiGrupoEsUSado($codGrupo);
+      while ($regGU = pg_fetch_assoc($resultadoGU)) {
+         $resGU=$regGU['usado'];
+      }
+      return $resGU;
+   }
    function usuarioUnico($cadena) {
       $resultadoUU=  $this->conexion->usuarioUnico($cadena);
       while ($regUU = pg_fetch_assoc($resultadoUU)) {

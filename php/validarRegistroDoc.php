@@ -23,14 +23,21 @@ include '../clases/RegistroTIS.php';
               </div>";
    }
    if ($registroDoc->usuarioUnico($usuariod)=='t') {
-      if ($registroDoc->emailUnico($emailDoc)=='t') {
+      if ($registroDoc->grupoUsado($grupo)=='t') {
+         if ($registroDoc->emailUnico($emailDoc)=='t') {
             $connec=new ConexionTIS();
             $connec->registrarUsuarioDoc($grupo, $usuariod, $pass, $nombresDoc." ".$apellidosDoc,$telefono,$emailDoc);
             echo "Se registro en la base de datos";
+         }
+         else{
+            echo "<div class='alert alert-danger col-lg-8'>
+                     la direccion de correo electronico ya esta siendo usada por otro usuario ingrese uno nuevo !!!
+                  </div>";
+         }
       }
       else{
          echo "<div class='alert alert-danger col-lg-8'>
-                  la direccion de correo electronico ya esta siendo usada por otro usuario ingrese uno nuevo !!!
+                  el grupo ya esta siendo usado por otro docente !!!
                </div>";
       }
    }

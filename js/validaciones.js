@@ -108,13 +108,15 @@ $(function(){
         rules:{
             nrogrupo:{
                 required:true,
-                number:true
+                number:true,
+                maxlength:3
             }
         },
         messages:{
           nrogrupo:{
               required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese el numero de grupo</p>',
-              number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese un numero entero</p>'
+              number:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">ingrese un numero entero</p>',
+              maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">numero de digitos excedido</p>'
           }
         },
         submitHandler:function(form){
@@ -134,6 +136,13 @@ $(function(){
                     $("#tablagruposLibres").show();
                 }
             });
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('has-success').addClass('control-group has-error');
+        },
+        success: function(element) {
+            element
+                .closest('.control-group').removeClass('control-group has-error').addClass('has-success');
         }
     });
     $("#formularioNumeroRevisiones").validate({

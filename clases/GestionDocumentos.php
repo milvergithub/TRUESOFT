@@ -56,7 +56,11 @@ class GestionDocumentos {
                '.$regDTDCA['ruta'].'
             </td>
             <td>
-               <a href="'.$regDTDCA['ruta'].'" class="btn btn-link">Descargar<span class="glyphicon glyphicon-download-alt"></span></a>
+               <a href="'.$regDTDCA['ruta'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-download-alt"></span></a>
+            </td>
+            <td>
+               <a href="update/updateDocumentosEntrega.php?nombre='.$regDTDCA['nombre'].'&tipo='.$regDTDCA['tipo'].'&nota='.$regDTDCA['nota'].'&ruta='.$regDTDCA['ruta'].'" 
+               class="btn btn-link">Editar <span class="glyphicon glyphicon-edit"></span></a>
             </td>
          </tr>';
       }
@@ -89,7 +93,11 @@ class GestionDocumentos {
                          '.$regDTDL['rutadoc'].'
                      </td>
                      <td>
-                         <a href="'.$regDTDL['rutadoc'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-download-alt"></span></a>
+                         <a href="'.$regDTDL['rutadoc'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-download-alt h4"></span></a>
+                     </td>
+                     <td>
+                         <a href="update/updateDocumentoLectura.php?nombre='.$regDTDL['nombdoc'].'&ruta='.$regDTDL['rutadoc'].'" 
+                         class="btn btn-link">Editar <span class="glyphicon glyphicon-edit h4"></span></a>
                      </td>
                  </tr>';
        }
