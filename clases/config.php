@@ -33,28 +33,40 @@ class config
         $rest = $this->conex->datosDoc();
         while ($reg = pg_fetch_assoc($rest)) {
             echo '<tr>
-                <form  class="form col-lg-4" action="php/configUsu.php" method="post">
+                <form  class="form col-lg-6" action="php/configUsuarioHorarioDoc.php" method="post">
                   <td>
                       '.$reg['nombre'].'
-                  <input type="hidden" name="cod" value="'.$reg['cod_hora'].'">
+                  <input type="hidden" name="codhora" value="'.$reg['cod_hora'].'">
 
                   </td>
                   <td>
                       '.$reg['grupo'].'
                   </td>
                   <td>
-                     <select class="form-control col-lg-4 col-md-4 col-xs-6" name="dia">
+                     <select class="form-control col-lg-6" name="dia">
                       <option selected>'.$reg['dia'].'</option>
-                      <option>lunes</option>
-                      <option>martes</option>
-                      <option>miercoles</option>
-                      <option>jueves</option>
-                      <option>viernes</option>
-                      <option>sabado</option>
+                      <option >lunes</option>
+                      <option >martes</option>
+                      <option >miercoles</option>
+                      <option >jueves</option>
+                      <option >viernes</option>
+                      <option >sabado</option>
                   </select>
                       </td>
                   <td>
-                     <input class="form-control" type="time" name="hora" value="'.$reg['hora'].'">
+                  <select class="form-control" name="hora">
+                     <option selected>'.$reg['hora'].'</option>
+                     <option >06:45:00 - 08:15:00</option>
+                     <option >08:15:00 - 09:45:00</option>
+                     <option >09:45:00 - 11:15:00</option>
+                     <option >11:15:00 - 12:45:00</option>
+                     <option >12:45:00 - 14:15:00</option>
+                     <option >14:15:00 - 15:45:00</option>
+                     <option >15:45:00 - 17:15:00</option>
+                     <option >17:15:00 - 18:45:00</option>
+                     <option >18:45:00 - 20:15:00</option>
+                     <option >20:15:00 - 21:45:00</option>
+                  </select>
                   </td>
                   <td>
                      <input class="btn btn-primary" type="submit" value="Cambiar" />
@@ -78,21 +90,21 @@ class config
                 $conf='Habilitar';
             }
             echo '
-                        <tr>
-                        <form action="php/configUsuEst.php" method="post">
-                            <td>
-                                '.$reg['nombre'].'
-                                <input type="hidden" name="nombre" value="'.$reg['nombre'].'">
-                            </td>
-                            <td>
-                                '.$est.'
-                                <input type="hidden" name="estado" value="'.$est.'">
-                            </td>
-                            <td>
-                                <input type="submit" value="'.$conf.'" />
-                            </td>
-                            </form>
-                        </tr>';
+                  <tr>
+                  <form action="php/configUsuarioEstadoDoc.php" method="post">
+                      <td>
+                          '.$reg['nombre'].'
+                          <input type="hidden" name="cuenta" value="'.$reg['cuenta'].'">
+                      </td>
+                      <td>
+                          '.$est.'
+                          <input type="hidden" name="estado" value="'.$est.'">
+                      </td>
+                      <td>
+                          <input class="btn btn-link" type="submit" value="'.$conf.'" />
+                      </td>
+                      </form>
+                  </tr>';
         }
     }
     //dado la ultima gestion da las grupo empresas

@@ -18,6 +18,4 @@
         echo 'fallo en la configuracion vuelva a interntarlo';
     }
 ?>
-<br>    
-<a href="configurarDocumentos.php">Volver atras</a>
 

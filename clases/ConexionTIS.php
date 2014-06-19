@@ -21,12 +21,12 @@ class  ConexionTIS
                 or die ('Error de conexión. Póngase en contacto con el administrador');
         return $BaseDato;
     }
-    function Insertar($sqlInsert) {
+    function Insertar($sql) {
        $conex=  $this->Conectar();
        if(!$conex)
           echo 'error';
        else {
-          pg_query($conex,$sqlInsert);
+          pg_query($conex,$sql);
        }
     }
     function dameNombreRolUsuario($coduser){
@@ -197,10 +197,10 @@ class  ConexionTIS
 
        return $respIntRep;
     }
-    function evaluarIntegrantes($codsInt,$asist,$lic,$part,$just,$nota,$obs,$cant,$codEmp){
+    function evaluarIntegrantes($codsInt,$asist,$lic,$part,$just,$nota,$obs,$cant,$codEmp,$codtipo){
        $cantidad=$cant;
        for ($set = 0; $set < $cantidad; $set++) {         //( codint         ,    asist        ,    lic        ,     justf        , part           ,    nt          , obs)
-          $sqlI="SELECT * FROM insertar_reunion_evaluativa(".$codsInt[$set].", ".$asist[$set].", ".$lic[$set].", '".$just[$set]."', ".$part[$set].", ".$nota[$set].",'".$obs[$set]."')";
+          $sqlI="SELECT * FROM insertar_reunion_evaluativa(".$codsInt[$set].", ".$asist[$set].", ".$lic[$set].", '".$just[$set]."', ".$part[$set].", ".$nota[$set].",'".$obs[$set]."',".$codtipo.")";
           $this->Insertar($sqlI);
        }
     }

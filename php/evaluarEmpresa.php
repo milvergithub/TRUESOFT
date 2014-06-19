@@ -3,11 +3,20 @@ include 'clases/GrupoEmpresas.php';
 $cod=$_GET[md5('codEmp')];
 ?>
 <form method="post" action="php/proceval.php" name="evaluar" role="form">
-    <div class="table-responsive">
+   <div class="control-group">
+      <span class="label label-default">Tipo Evaluacion</span>
+      <select name="tipo" class="form-control">
+         <?php
+            $empres=new GrupoEmpresa();
+            $empres->dameTipoEvaluacion();
+         ?>
+      </select>
+   </div> 
+   <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered table-condensed">
            <caption class="caption panel-heading h2">Evaluacion de seguimiento semanal</caption>
             <thead>
-               <tr><th>foto</th><th></th><th class="h4">INTEGRANTE</th><th class="h4">TIPO EVALUACION</th><th class="h4">ASISTENCIA</th><th class="h4">LICENCIA</th><th class="h4">PARTICIPACION</th><th class="h4">JUSTIFICACION</th><th class="h4">CALIFICACION</th><th class="h4">OBSERVACIONES</th></tr>
+               <tr><th>foto</th><th></th><th class="h4">INTEGRANTE</th><th class="h4">ASISTENCIA</th><th class="h4">LICENCIA</th><th class="h4">PARTICIPACION</th><th class="h4">JUSTIFICACION</th><th class="h4">CALIFICACION</th><th class="h4">OBSERVACIONES</th></tr>
             </thead>
             <tbody>
                 <?php
@@ -23,5 +32,5 @@ $cod=$_GET[md5('codEmp')];
 
             </tfoot>
         </table>
-    </div>
+   </div>
 </form>

@@ -69,14 +69,22 @@ class GrupoEmpresa {
        }
        return $dato;
     }
+    public function dameTipoEvaluacion() {
+       $resultadoDTE=  $this->coneccion->dameTiposEvaluaciones();
+       
+       while ($regDTE = pg_fetch_assoc($resultadoDTE)) {
+         echo "<option value='".$regDTE['codtipo']."'>".$regDTE['nombre']."</option>";
+       }
+    }
     public function dameIntegrantes($cod) {
         $resultado=  $this->coneccion->getIntegrantesRepresentante($cod);
         $contador=1;
             while ($reg = pg_fetch_assoc($resultado)) {
                 echo "<tr>
                         <td><img src='img/fotos/".$reg['foto']."' width='50px' height='50px'></td>
-                        <td><input type='hidden' value='".$reg["codint"]."' name='codint".$contador."' ></td><td>".$reg["nombre"]."</td>
-                        <td>tipo</td>   
+                        <td><input type='hidden' value='".$reg["codint"]."' name='codint".$contador."' >"
+                      . "</td>"
+                      . "<td>".$reg["nombre"]."</td>  
                         <td><input class='checkbox' value='1' checked='true' type='checkbox' name='asistencia".$contador."' id='cba".$contador."' onclick='clickAsistencia(".$contador.")'></td>
                         <td><input class='checkbox' type='checkbox' name='licencia".$contador."' id='cbl".$contador."' onclick='clickLicencia(".$contador.")'></td>
                         <td><input class='checkbox' type='checkbox' name='participacion".$contador."' id='cbp".$contador."' onclick='clickParticipacion(".$contador.")'></td>

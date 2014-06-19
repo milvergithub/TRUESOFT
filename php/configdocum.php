@@ -2,7 +2,7 @@
 include 'clases/GestionDocumentos.php';
     
     $gestion = new GestionDocumentos();
-    $codConv = 1;
+    $codc=$gestion->dameUltimaConvocatoria();
 ?>
 
     <h2>
@@ -12,7 +12,7 @@ include 'clases/GestionDocumentos.php';
     <div class="container container-fluid">
            <div class="">
             <?php 
-                $gestion->darDocumentosConfiguracion($codConv, $_SESSION['coduser']);
+                $gestion->darDocumentosConfiguracion($codc, $_SESSION['coduser']);
             ?>
            </div>
         </div>

@@ -77,7 +77,7 @@ if(isset($_REQUEST[md5("registro")])){
             if (isset($_REQUEST['crearconv'])) {
                require_once './php/crearConvocatoria.php';
             }
-            if (isset($_REQUEST['configuracionadmin'])) {
+            if (isset($_REQUEST['configuracionadminhoradocente'])||(isset($_REQUEST['configuracionadminestadodoc']))) {
                require_once 'php/configadmin.php';
             }
             if (isset($_REQUEST['configuraciondoc'])) {
@@ -94,6 +94,12 @@ if(isset($_REQUEST[md5("registro")])){
             }
             if (isset($_REQUEST['creargrupo'])) {
                require_once './php/crearGrupos.php';
+            }
+            if (isset($_REQUEST['editardocumentolectura'])) {
+               require_once './update/updateDocumentoLectura.php';
+            }
+            if (isset($_REQUEST['editardocumentoentrega'])) {
+               require_once './update/updateDocumentosEntrega.php';
             }
             ?>
          <?php

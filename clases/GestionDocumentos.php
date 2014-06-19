@@ -15,10 +15,17 @@ class GestionDocumentos {
          echo '<option value="'.$regDDTP['codigo'].'">'.$regDDTP['nombre'].'</option>';
       }
    }
-   function verificarLimiteEntregaDocumentos($codUser) {
+   function verificarLimiteEntregaPropuesta($codUser) {
       $resultadoVLED=  $this->conexion->verificarFechaLimiteEntrega($codUser);
       while ($regVLED = pg_fetch_assoc($resultadoVLED)) {
          $resVLED=$regVLED['limite'];
+      }
+      return $resVLED;
+   }
+   function verificarLimiteEntregaDocumentacion($codUser) {
+      $resultadoVLED=  $this->conexion->dameFechaLimiteEntregaDocumentacion($codUser);
+      while ($regVLED = pg_fetch_assoc($resultadoVLED)) {
+         $resVLED=$regVLED['fechalim'];
       }
       return $resVLED;
    }
@@ -59,7 +66,7 @@ class GestionDocumentos {
                <a href="'.$regDTDCA['ruta'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-download-alt"></span></a>
             </td>
             <td>
-               <a href="update/updateDocumentosEntrega.php?nombre='.$regDTDCA['nombre'].'&tipo='.$regDTDCA['tipo'].'&nota='.$regDTDCA['nota'].'&ruta='.$regDTDCA['ruta'].'" 
+               <a href="index.php?editardocumentoentrega&nombre='.$regDTDCA['nombre'].'&tipo='.$regDTDCA['tipo'].'&nota='.$regDTDCA['nota'].'&ruta='.$regDTDCA['ruta'].'" 
                class="btn btn-link">Editar <span class="glyphicon glyphicon-edit"></span></a>
             </td>
          </tr>';
@@ -96,7 +103,7 @@ class GestionDocumentos {
                          <a href="'.$regDTDL['rutadoc'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-download-alt h4"></span></a>
                      </td>
                      <td>
-                         <a href="update/updateDocumentoLectura.php?nombre='.$regDTDL['nombdoc'].'&ruta='.$regDTDL['rutadoc'].'" 
+                         <a href="index.php?editardocumentolectura&nombre='.$regDTDL['nombdoc'].'&ruta='.$regDTDL['rutadoc'].'" 
                          class="btn btn-link">Editar <span class="glyphicon glyphicon-edit h4"></span></a>
                      </td>
                  </tr>';

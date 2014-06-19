@@ -2,7 +2,7 @@
     include 'clases/GestionDocumentos.php';
     
     $gestion = new GestionDocumentos();
-    $codEmp = 1;    
+    $codEmp =$_POST['codEmp'];    
 ?>
 <h2>Evaluacion Grupal De La Empresa</h2>
     

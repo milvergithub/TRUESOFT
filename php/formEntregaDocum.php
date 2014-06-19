@@ -7,7 +7,7 @@
    <div class="container container-fluid">
        <div class="">
         <?php
-        if ($gest->verificarLimiteEntregaDocumentos($_SESSION['coduser'])=='t') {
+        if ($gest->verificarLimiteEntregaDocumentacion($_SESSION['coduser'])=='t') {
            $codConv=$gest->obtenerCodigoConvocatoriaLimiteEntreDoc($_SESSION['coduser']);
            $gest->dameTodoDocumentoSubidaDumentacion($codConv);
         }

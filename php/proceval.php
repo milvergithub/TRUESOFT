@@ -2,6 +2,7 @@
 require '../clases/ConexionTIS.php';
 //cantidad de registros a llenar
 $cantidad=$_POST['cantidad'];
+$codtipo=$_POST['tipo'];
 
 $codIntegrantes;
 $asistentes;
@@ -72,7 +73,7 @@ for($o=0;$o<$cantidad;$o++){
 }
 $conx=new ConexionTIS();
                        //( codint        , asist     , lic     , justf        , part         , nt  , obs)
-$conx->evaluarIntegrantes($codIntegrantes,$asistentes,$licencia,$participacion,$justificacion,$nota,$observacion,$cantidad,$_POST['codEmp']);
+$conx->evaluarIntegrantes($codIntegrantes,$asistentes,$licencia,$participacion,$justificacion,$nota,$observacion,$cantidad,$_POST['codEmp'],$codtipo);
 
 header("Location:../index.php?seguimiento");
 
