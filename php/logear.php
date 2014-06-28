@@ -3,7 +3,7 @@ session_start();
 include '../clases/Acceso.php';
 $usuario=$_POST['usuario'];
 $pass=$_POST['pass'];
-$acceso=new Acceso($usuario, $pass);
+$acceso=new Acceso(trim($usuario), trim($pass));
 if ($acceso->existeUsuario()) {
     $_SESSION['coduser']=$acceso->getCodUsuario();
     $_SESSION['nombreUsuario']=$acceso->getNombreUsuario($acceso->getCodUsuario());

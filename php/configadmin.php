@@ -8,7 +8,7 @@
    if (isset($_REQUEST['configuracionadminhoradocente'])) {
    ?>
    <ul class="nav nav-tabs nav-justified">
-      <li class="active"><a href="index.php?configuracionadminhoradocente"><span class="glyphicon glyphicon-calendar"></span>Horarios</a></li>
+      <li class="active"><a href="index.php?configuracionadminhoradocente"><span class="glyphicon glyphicon-calendar"></span><b>Horarios</b></a></li>
       <li><a href="index.php?configuracionadminestadodoc"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Docentes</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Representantes</a></li>
    </ul>
@@ -25,7 +25,7 @@
    if (isset($_REQUEST['configuracionadminestadodoc'])) {
    ?>
    <ul class="nav nav-tabs nav-justified">
-      <li><a href="index.php?configuracionadminhoradocente"><span class="glyphicon glyphicon-calendar"></span>Horarios</a></li>
+      <li><a href="index.php?configuracionadminhoradocente"><span class="glyphicon glyphicon-calendar"></span><b>Horarios</b></a></li>
       <li class="active"><a href="index.php?configuracionadminestadodoc"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Docentes</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Representantes</a></li>
    </ul>

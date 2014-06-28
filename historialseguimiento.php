@@ -1,10 +1,9 @@
 <!-- cremos variables iniciales-->
 <?php
-    include './php/head.php';
     include 'clases/ConexionTIS.php';
     $conex = new ConexionTIS();
     
-    $codEmp =1; // para cambiar cod empresa
+    $codEmp =$_GET[md5("codEmpH")]; // para cambiar cod empresa
     
     $filas = $conex->getNroIntegrante($codEmp);  // estos son el nro de integrantes
     $columnas = $conex->getNroReuniones($codEmp); //estos son el nro de fechas
@@ -18,8 +17,7 @@
         </h1>
      
         <!--para el llenado y creacion de la tabla con cada componente -->
-    <form method="post" action="webforms.php" enctype="multipart/form-data">
-        <div class="form-group table-responsive">
+        <div class="form-group table-responsive panel panel-primary">
             <table class="table table-hover">
         	<tr>
                  <td>
@@ -84,7 +82,8 @@
                                             {
                                                 ?>
                                                 <td>
-                                                    <img src="img/image/ok.png" width="50" height="50"/>
+                                                   <span class="glyphicon glyphicon-ok-circle h3"></span>
+                                                   <img src="img/image/ok.png" width="50" height="50"/>
                                                 </td>
                                                 <?php
                                             }  
@@ -92,7 +91,8 @@
                                             {
                                                 ?>
                                                 <td>
-                                                    <img src="img/image/error.png" width="50" height="50"/>
+                                                   <span class="glyphicon glyphicon-remove-circle h3"></span>
+                                                    <!--<img src="img/image/error.png" width="50" height="50"/>-->
                                                 </td>
                                                 <?php
                                             }
@@ -111,6 +111,5 @@
         </table>
         </div>
 <br>    
-<a href="historialseguimiento.php">Volver atras</a>
-</form>    
+<a href="index.php?seguimiento" class="btn btn-primary"><span class="glyphicon glyphicon-backward"> Volver</span></a>   
         

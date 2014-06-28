@@ -12,8 +12,5 @@ $emp=new GrupoEmpresa();
 <section id="contenido" class="container">
  <?php
     $emp->getGrupoEmpresas($_SESSION['coduser']);
- if (isset($_REQUEST[md5("codEmpH")])) {
-    include 'historialseguimiento.php';
- }
  ?>
 </section>

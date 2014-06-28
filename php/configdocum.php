@@ -6,10 +6,10 @@ include 'clases/GestionDocumentos.php';
 ?>
 
     <h2>
-        ASIGNACION DE PUNTOS A CADA DOCUMENTO
+       <b>Asignacion de puntos a cada documento de propuesta(parte A, parte B)</b>
     </h2>
 <div>
-    <div class="container container-fluid">
+    <div class=" container container-fluid panel panel-default">
            <div class="">
             <?php 
                 $gestion->darDocumentosConfiguracion($codc, $_SESSION['coduser']);

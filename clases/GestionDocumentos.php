@@ -25,7 +25,7 @@ class GestionDocumentos {
    function verificarLimiteEntregaDocumentacion($codUser) {
       $resultadoVLED=  $this->conexion->dameFechaLimiteEntregaDocumentacion($codUser);
       while ($regVLED = pg_fetch_assoc($resultadoVLED)) {
-         $resVLED=$regVLED['fechalim'];
+         $resVLED=$regVLED['limite'];
       }
       return $resVLED;
    }
@@ -140,12 +140,13 @@ class GestionDocumentos {
    function darDocumentosConfiguracion($codConv, $codUsu) {
        $retsultDDC = $this->conexion->darDocumnetoSubir($codConv);
        while ($restDDC = pg_fetch_assoc($retsultDDC)) {
-           echo '<form  method="POST" action="php/subirConfiguracionDocumento.php" enctype="multipart/form-data">
+           echo '<form class="" method="POST" action="php/subirConfiguracionDocumento.php" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/iconos/iconoPDF.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
                      </div>
                      <div class="caption">
+                           <h3></h3>
                            <h3>'.$restDDC['nombdoc'].'</h3>
                            <h4>'.$restDDC['nombtip'].'</h4>
                            <input name="codigoDoc" type="hidden" value="'.$restDDC['coddoc'].'"/>
@@ -165,7 +166,7 @@ class GestionDocumentos {
    function evaluarArchivosEmpresa($codConv) {
        $retsultDTDS = $this->conexion->darDocumnetoSubir($codConv);
        while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
-           echo '<form  method="POST" action="subirEvaluacionArchivoEmpresa.php" enctype="multipart/form-data">
+           echo '<form class="" method="POST" action="subirEvaluacionArchivoEmpresa.php" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
@@ -293,10 +294,10 @@ class GestionDocumentos {
    {
        $retsultDTDS = $this->conexion->darDocumnetoSubirDocumentacion($codConv);
        while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
-           echo '<form  method="POST" action="php/subidaDocumentacion.php" enctype="multipart/form-data">
+           echo '<form  method="POST" action="upload/subidaDocumentacion.php" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
-                        <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
+                        <img src="img/iconos/documentacion.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
                      </div>
                      <div class="caption">
                         <h3>'.$restDTDS['nombdoc'].'</h3>
@@ -309,7 +310,7 @@ class GestionDocumentos {
                            <input name="nombreTip" type="hidden" value="'.$restDTDS['nombtip'].'" />
                            <input name="codigoConv" type="hidden" value="'.$codConv.'" />
                            <input name="codigoEmp" type="hidden" value="'.$codEmp.'" />    
-                           <input class="btn btn-primary btn-sm" name="archivo" type="file" size="35"/><br>
+                           <input class="btn btn-primary btn-sm" name="archivo" type="file" size="35"/>
                            <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
                         </p>
                      </div>

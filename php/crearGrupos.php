@@ -4,9 +4,9 @@
     <div class="form-group table-responsive panel panel-default"> 
         <table class="table table-hover" id="">
             <tr>
-               <td><span class="glyphicon">Numero Grupo</span></td>
-               <td>Docente <span class="glyphicon glyphicon"></span></td>
-               <td> Tipo De Usuario <span class="glyphicon glyphicon-user"></span></td>
+               <td><span class="glyphicon"><b>Numero Grupo</b></span></td>
+               <td><b>Docente</b><span class="glyphicon glyphicon"></span></td>
+               <td><b>Tipo De Usuario</b><span class="glyphicon glyphicon-user"></span></td>
             </tr>
             
             <?php include 'php/darGruposOcupados.php'; ?>
@@ -35,10 +35,10 @@
     <div class="row">
        <form  method="POST" action="php/subirGrupo.php" id="formularioCrearGrupo"  enctype="multipart/form-data" class="form col-lg-5">
           <div class="control-group">
-             <span class="glyphicon">Numero De Grupo :</span>  <br>
+             <span class=""><b>Numero De Grupo:</b></span>
             <input type="text" name="nrogrupo" id="nrogrupo" placeholder="numero grupo" class="form-control input-sm numerico">
           </div>
-          <input type="submit" name="subr" class="btn btn-primary navbar-right"> 
+          <input type="submit" name="subr" class="btn btn-primary navbar-right" value="crear grupo"> 
         </form>
     </div>
  </div>

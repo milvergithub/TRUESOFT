@@ -126,11 +126,10 @@ class  ConexionTIS
         while ($row = pg_fetch_assoc($resultado)) {
             
             ?><article style="background-image: url(<?php echo $row["logoemp"]; ?>)" class="grupo-empresa"><?php
-                    echo $row['grupodoc']."<br>";
-                    echo "<section class='centro'>".$row['nombreemp']."</section>";
+                    echo "<section class='centro'><h4>".$row['nombreemp']."</h4></section>";
                     echo '<article class="representante">'.$this->getRepresentante($row["codemp"]).'</article>';
                     if ($this->evaluado($row['codemp'])=='t') {
-                       echo '<a href="seguimiento.php?'.md5("codEmpH").'='.$row["codemp"].'" class="btn btn-success btn-sm btn-left" id="detallege">asistencias</a>';
+                       echo '<a href="index.php?'.md5("codEmpH").'='.$row["codemp"].'" class="btn btn-success btn-sm btn-left" id="detallege">asistencias</a>';
                        echo '<button class="btn btn-success btn-sm btn-right" id="detalle">evaluado</button>';
                     }
                     else{
@@ -655,6 +654,19 @@ class  ConexionTIS
         $sqlEG = "SELECT * FROM eliminargrupo(".$codGrup.");";
         $this->Insertar($sqlEG);
     }
+    /*::::::::::::::::::::::::::: BEGIN CONFIGURACION HORARIOS :::::::::::::::::::::::::::::::*/
+    function saveUpdateHorarioDiaHora($hora,$dia,$codHora,$grupo) {
+       $sqlSUHDH="SELECT * FROM guardar_horario_config('".$hora."','".$dia."',".$codHora.",".$grupo.")";
+       $this->Insertar($sqlSUHDH);
+    }
+    /*::::::::::::::::::::::::::: BEGIN OBTENER CONVOCATORIAS :::::::::::::::::::::::::::::::*/
+    function dameConvocatorias() {
+       $sqlDCV="SELECT * FROM dame_convocatorias()";
+       $resDCV=  $this->Consultas($sqlDCV);
+       return $resDCV;
+    }
+    /*::::::::::::::::::::::::::: FINAL OBTENER CONVOCATORIAS :::::::::::::::::::::::::::::::*/
+    
 }
 //fin clase conexion
 ?>

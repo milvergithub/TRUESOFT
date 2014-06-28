@@ -32,6 +32,24 @@ $(function(){
        });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+    $("#formularioEditDocLect").validate({
+       rules:{
+           nombre:{
+               required:true,
+               maxlength:30
+           },
+           archivo:{
+               required:true
+           }
+       } ,
+       messages:{
+
+       },
+       submitHandler:function(form){
+
+       }
+    });
+
     $("#formularioActualizarFechaLimitedocumentacion").validate({
         rules:{
             fechaNN:{

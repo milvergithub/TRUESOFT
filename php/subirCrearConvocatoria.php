@@ -21,8 +21,9 @@ $fecha=$_POST['fecha'];
         }
         else {
             $conex->insertarConvocatoria($nombre, $fechaInsert);
-            echo "<div class='alert alert-warning col-lg-8'>
-                    Convocatoria creada...
+            echo "<div class='alert alert-success col-lg-8'>
+                    Convocatoria creada...<br>
+                    <b>Actualizar para ver cambios...</b>
                   </div>";
         }
     }

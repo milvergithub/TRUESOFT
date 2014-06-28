@@ -27,7 +27,9 @@ include '../clases/RegistroTIS.php';
          if ($registroDoc->emailUnico($emailDoc)=='t') {
             $connec=new ConexionTIS();
             $connec->registrarUsuarioDoc($grupo, $usuariod, $pass, $nombresDoc." ".$apellidosDoc,$telefono,$emailDoc);
-            echo "Se registro en la base de datos";
+            echo "<div class='alert alert-success col-lg-8'>
+                     Se registro a un nuevo docente satisfactoriamente...
+                  </div>";
          }
          else{
             echo "<div class='alert alert-danger col-lg-8'>

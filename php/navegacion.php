@@ -7,35 +7,32 @@
      <span class="icon-bar"></span>
      <span class="icon-bar"></span>
      </button>
-     <a href="index.php" class="navbar-brand">TIS</a>
+     <a href="index.php" class="navbar-brand"><b>TIS</b></a>
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
      <ul class="nav navbar-nav navbar-left">
-        <li><a href="index.php"><span class="glyphicon glyphicon-home">Home</span></a></li>
+        <li><a href="index.php"><span class="glyphicon glyphicon-home h3"></span> Home</a></li>
         <li class="divider"></li>
         <li class="dropdown"><!--Menu grupo empresas-->
-         <a href="" class="dropdown-toggle" data-toggle="dropdown">Grupo Empresas<b class="caret"></b></a>
+           <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list h3"></span> Grupo Empresas<b class="caret"></b></a>
          <ul class="dropdown-menu">
             <?php
-            echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'">buscar</a></li>';
+            echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'"><span class="glyphicon glyphicon-search"></span> buscar</a></li>';
             
             if ($_SESSION['coduser']!=NULL) {
                if ($_SESSION['nombreRol']=="administrador") {
-                  echo '<li><a href="index.php?registrodocentes">Registrar docente</a></li>';
-                  echo '<li><a href="index.php?creardocumentolectura">Crear documento</a></li>';
-                  echo '<li><a href="index.php?creardocumentoentrega">Crear entregables</a></li>';
-                  echo '<li><a href="index.php?crearconv">Crear Convocatoria</a></li>';
-                  echo '<li><a href="index.php?configuracionadminhoradocente">configuraciones</a></li>';
-                  echo '<li><a href="index.php?creargrupo">crear grupo</a></li>';
-                  echo '<li><a href="index.php?chat">Abrir chat</a></li>';
+                  echo '<li><a href="index.php?registrodocentes"><span class="glyphicon glyphicon-registration-mark"></span> Registrar docente</a></li>';
+                  echo '<li><a href="index.php?creardocumentolectura"><span class="glyphicon glyphicon-list-alt"></span> Crear documento lectura</a></li>';
+                  echo '<li><a href="index.php?creardocumentoentrega"><span class="glyphicon glyphicon-list-alt"></span> Crear documento entrega</a></li>';
+                  echo '<li><a href="index.php?crearconv"><span class="glyphicon glyphicon-plus"></span> Crear Convocatoria</a></li>';
+                  echo '<li><a href="index.php?creargrupo"><span class="glyphicon glyphicon-th"></span> Crear grupo docente</a></li>';
+                  echo '<li><a href="index.php?chat"><span class="glyphicon glyphicon-comment"></span> Abrir chat</a></li>';
                   echo '<li class="divider"></li>';
                }
                if ($_SESSION['nombreRol']=="docente") {
-                  echo '<li><a href="index.php?seguimiento">seguimiento</a></li>';
-                  echo '<li><a href="index.php?evaluararchivos">Evaluar Archivos</a></li>';
-                  echo '<li><a href="index.php?configuraciondoc">configuracion</a></li>';
-                  echo '<li><a href="index.php?configuraciondocum">configuracion documentos</a></li>';
-                  echo '<li><a href="index.php?chat">Abrir chat</a></li>';
+                  echo '<li><a href="index.php?seguimiento">Seguimiento semanal</a></li>';
+                  echo '<li><a href="index.php?evaluararchivos">Evaluar Archivos partes</a></li>';
+                  echo '<li><a href="index.php?chat"><span class="glyphicon glyphicon-comment"></span> Abrir chat</a></li>';
                }
                if ($_SESSION['nombreRol']=="representante") {
                   echo '<li><a href="php/controlEstado.php">registro empresa</a></li>';
@@ -46,20 +43,39 @@
             }
             ?>
          </ul>
+         <li class="dropdown"><!--Menu grupo empresas-->
+            <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog h3"></span> Settings<b class="caret"></b></a>
+         <ul class="dropdown-menu">
+            <?php
+            if ($_SESSION['coduser']!=NULL) {
+               if ($_SESSION['nombreRol']=="administrador") {
+                  echo '<li><a href="index.php?configuracionadminhoradocente"><span class="glyphicon glyphicon-wrench"></span> Configuraciones</a></li>';
+               }
+               if ($_SESSION['nombreRol']=="docente") {
+                  echo '<li><a href="index.php?configuraciondoc"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>';
+                  echo '<li><a href="index.php?configuraciondocum"><span class="glyphicon glyphicon-wrench"></span> Configuracion documentos</a></li>';
+                  echo '<li><a href="index.php?configuracionsemestral"><span class="glyphicon glyphicon-wrench"></span> Configuracion semestral</a></li>';
+               }
+               if ($_SESSION['nombreRol']=="representante") {
+               }
+            }
+            ?>
+         </ul>
+        </li>
         </li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
         <?php  
          if ($_SESSION['coduser']!=NULL){
-            echo '<li><a ><span class="glyphicon" style="color: cyan"> '.$_SESSION['nombreRol'].'</span></a></li>';
-            echo '<li><a ><span class="glyphicon glyphicon-user"> '.$_SESSION['nombreUsuario'].'</span></a></li>';
-            echo '<li><a href="php/salir.php">LoginOut <span class="glyphicon glyphicon-log-out"></span>&#x02007;&#x02007;&#x02007;&#8199;</a></li>';
+            echo '<li><a ><span class="glyphicon glyphicon-hand-right h3" style="color: cyan"></span> <b style="color: cyan">'.$_SESSION['nombreRol'].'</b></a></li>';
+            echo '<li><a ><span class="glyphicon glyphicon-user h3"></span>  '.$_SESSION['nombreUsuario'].'</a></li>';
+            echo '<li><a href="php/salir.php">LoginOut <span class="glyphicon glyphicon-log-out h3"></span>&#x02007;&#x02007;&#x02007;&#8199;</a></li>';
          }
          else{
-            echo '<li><a href="index.php?'.md5("registro").'">Registro</a></li>'; 
-            echo '<li><a href="" data-toggle="modal" data-target="#basicModal">LoginIn <span class="glyphicon glyphicon-log-in"></span> &#x02007;&#x02007;&#x02007;&#8199;</a></li>';
+            echo '<li><a href="index.php?'.md5("registro").'"><span class="glyphicon glyphicon-registration-mark h3"></span> Registro</a></li>'; 
+            echo '<li><a href="" data-toggle="modal" data-target="#basicModal">LoginIn <span class="glyphicon glyphicon-log-in h3"></span> &#x02007;&#x02007;&#x02007;&#8199;</a></li>';
          }
         ?>
      </ul>
   </div>
-</nav><br><br><br>
+</nav><br><br><br><br/><br/>

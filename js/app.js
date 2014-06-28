@@ -16,6 +16,10 @@ function init(){
    $("#fotos").change(function(){
      previsualizar(this);
    });
+   $('.carousel').carousel({
+	interval:3000
+   }); 
+    
 }
 function updateSMSChat(){
    setInterval(function(){
@@ -228,6 +232,11 @@ function clickParticipacion(num){
        observacion.disabled=false;
        licencia.checked=false;
    }
+}
+function mostrarMensaje(mensaje){
+   bootbox.alert(mensaje, function() {
+      
+   });
 }
 
 

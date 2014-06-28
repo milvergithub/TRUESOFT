@@ -6,6 +6,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="css/bootstrap.css">
    <link rel="stylesheet" href="css/chat.css">
+   
    <?php
    if (isset($_REQUEST['seguimiento'])) {
    ?>
@@ -19,7 +20,7 @@
    <script type="text/javascript" src="js/jquery.validate.js"></script>
    <script type="text/javascript" src="js/app.js"></script>
    <script type="text/javascript" src="js/validaciones.js"></script>
-       
+   <script type="text/javascript" src="js/bootbox.js"></script>
    <link rel="stylesheet" href="css/redmond/jquery-ui-1.10.4.custom.css"/>
    <link rel="stylesheet" href="css/calendario.css"/>
    <script src="js/jquery.ui.core.js"></script>

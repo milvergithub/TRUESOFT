@@ -1,11 +1,6 @@
 <?php
 session_start();
-if(isset ($_REQUEST[md5("errorlogin")])){
-    $errorlogin=TRUE;
-}
-if(isset($_REQUEST[md5("registro")])){
-   $registro=TRUE;
-}
+session_register('coduser');
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,41 +10,38 @@ if(isset($_REQUEST[md5("registro")])){
        include 'php/navegacion.php';
        ?>
       <div class="container container-fluid">
-        <div id="contenido" class="container">
+         <div id="contenido" class="container">  
            <?php
-            if ($errorlogin) {
+             if (isset($_REQUEST[md5("errorlogin")])) {
                ?>
              <div class='alert alert-danger col-lg-11'>
-               error de logeo no coinside el nombre de usuario con la contrasena vuelva intentarlo !!!
+                <b>error de logeo no coinside el nombre de usuario con la contrasena vuelva intentarlo !!!</b>
                <a href="" class="btn btn-link" data-toggle="modal" data-target="#basicModal">intentar otra vez</a>
              </div>
             <?php
             }
-            if ((isset($_REQUEST[md5("registroCompleto")]))||(isset($_REQUEST["registroEmpresa"])) || (isset($_REQUEST[md5('registroEmpresaIntegrantes')]))||(isset($_REQUEST["registroEmpresaHorario"])) || (isset($_REQUEST['RegistroEmpresaAIntegrantes']))) {
+            elseif((isset($_REQUEST[md5("registroCompleto")]))||(isset($_REQUEST["registroEmpresa"])) || (isset($_REQUEST[md5('registroEmpresaIntegrantes')]))||(isset($_REQUEST["registroEmpresaHorario"])) || (isset($_REQUEST['RegistroEmpresaAIntegrantes']))) {
                include 'php/registroGE.php';
             }
-            if ($registro) {
+            elseif(isset($_REQUEST[md5("registro")])) {
                include_once 'php/registro.php';
             }
-            if (isset($_REQUEST[md5("consultaNombreEmpresas")])) {
-               include_once 'php/consultaGE.php';
-            }
-            if (isset($_REQUEST["evaluararchivos"])) {
+            elseif(isset($_REQUEST["evaluararchivos"])) {
                include_once './php/EmpresasAEvaluar.php';
             }
-            if (isset($_REQUEST['propuestas'])) {
+            elseif(isset($_REQUEST['propuestas'])) {
                include_once 'php/formEntregaPropuesta.php';
             }
-            if (isset($_REQUEST['subirdocumentacion'])) {
+            elseif(isset($_REQUEST['subirdocumentacion'])) {
                include_once './php/formEntregaDocum.php';
             }
-            if (isset($_REQUEST['individual'])) {
+            elseif(isset($_REQUEST['individual'])) {
                include_once './php/evaluacionIndividualEmpresa.php';
             }
-            if (isset($_REQUEST['grupal'])) {
+            elseif(isset($_REQUEST['grupal'])) {
                include_once './php/evaluacionGrupalEmpresa.php';
             }
-            if (isset($_REQUEST['seguimiento'])) {
+            elseif(isset($_REQUEST['seguimiento'])) {
                if ($_SESSION['coduser']!=NULL) {
                   include_once 'php/seguimiento.php';
                }
@@ -57,7 +49,15 @@ if(isset($_REQUEST[md5("registro")])){
                   include_once './php/error.php';
                }
             }
-            if(isset($_GET[md5("codEmp")])){
+            elseif(isset($_REQUEST[md5("codEmpH")])) {
+               if (is_numeric($_GET[md5("codEmpH")])) {
+                  include_once './historialseguimiento.php';
+               }
+               else{
+                  include_once './php/error.php';
+               }
+            }
+            elseif(isset($_GET[md5("codEmp")])){
                if (is_numeric($_GET[md5("codEmp")])) {
                   include 'php/evaluarEmpresa.php';
                }
@@ -65,44 +65,57 @@ if(isset($_REQUEST[md5("registro")])){
                   include_once './php/error.php';
                }
             }
-            if (isset($_REQUEST['registrodocentes'])) {
+            elseif(isset($_REQUEST['registrodocentes'])) {
                require_once 'php/registroDoc.php';
             }
-            if (isset($_REQUEST['creardocumentolectura'])){
+            elseif(isset($_REQUEST['creardocumentolectura'])){
                require_once 'php/crearDocumento.php';
             }
-            if (isset($_REQUEST['creardocumentoentrega'])) {
+            elseif(isset($_REQUEST['creardocumentoentrega'])) {
                require_once './php/crearDocumentosEntrega.php';
             }
-            if (isset($_REQUEST['crearconv'])) {
+            elseif(isset($_REQUEST['crearconv'])) {
                require_once './php/crearConvocatoria.php';
             }
-            if (isset($_REQUEST['configuracionadminhoradocente'])||(isset($_REQUEST['configuracionadminestadodoc']))) {
+            elseif(isset($_REQUEST['configuracionadminhoradocente'])||(isset($_REQUEST['configuracionadminestadodoc']))) {
                require_once 'php/configadmin.php';
             }
-            if (isset($_REQUEST['configuraciondoc'])) {
+            elseif(isset($_REQUEST['configuraciondoc'])) {
                require_once './php/configdoc.php';
             }
-            if (isset($_REQUEST['configuraciondocum'])) {
+            elseif(isset($_REQUEST['configuraciondocum'])) {
                require_once './php/configdocum.php';
             }
-            if (isset($_REQUEST['chat'])) {
+            elseif(isset($_REQUEST['chat'])) {
                require_once './php/chatsms.php';
             }
-            if (isset($_REQUEST['formhorario'])) {
+            elseif(isset($_REQUEST['formhorario'])) {
                require_once './php/formAsignarHorario.php';
             }
-            if (isset($_REQUEST['creargrupo'])) {
+            elseif(isset($_REQUEST['creargrupo'])) {
                require_once './php/crearGrupos.php';
             }
-            if (isset($_REQUEST['editardocumentolectura'])) {
+            elseif(isset($_REQUEST['editardocumentolectura'])) {
                require_once './update/updateDocumentoLectura.php';
             }
-            if (isset($_REQUEST['editardocumentoentrega'])) {
+            elseif(isset($_REQUEST['editardocumentoentrega'])) {
                require_once './update/updateDocumentosEntrega.php';
+            }
+            elseif(isset($_REQUEST['configuracionsemestral'])) {
+               require_once './php/confsemest.php';
+            }
+            
+            elseif(isset($_REQUEST[md5("consultaNombreEmpresas")])) {
+               include_once 'php/consultaGE.php';
+            }
+            
+            //finale else
+            else {
+               include_once './inc/inicio.html';
             }
             ?>
          <?php
+            //include_once './inc/inicio.html';
             include 'php/loginModal.php';
          ?>  
         </div>

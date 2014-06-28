@@ -34,12 +34,13 @@ body{
    margin: 0px;
 }
 section[class=centro]{
-    margin: 0px;
+    margin:0px;
     margin-bottom: 0px;
     margin-top: 0px;
     padding: 0px;
     width: 200px;
     height: 100px;
+    color: #f5ffff;
 }
 .grupo-empresa{
     

@@ -37,35 +37,35 @@ class config
                   <td>
                       '.$reg['nombre'].'
                   <input type="hidden" name="codhora" value="'.$reg['cod_hora'].'">
-
+                  <input type="hidden" name="grupo" value="'.$reg['grupo'].'">
                   </td>
                   <td>
                       '.$reg['grupo'].'
                   </td>
                   <td>
                      <select class="form-control col-lg-6" name="dia">
-                      <option selected>'.$reg['dia'].'</option>
-                      <option >lunes</option>
-                      <option >martes</option>
-                      <option >miercoles</option>
-                      <option >jueves</option>
-                      <option >viernes</option>
-                      <option >sabado</option>
+                      <option value="'.$reg['dia'].'" selected>'.$reg['dia'].'</option>
+                      <option value="lunes" >lunes</option>
+                      <option value="martes">martes</option>
+                      <option value="miercoles">miercoles</option>
+                      <option value="jueves">jueves</option>
+                      <option value="viernes">viernes</option>
+                      <option value="sabado">sabado</option>
                   </select>
                       </td>
                   <td>
                   <select class="form-control" name="hora">
-                     <option selected>'.$reg['hora'].'</option>
-                     <option >06:45:00 - 08:15:00</option>
-                     <option >08:15:00 - 09:45:00</option>
-                     <option >09:45:00 - 11:15:00</option>
-                     <option >11:15:00 - 12:45:00</option>
-                     <option >12:45:00 - 14:15:00</option>
-                     <option >14:15:00 - 15:45:00</option>
-                     <option >15:45:00 - 17:15:00</option>
-                     <option >17:15:00 - 18:45:00</option>
-                     <option >18:45:00 - 20:15:00</option>
-                     <option >20:15:00 - 21:45:00</option>
+                     <option value="'.$reg['hora'].'" selected>'.$reg['hora'].'</option>
+                     <option value="06:45:00">06:45:00 - 08:15:00</option>
+                     <option value="08:15:00">08:15:00 - 09:45:00</option>
+                     <option value="09:45:00">09:45:00 - 11:15:00</option>
+                     <option value="11:15:00">11:15:00 - 12:45:00</option>
+                     <option value="12:45:00">12:45:00 - 14:15:00</option>
+                     <option value="14:15:00">14:15:00 - 15:45:00</option>
+                     <option value="15:45:00">15:45:00 - 17:15:00</option>
+                     <option value="17:15:00">17:15:00 - 18:45:00</option>
+                     <option value="18:45:00">18:45:00 - 20:15:00</option>
+                     <option value="20:15:00">20:15:00 - 21:45:00</option>
                   </select>
                   </td>
                   <td>

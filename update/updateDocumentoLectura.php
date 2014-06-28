@@ -21,7 +21,7 @@
       </div>
       <div class="control-group">
          <span class="label label-default">subir nuevamente</span>
-         <input type="file" class="btn btn-primary btn-sm" name="archivo"/>
+         <input type="file" class="btn btn-primary btn-sm" name="archivo" id="archivo"/>
       </div>
       <br/>
       <input type="submit" value="Modificar" class="btn btn-primary"/>
