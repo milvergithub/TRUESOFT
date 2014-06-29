@@ -1,17 +1,9 @@
 
-<h2>
-    <b>
-        Configuracion Semestral
-    </b>
-</h2>
-
-<h4>
-    <b>
-        Configuracion De Nro. De Integrantes Para Cada Grupo
-    </b>
-</h4>
-
-<div class="table table-responsive">
+<div class="table table-responsive panel panel-default panelaso">
+   <div class="panel titulo">
+      <h2><b>Configuracion Semestral</b></h2>
+      <h4><b>Configuracion De Nro. De Integrantes Para Cada Grupo</b></h4>
+   </div>
     <form>
         <table class=" table table-hover">
             <tr>

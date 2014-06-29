@@ -2,8 +2,9 @@
         include 'clases/config.php';
         $conf = new config();
     ?> 
-    <h1>Configuracion</h1>
-<div class="form-horizontal">
+<div class="panel panelaso col-lg-12">
+   <h3 class="subtitulo panel"> Configuracion</h3>
+<div class="form-horizontal col-lg-12">
    <div class="well container container-fluid col-lg-6">
       <div id="mensajeNumeroRevisiones">
          <div class="alert alert-info">
@@ -58,7 +59,4 @@
       </table>
     </div>
     </div>
-    
-    
-    
-    
+</div>

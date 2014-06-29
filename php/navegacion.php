@@ -17,8 +17,8 @@
            <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list h3"></span> Grupo Empresas<b class="caret"></b></a>
          <ul class="dropdown-menu">
             <?php
-            echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'"><span class="glyphicon glyphicon-search"></span> buscar</a></li>';
-            
+            echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'"><span class="glyphicon glyphicon-search"></span> buscar nombre empresas</a></li>';
+            echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'"><span class="glyphicon glyphicon-download"></span> bajar archivos convocatoria</a></li>';
             if ($_SESSION['coduser']!=NULL) {
                if ($_SESSION['nombreRol']=="administrador") {
                   echo '<li><a href="index.php?registrodocentes"><span class="glyphicon glyphicon-registration-mark"></span> Registrar docente</a></li>';
@@ -30,19 +30,20 @@
                   echo '<li class="divider"></li>';
                }
                if ($_SESSION['nombreRol']=="docente") {
-                  echo '<li><a href="index.php?seguimiento">Seguimiento semanal</a></li>';
-                  echo '<li><a href="index.php?evaluararchivos">Evaluar Archivos partes</a></li>';
+                  echo '<li><a href="index.php?seguimiento"><span class="glyphicon glyphicon-random"></span> Seguimiento semanal</a></li>';
+                  echo '<li><a href="index.php?evaluararchivos"><span class="glyphicon glyphicon-file"></span> Evaluar Archivos partes</a></li>';
                   echo '<li><a href="index.php?chat"><span class="glyphicon glyphicon-comment"></span> Abrir chat</a></li>';
                }
                if ($_SESSION['nombreRol']=="representante") {
-                  echo '<li><a href="php/controlEstado.php">registro empresa</a></li>';
-                  echo '<li><a href="index.php?propuestas">Subir Propuestas</a></li>';
-                  echo '<li><a href="index.php?subirdocumentacion">Subir Documentacion</a></li>';
-                  echo '<li><a href="index.php?chat">Abrir chat</a></li>';
+                  echo '<li><a href="php/controlEstado.php"><span class="glyphicon glyphicon-registration-mark"></span> registro empresa</a></li>';
+                  echo '<li><a href="index.php?propuestas"><span class="glyphicon glyphicon-upload"></span> Subir Propuestas</a></li>';
+                  echo '<li><a href="index.php?subirdocumentacion"><span class="glyphicon glyphicon-upload"></span> Subir Documentacion</a></li>';
+                  echo '<li><a href="index.php?chat"><span class="glyphicon glyphicon-comment"></span> Abrir chat</a></li>';
                }
             }
             ?>
          </ul>
+           
          <li class="dropdown"><!--Menu grupo empresas-->
             <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog h3"></span> Settings<b class="caret"></b></a>
          <ul class="dropdown-menu">
@@ -52,9 +53,9 @@
                   echo '<li><a href="index.php?configuracionadminhoradocente"><span class="glyphicon glyphicon-wrench"></span> Configuraciones</a></li>';
                }
                if ($_SESSION['nombreRol']=="docente") {
-                  echo '<li><a href="index.php?configuraciondoc"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>';
-                  echo '<li><a href="index.php?configuraciondocum"><span class="glyphicon glyphicon-wrench"></span> Configuracion documentos</a></li>';
-                  echo '<li><a href="index.php?configuracionsemestral"><span class="glyphicon glyphicon-wrench"></span> Configuracion semestral</a></li>';
+                  echo '<li><a href="index.php?configuraciondoc"><span class="glyphicon glyphicon-cog"></span> Configuracion</a></li>';
+                  echo '<li><a href="index.php?configuraciondocum"><span class="glyphicon glyphicon-cog"></span> Configuracion documentos</a></li>';
+                  echo '<li><a href="index.php?configuracionsemestral"><span class="glyphicon glyphicon-cog"></span> Configuracion semestral</a></li>';
                }
                if ($_SESSION['nombreRol']=="representante") {
                }

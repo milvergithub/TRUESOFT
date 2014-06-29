@@ -4,7 +4,7 @@
    </div>
    <form id="formularioCrearDocEntrega" class="form-group panel-info" method="post" enctype="multipart/form-data">
       <table class="table table-hover table-bordered table-condensed table-striped panel-default" id="tablaDocumentosPresentacion">
-         <caption class="caption panel-heading"><h4><b>CREAR DOCUMENTOS DE ENTREGA</b></h4></caption>
+         <caption class="caption titulo"><h4><b>CREAR DOCUMENTOS DE ENTREGA</b></h4></caption>
          <tr><th><span class="glyphicon glyphicon-file h3"></span></th><th>Nombre</th><th>tipo</th><th>calificacion</th><th>ejemplo<span class="glyphicon glyphicon-file h3"></span></th><th><span class="glyphicon glyphicon-download-alt h3"></span></th><th>editar</th></tr>         
          <?php include 'php/documentosEntrega.php'; ?>
          <tr>

@@ -6,7 +6,7 @@ else{
    $error=FALSE;
 }
 ?>
-<div class="container panel panel-info col-lg-12">
+<div class="container panel panel-info col-lg-12 panelaso">
    <?php
    if (isset($_REQUEST["registroEmpresaHorario"])) {
    ?>
@@ -102,7 +102,7 @@ else{
       <div class="" id="mensajeFormularioRegistroIntegrante">
 
       </div>
-      <label class="control-label"><h3 class="h2">Formulario Registros Integrantes</h3></label>
+      <label class="control-label subtitulo panel col-lg-8"><h3 class="h2">Formulario Registros Integrantes</h3></label>
       <form class="form well col-lg-8" method="post" id="formularioRegistroIntegrantes">
          <div class="control-group">
             <span class="">Nombres * :</span>

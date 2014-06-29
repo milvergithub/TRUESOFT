@@ -4,6 +4,7 @@ x.ready(inicio);
 function inicio(){
    init();
    updateSMSChat()
+   updateSMSForo();
    soloNumerosTelefono();
    buscador();
 }
@@ -26,9 +27,14 @@ function updateSMSChat(){
       updateSMS();
    },2000);
 }
+function updateSMSForo(){
+    setInterval(function(){
+        updateFORO();
+    },3000);
+}
 function updateSMS(){
    var dato =12;
-   $.ajax({ 
+   $.ajax({
       async:true,
       type: "POST",
       dataType: "html",
@@ -42,6 +48,22 @@ function updateSMS(){
 function llegadaChats(datos){
    $("#chat").html(datos);
    $("#chat").scrollTop($("#chat").height()*100);
+}
+function updateFORO(){
+    var dato =12;
+    $.ajax({
+        async:true,
+        type: "POST",
+        dataType: "html",
+        contentType: "application/x-www-form-urlencoded",
+        url:"php/obtenerForos.php",
+        data:dato,
+        beforeSend:inicioEnvio,
+        success:llegadaForos
+    });
+}
+function llegadaForos(datos){
+    $("#foro").html(datos);
 }
 function previsualizar(input){
   if (input.files && input.files[0]) {

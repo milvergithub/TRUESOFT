@@ -1,4 +1,4 @@
-<h2>Crear convocatoria</h2>
+<h2 class="titulo">Crear convocatoria</h2>
 <div>
    <div class="alert alert-info">
       <b>Ingrese el nombre de convocatoria,el nombre que ingrese sera el nombre 
@@ -24,7 +24,7 @@
        $resultado=$conexCov->dameConvocatorias();
        ?>
        <table class="table table-bordered table-striped table-condensed table-hover">
-          <caption class="caption h3"><b>Lista de convocatorias</b></caption>
+          <caption class="caption h3 subtitulo"><b>Lista de convocatorias</b></caption>
           <tr><th><b>nombre</b></th><th><b>fecha invitacion</b></th><th><b>fecha propuesta</b></th><th><b>gestion</b></th></tr>
           <?php
                  while ($regCV = pg_fetch_assoc($resultado)) {

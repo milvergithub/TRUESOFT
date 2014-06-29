@@ -1,6 +1,6 @@
 <div class="row">
    <div class="container container-fluid center-block">
-      <h2>Registro de Usuario-Docente</h2>
+      <h2 class="titulo">Registro de Usuario-Docente</h2>
       <h4>(*) Requerimientos importantes</h4>
       <div id="ok" class=" container container-fluid"></div>
       <form class="form-group col-md-8 col-lg-8 panel panel-body well" action="php/validarRegistroDoc.php" method="post" id="formularioRegistroDoc">

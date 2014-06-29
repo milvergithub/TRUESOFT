@@ -5,7 +5,7 @@
    <form  class="form-group" method="POST" enctype="multipart/form-data" id="formularioCrearDocLectura">
     <div class="form-group table-responsive"> 
         <table class="table table-bordered table-hover table-condensed table-striped panel-default" id="tablaDocumtosLectura">
-           <caption class="caption panel-heading"><h4><b>CREAR DOCUMENTOS DE LECTURA</b></h4></caption> 
+           <caption class="caption titulo"><h4><b>CREAR DOCUMENTOS DE LECTURA</b></h4></caption> 
             <tr>
                <th><span class="glyphicon glyphicon-file h3"></span></th>
                <th><span class="glyphicon"><b>Nombre</b></span></th>

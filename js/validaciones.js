@@ -32,6 +32,43 @@ $(function(){
        });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+    /*
+    * =================== PARA EL FORO DE LA PAGINA*/
+    $("#formularioForo").validate({
+        rules:{
+            contenidoForo:{
+                required:true,
+                maxlength:500
+            }
+        },
+        messagesForo:{
+            contenido:{
+                required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">escriba algo</p>',
+                maxlength:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">tamanio de contenido excedido</p>'
+            }
+        },
+        submitHandler:function(form){
+            var datoForo=new FormData();
+            datoForo.append("contenidoForo",$('#contenidoForo').val());
+            datoForo.append("anexo",$( '#anexo' )[0].files[0]);
+            $.ajax({
+                type: "POST",
+                url:"php/enviarForo.php",
+                enctype:'multipart/form-data',
+                data: datoForo,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeForoEnvio").html(data);
+                    $("#mensajeForoEnvio").show();
+                    $("#contenidoForo").val("");
+                }
+            });
+        }
+    });
+    /* =================== PARA EL FORO DE LA PAGINA*/
     $("#formularioEditDocLect").validate({
        rules:{
            nombre:{

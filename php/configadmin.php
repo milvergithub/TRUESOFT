@@ -14,7 +14,7 @@
    </ul>
    <div class="table-responsive">
       <table class="table table-bordered table-condensed table-hover table-striped">
-         <caption class="caption h4">Configuracion Horarios</caption>
+         <caption class="caption h4 subtitulo">Configuracion Horarios</caption>
          <tr> <th>Nombre Docente</th><th>Grupo</th><th>Dia</th><th>Hora</th><th></th></tr>
        <?php $conf->obtenerDatosDoc(); ?>
 
@@ -30,7 +30,7 @@
       <li><a href="#"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Representantes</a></li>
    </ul>
    <div class="table-responsive">
-      <h2>Habilitar/Deshabilitar Docentes</h2>
+      <h4 class="subtitulo caption">Habilitar/Deshabilitar Docentes</h4>
       <table class="table table-bordered table-condensed table-hover table-striped">
          <tr><th>Docente</th><th>Estado</th><th></th></tr>
          <?php $conf->obtenerEstDoc(); ?>

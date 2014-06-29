@@ -9,8 +9,8 @@ session_register('coduser');
        <?php
        include 'php/navegacion.php';
        ?>
-      <div class="container container-fluid">
-         <div id="contenido" class="container">  
+      <div class="">
+         <div id="contenido" class="">  
            <?php
              if (isset($_REQUEST[md5("errorlogin")])) {
                ?>

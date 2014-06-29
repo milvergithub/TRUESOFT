@@ -21,8 +21,11 @@
       
    </div>
    <form id="formularioForo" method="POST" class="well form form-inline col-lg-12 col-md-8 col-sm-12 col-xs-12">
-      <textarea class="form-control"></textarea>
-      <input type="file" class="btn btn-primary input-sm">
+      <input class="form-control col-lg-6" name="contenidoForo" id="contenidoForo"/>
+      <input type="file" class="btn btn-primary input-sm" name="anexo" id="anexo">
       <input type="submit" class="btn btn-primary" value="enviar">
    </form>
+   <div id="mensajeForoEnvio">
+      
+   </div>
 </div>

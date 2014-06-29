@@ -253,7 +253,6 @@ class  ConexionTIS
     // estas son mis funciones para la parte de vista general de la empresa ---------------------------------------------------
     function getIntegrantes($codemp)
     {
-        $resp;
         $cont=0;
         $resultadoResp= $this->Consultas("SELECT * FROM getintegr(".$codemp.");");
         //$resp = pg_affected_rows($resultadoResp);
@@ -272,7 +271,6 @@ class  ConexionTIS
 
     function getNroIntegrante($codemp)
     {
-        $resp;
         $resultadoResp= $this->Consultas("SELECT * FROM getNroIntegr(".$codemp.");");
         while ($reg = pg_fetch_assoc($resultadoResp)) {
             $resp=$reg['getnrointegr'];
@@ -282,7 +280,6 @@ class  ConexionTIS
     
     function getNroReuniones($codemp)
     {
-        $resp;
         $resultadoResp= $this->Consultas("SELECT * FROM getnroreuniones(".$codemp.");");
         while ($reg = pg_fetch_assoc($resultadoResp)) {
             $resp=$reg['getnroreuniones'];
@@ -292,7 +289,6 @@ class  ConexionTIS
     
     function  getFechaReuniones($codemp)
     {
-        $resp;
         $cont=0;
         $resultadoResp= $this->Consultas("SELECT * FROM getfechasreunion(".$codemp.");");
         while ($reg = pg_fetch_assoc($resultadoResp)) {
@@ -307,7 +303,6 @@ class  ConexionTIS
    
     function getCodIntegrant($codemp)
     {
-        $resp;
         $cont=0;
         $resultadoResp= $this->Consultas("SELECT * FROM darcodintegrante(".$codemp.");");
         //$resp = pg_affected_rows($resultadoResp);
@@ -321,7 +316,6 @@ class  ConexionTIS
     
     function getAsistXfecha($codinteg, $fech)
     {
-        $resp;
         $cont=0;
         $resultadoResp= $this->Consultas("SELECT * FROM getasistxfech(".$codinteg.", '".$fech."');");
         //$resp = pg_affected_rows($resultadoResp);
@@ -408,7 +402,6 @@ class  ConexionTIS
     
     function  getCodEmpresa($codrep)
     {
-        $resp;
         $cont=0;
         $resultadoResp= $this->Consultas("SELECT * FROM codigoscontratorep(".$codrep.");");
         //$resp = pg_affected_rows($resultadoResp);
@@ -438,7 +431,6 @@ class  ConexionTIS
     
     function  getFechaActual()
     {
-        $resp;
         $cont=0;
         $resultadoResp= $this->Consultas("SELECT * FROM getfechaactual();");
         //$resp = pg_affected_rows($resultadoResp);
@@ -592,7 +584,21 @@ class  ConexionTIS
        $resCDMA=  $this->Consultas($sqlCDMA);
        return $resCDMA;
     }
+    
+    /*:::::::::::::::::::     FORO     :::::::::::::::::::::::::::::::::::::::*/
+    function foroEnviarForo($coduser,$contenido,$archivo) {
+       $sqlFEF="SELECT * FROM guardar_foro(".$coduser.",'".$contenido."','".$archivo."')";
+       $this->Insertar($sqlFEF);
+    }
+    function foroDameForos(){
+        $sqlFDF="SELECT * FROM dame_foros()";
+        $resFDF=$this->Consultas($sqlFDF);
+        return $resFDF;
+    }
+    
     /*=========================  FINAL CHAT  =================================*/
+    
+    
     /*::::::::::::::::::::::::: BEGIN SETTINGS HORARIO :::::::::::::::::::::::*/
     function horarioSaveHorarioElegido($codgrupo,$hora,$dia) {
        $sqlHSE="SELECT * FROM crear_horarios( ".$codgrupo.", '".$hora."', '".$dia."')";

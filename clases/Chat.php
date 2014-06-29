@@ -50,6 +50,28 @@ class Chat {
          }
       }
    }
+   function obtenerForosActuales() {
+      $resultadoDFA=$this->conexionChat->foroDameForos();
+      while ($regForo = pg_fetch_assoc($resultadoDFA)) {
+         echo '<div class="col-lg-12 panel foro">
+                  <b><span class="glyphicon glyphicon-user"></span>'.$regForo['usuario'].'</b>'.$regForo['fecha'].' '.$regForo['hora'].'<br/> 
+                  '.$regForo['comentario'].'<br/>
+                     archivo anexo
+                     <span class="glyphicon glyphicon-hand-right h4"></span>
+                  '.$this->dameAnexoValido($regForo['anexo']).'
+               </div>
+               ';
+      }
+   }
+   function dameAnexoValido($param) {
+      if (trim($param)=="files/foro/archivoForo") {
+         return '<a class="btn btn-link" >Sin archivo <span class="glyphicon glyphicon-download-alt"></span></a>';
+      }
+      else{
+         return '<a class="btn btn-link" href="'.$param.'">Download <span class="glyphicon glyphicon-download-alt"></span></a>';
+      }
+   }
+   
 }
 ?>
 
