@@ -260,8 +260,65 @@ function mostrarMensaje(mensaje){
       
    });
 }
+function uploadPropuestas(id){
+    var datoDoc=new FormData();
+    datoDoc.append("codigoDoc",$('#codigoDoc'+id).val());
+    datoDoc.append("nombredoc",$('#nombredoc'+id).val());
+    datoDoc.append("codigoTipo",$('#codigoTipo'+id).val());
+    datoDoc.append("nombreTip",$('#nombreTip'+id).val());
+    datoDoc.append("archivo",$('#archivo'+id)[0].files[0]);
+    $.ajax({
+        type: "POST",
+        url:"upload/upload.php",
+        enctype:'multipart/form-data',
+        data: datoDoc,
+        cache: false,
+        contentType: false,
+        processData: false,
+        mimeType: 'multipart/form-data',
+        success: function(data){
+          $("#mensajeUploadDoc").html(data);
+          $("#mensajeUploadDoc").show();
+          bootbox.alert(data, function() {
+            
+          });
+        },
+        error: function(){
+          $("#mensajeUploadDoc").text("error")
+        }
+    });
+}
+function uploadDocumentacion(id){
+    var datoDoc=new FormData();
+    datoDoc.append("codigoDoc",$('#codigoDoc'+id).val());
+    datoDoc.append("nombredoc",$('#nombredoc'+id).val());
+    datoDoc.append("codigoGest",$('#codigoGest'+id).val());
+    datoDoc.append("codigoTipo",$('#codigoTipo'+id).val());
+    datoDoc.append("nombreTip",$('#nombreTip'+id).val());
+    datoDoc.append("codigoConv",$('#codigoConv'+id).val());
+    datoDoc.append("codigoEmp",$('#codigoEmp'+id).val());
+    datoDoc.append("archivo",$('#archivo'+id)[0].files[0]);
+    $.ajax({
+        type: "POST",
+        url:"upload/subidaDocumentacion.php",
+        enctype:'multipart/form-data',
+        data: datoDoc,
+        cache: false,
+        contentType: false,
+        processData: false,
+        mimeType: 'multipart/form-data',
+        success: function(data){
+            $("#mensajeUploadDocumentacion").html(data);
+            $("#mensajeUploadDocumentacion").show();
+            bootbox.alert(data, function() {
 
-
+            });
+        },
+        error: function(){
+            $("#mensajeUploadDocumentacion").text("error")
+        }
+    });
+}
 
 
 

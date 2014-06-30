@@ -1,22 +1,26 @@
-<h2 class="titulo">Crear convocatoria</h2>
-<div>
+<div class="titulo panel">
+   <h2 >Crear convocatoria</h2>
+</div>
+<div class="panel">
    <div class="alert alert-info">
       <b>Ingrese el nombre de convocatoria,el nombre que ingrese sera el nombre 
          de la convocatoria que se asignara para esta gestion ejemplo CPTIS-XX-XX</b>
    </div>
- <div class="container container-fluid">
-    <div class="row">
-       <form  method="POST" enctype="multipart/form-data" class="form col-sm-8 col-md-5 col-lg-5 panel panel-default" id="formularioCrearConvocatoria">
-          <span class="glyphicon"><b>Nombre Convocatoria :</b></span> 
-           <input type="text" name="nombreconv" placeholder="nombre convocatoria" class="form-control input-sm" id="nombreconv"><br>
-           <span class="glyphicon glyphicon-calendar"><b>Fecha Propuesta:</b></span>
-           <input type="text" id="fechai" name="fecha" value="" onfocus="entraFoco(this);" onblur="saleFoco(this);" class="form-control"/><br>
-           <input type="submit" name="subrirCrearConvocatoria" class="btn btn-primary navbar-right" value="crear"> 
+ <div class="container container-fluid"> 
+      <form method="POST" enctype="multipart/form-data" class="form col-sm-8 col-md-5 col-lg-5 panel panel-default" id="formularioCrearConvocatoria">
+         <br/>
+         <div class="panel titulo">
+            <h4>Formulario crear convocatoria</h4>
+         </div>
+         <span class="glyphicon"><b>Nombre Convocatoria :</b></span> 
+         <input type="text" name="nombreconv" placeholder="nombre convocatoria" class="form-control input-sm" id="nombreconv"><br>
+         <span class="glyphicon glyphicon-calendar"><b>Fecha Propuesta:</b></span>
+         <input type="text" id="fechai" name="fecha" value="" onfocus="entraFoco(this);" onblur="saleFoco(this);" class="form-control"/><br>
+         <input type="submit" name="subrirCrearConvocatoria" class="btn btn-primary navbar-right" value="crear"> 
        </form>
        <div class="" id="mensajeRegistroConvocatoria">
           
        </div>
-    </div>
     <div class="table-responsive panel panel-default">
        <?php
        require_once 'clases/ConexionTIS.php';

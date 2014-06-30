@@ -5,6 +5,7 @@
 <div class="col-lg-12 panel panelaso">
    <br/>
    <div class="panel titulo"><h2>Publicacion De Documentacion De La Empresa</h2></div>
+   <div id="mensajeUploadDocumentacion"></div>
       <div class="container container-fluid col-lg-12">
            <?php
            if ($gest->verificarLimiteEntregaDocumentacion($_SESSION['coduser'])=='t') {

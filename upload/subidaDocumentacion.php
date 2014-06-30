@@ -25,19 +25,13 @@ $conex = new ConexionTIS();
 if ($gestionArchEmp->validarExtensionArchivoDocumentacion($documento)==TRUE) {
     $gestionArchEmp->guardarDocumento($origen,$destino);//coduser,coddoc ,nombre, ruta, parte 
     $conex->insertarArchivosEmp($_SESSION['coduser'], $codigoDoc, $nombreDoc, $destinoreal,$nombreTipo);
-    echo '<script type="text/javascript">
-            alert("Archivo subido correctamente");
-          </script>';
-    echo '<script type="text/javascript">
-                  window.location="../index.php?subirdocumentacion";
-               </script>';
+    echo '<div class="alert alert-success">
+            Archivo subido correctamente...!!!
+         </div>';
 }
 else{
-    echo '<script type="text/javascript">
-            alert("error al copiar el archivo debe ser de formato .zip ...!!! o no subio ningun archivo...");
-          </script>';
-    echo '<script type="text/javascript">
-                  window.location="../index.php?subirdocumentacion";
-               </script>';
+   echo '<div class="alert alert-danger">
+            error al copiar el archivo debe ser de formato .zip ...!!! o no subio ningun archivo...
+         </div>';
 }
 ?>

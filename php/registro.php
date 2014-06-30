@@ -2,15 +2,17 @@
    include 'clases/RegistroTIS.php';
    $registro=new RegistroTIS();
 ?>
-<div class="container container-fluid">
+<div class="container container-fluid panel panelaso"><br/>
+   <div class="panel subtitulo">
       <h1>Registro de Usuario-Estudiante</h1>
       <h4>(*) Requerimientos importantes</h4>
+   </div>
       <?php
       ?>
       <div class="" id="mensajeRegistroRepresentante">
 
       </div>
-      <form class="form-group col-lg-8 well"  method="post" id="formularioRegistroRep">
+      <form class="form-group col-lg-6 well"  method="post" id="formularioRegistroRep">
          <div class="control-group">
             <span class="glyphicon glyphicon-user">Usuario:</span>  
             <input class="form-control input-sm" type="text" name="nombreuser" id="nombreuser"/>

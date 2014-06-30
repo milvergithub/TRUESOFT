@@ -6,11 +6,11 @@ else{
    $error=FALSE;
 }
 ?>
-<div class="container panel panel-info col-lg-12 panelaso">
+<div class="panel panel-info col-lg-12 panelaso">
    <?php
    if (isset($_REQUEST["registroEmpresaHorario"])) {
    ?>
-   <div class="container container-fluid col-lg-12">
+   <div class="col-lg-12">
       <ul class="pager">
          <li class="previous"><a href="">Grupo Empresa &rarr;</a></li>
          <li class="previous"><a href="index.php?RegistroEmpresaAIntegrantes">&numsp;Integrantes  &rarr;&numsp;&numsp;</a></li>
@@ -51,7 +51,7 @@ else{
    }
    if(isset($_REQUEST[md5('registroCompleto')])){
    ?>
-   <div class="container container-fluid">
+   <div class="">
       <ul class="pager">
          <li class="previous"><a href="">Grupo Empresa &rarr;</a></li>
          <li class="previous"><a href="">&numsp;Integrantes  &rarr;&numsp;&numsp;</a></li>
@@ -71,7 +71,7 @@ else{
    }
    if ((isset($_REQUEST['RegistroEmpresaAIntegrantes']))){
       ?>
-   <div class="container container-fluid col-lg-12">
+   <div class="col-lg-12">
       <ul class="pager">
          <li class="previous"><a href="">Grupo Empresa &rarr;</a></li>
          <li class="previous disabled"><a >&#32;Integrantes  &rarr;&#32;&#32;</a></li>

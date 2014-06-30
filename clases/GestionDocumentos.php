@@ -113,8 +113,10 @@ class GestionDocumentos {
    function  dameTodoDocumentoSubida($codConv)
    {
        $retsultDTDS = $this->conexion->darDocumnetoSubir($codConv);
+       $contador=1;
+       //action="upload/upload.php"
        while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
-           echo '<form method="POST" action="php/upload.php" enctype="multipart/form-data">
+           echo '<form method="POST" action="javascript:uploadPropuestas('.$contador.')" enctype="multipart/form-data">
                   <div class="well col-xs-8 col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/iconos/iconoPDF1.png" class="img-rounded col-xs-8 col-sm-12 col-md-10" alt="Generic placeholder thumbnail"/>
@@ -123,16 +125,17 @@ class GestionDocumentos {
                         <h3>'.$restDTDS['nombdoc'].'</h3>
                         <p>'.$restDTDS['nombtip'].'.</p>
                         <p>
-                           <input name="codigoDoc" type="hidden" value="'.$restDTDS['coddoc'].'"/>
-                           <input name="nombredoc" type="hidden" value="'.$restDTDS['nombdoc'].'"/>
-                           <input name="codigoTipo" type="hidden" value="'.$restDTDS['codtip'].'" />
-                           <input name="nombreTip" type="hidden" value="'.$restDTDS['nombtip'].'" />
-                           <input class="btn btn-primary btn-sm" name="archivo" type="file"/>
-                           <input class="btn btn-primary " name="enviar" type="submit" value="Subir" />
+                           <input name="codigoDoc'.$contador.'" id="codigoDoc'.$contador.'" type="hidden" value="'.$restDTDS['coddoc'].'"/>
+                           <input name="nombredoc'.$contador.'" id="nombredoc'.$contador.'" type="hidden" value="'.$restDTDS['nombdoc'].'"/>
+                           <input name="codigoTipo'.$contador.'" id="codigoTipo'.$contador.'" type="hidden" value="'.$restDTDS['codtip'].'" />
+                           <input name="nombreTip'.$contador.'" id="nombreTip'.$contador.'" type="hidden" value="'.$restDTDS['nombtip'].'" />
+                           <input class="btn btn-primary btn-sm" name="archivo'.$contador.'" id="archivo'.$contador.'" type="file"/>
+                           <input type="submit" value="subir" class="btn btn-primary input-sm" />
                         </p>
                      </div>
                   </div>
                </form>';
+           $contador=$contador+1;
        }
    }
    
@@ -293,29 +296,31 @@ class GestionDocumentos {
    function  dameTodoDocumentoSubidaDumentacion($codConv)
    {
        $retsultDTDS = $this->conexion->darDocumnetoSubirDocumentacion($codConv);
-       while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
-           echo '<form  method="POST" action="upload/subidaDocumentacion.php" enctype="multipart/form-data">
-                  <div class="col-sm-4 col-md-3">
+       $contador=1;
+       while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {//action="javascript:uploadDocumentacion('.$contador.')"
+           echo '<form  method="POST" action="javascript:uploadDocumentacion('.$contador.')" enctype="multipart/form-data">
+                  <div class="col-xs-6 col-sm-4 col-md-3">
                      <div class="thumbnail">
-                        <img src="img/iconos/documentacion.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
+                        <img src="img/iconos/documentacion.png" class="img-rounded col-xs-12 col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
                      </div>
                      <div class="caption">
                         <h3>'.$restDTDS['nombdoc'].'</h3>
                         <p>'.$restDTDS['nombtip'].'.</p>
                         <p>
-                           <input name="codigoDoc" type="hidden" value="'.$restDTDS['coddoc'].'"/>
-                           <input name="nombredoc" type="hidden" value="'.$restDTDS['nombdoc'].'"/>
-                           <input name="codigoGest" type="hidden" value="'.$restDTDS['codgest'].'"/>
-                           <input name="codigoTipo" type="hidden" value="'.$restDTDS['codtip'].'" />
-                           <input name="nombreTip" type="hidden" value="'.$restDTDS['nombtip'].'" />
-                           <input name="codigoConv" type="hidden" value="'.$codConv.'" />
-                           <input name="codigoEmp" type="hidden" value="'.$codEmp.'" />    
-                           <input class="btn btn-primary btn-sm" name="archivo" type="file" size="35"/>
+                           <input name="codigoDoc'.$contador.'" id="codigoDoc'.$contador.'" type="hidden" value="'.$restDTDS['coddoc'].'"/>
+                           <input name="nombredoc'.$contador.'" id="nombredoc'.$contador.'" type="hidden" value="'.$restDTDS['nombdoc'].'"/>
+                           <input name="codigoGest'.$contador.'" id="codigoGest'.$contador.'" type="hidden" value="'.$restDTDS['codgest'].'"/>
+                           <input name="codigoTipo'.$contador.'" id="codigoTipo'.$contador.'" type="hidden" value="'.$restDTDS['codtip'].'" />
+                           <input name="nombreTip'.$contador.'" id="nombreTip'.$contador.'" type="hidden" value="'.$restDTDS['nombtip'].'" />
+                           <input name="codigoConv'.$contador.'" id="codigoConv'.$contador.'" type="hidden" value="'.$codConv.'" />
+                           <input name="codigoEmp'.$contador.'" id="codigoEmp'.$contador.'" type="hidden" value="'.$codEmp.'" />    
+                           <input name="archivo'.$contador.'" id="archivo'.$contador.'" type="file" class="btn btn-primary btn-sm" size="35"/>
                            <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
                         </p>
                      </div>
                   </div>
                </form>';
+           $contador=$contador+1;
        }
    }
    //=================================================================================================================

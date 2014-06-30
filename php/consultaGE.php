@@ -1,8 +1,8 @@
-<div class="panel panel-primary">
-   <div class="panel panel-heading">
-      <h3 class="panel-title">FundaempresaTIS</h3>
+<div class="panel">
+   <div class="panel titulo">
+      <h3>FundaempresaTIS</h3>
    </div>
-   <div class="col-lg-8">
+   <div class="col-lg-6 navbar-right">
      <div class="input-group">
         <input id="buscador" type="text" class="form-control" placeholder="escriba un texto para buscar">
         <span class="input-group-btn">
@@ -12,8 +12,8 @@
    </div><br><br>
    <div  class="table-responsive">
      <table class="table table-hover table-bordered table-striped">
-        <caption class="caption h3">Empresas Registradas</caption> 
-        <tr><th class="col-lg-2">gestion</th><th class="col-lg-2">convocatoria</th><th class="col-lg-2">nombre</th><th>logo</th></tr>
+        <caption class="caption h3 subtitulo panel">Empresas Registradas</caption> 
+        <tr><th>gestion</th><th>convocatoria</th><th>nombre</th><th>logo</th></tr>
          <tbody id="tablaGE">
            <?php 
               include 'php/TablaGrupoEmpresas.php';

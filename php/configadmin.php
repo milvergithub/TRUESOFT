@@ -30,8 +30,8 @@
       <li><a href="#"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Representantes</a></li>
    </ul>
    <div class="table-responsive">
-      <h4 class="subtitulo caption">Habilitar/Deshabilitar Docentes</h4>
       <table class="table table-bordered table-condensed table-hover table-striped">
+         <caption class="caption h4 subtitulo">Habilitar/Deshabilitar Docentes</caption>
          <tr><th>Docente</th><th>Estado</th><th></th></tr>
          <?php $conf->obtenerEstDoc(); ?>
       </table>

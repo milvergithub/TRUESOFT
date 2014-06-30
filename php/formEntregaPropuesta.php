@@ -2,8 +2,11 @@
    include 'clases/GestionDocumentos.php';
    $gest = new GestionDocumentos();
 ?>
-<div class="container container-fluid panel panelaso"><br/>
-   <div class="panel titulo"><h2>Publicacion De Propuestas De La Empresa</h2></div>  
+<div class="panel panelaso"><br/>
+   <div class="panel titulo"><h2>Publicacion De Propuestas De La Empresa</h2></div>
+   <div id="mensajeUploadDoc">
+      
+   </div>
    <?php
      if ($gest->verificarLimiteEntregaPropuesta($_SESSION['coduser'])=='t') {
         $codConv=$gest->obtenerCodigoConvocatoriaLimiteEntreDoc($_SESSION['coduser']);

@@ -49,7 +49,7 @@ $(function(){
         },
         submitHandler:function(form){
             var datoForo=new FormData();
-            datoForo.append("contenidoForo",$('#contenidoForo').val());
+            datoForo.append("contenidoForo",$('textarea#contenidoForo').val());
             datoForo.append("anexo",$( '#anexo' )[0].files[0]);
             $.ajax({
                 type: "POST",
@@ -573,6 +573,9 @@ $(function(){
              success: function(data){
                  $("#mensajeRegistroConvocatoria").html(data);
                  $("#mensajeRegistroConvocatoria").show();
+                 bootbox.alert(data, function() {
+
+                 });
                  //$("#formid").hide();
              }
          });

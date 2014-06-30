@@ -1,9 +1,11 @@
 <div class="row">
    <div class="container container-fluid center-block">
-      <h2 class="titulo">Registro de Usuario-Docente</h2>
-      <h4>(*) Requerimientos importantes</h4>
+      <div class="panel titulo">
+         <h2>Registro de Usuario-Docente</h2>
+         <h4>(*) Requerimientos importantes</h4>
+      </div>
       <div id="ok" class=" container container-fluid"></div>
-      <form class="form-group col-md-8 col-lg-8 panel panel-body well" action="php/validarRegistroDoc.php" method="post" id="formularioRegistroDoc">
+      <form class="form-group col-md-7 col-lg-7 panel panel-body well" action="php/validarRegistroDoc.php" method="post" id="formularioRegistroDoc">
          <div class="control-group">
             <span class="glyphicon glyphicon-user">Usuario:</span>  
             <input class="form-control input-sm" type="text" name="nombreuser" id="nombreuser"/>  		
