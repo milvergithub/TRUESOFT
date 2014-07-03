@@ -12,18 +12,20 @@ $conex = new ConexionTIS();
   $archivo = $_FILES["archivo"]['name'];
   $origenDoc = $_FILES['archivo']['tmp_name'];
   $destino =  "../files/convocatorias/".$nombDoc.$codConv.".pdf";
-  $destinoReal="files/convocatorias/".$nombDoc.$codConv.".pdf";
-  echo 'nonbre anterior del archivoes: '.$archivo.'<br>';
-  echo 'docum= '.$nombDoc.'<br>';
-  echo 'prueba= '.$origenDoc.'<br>';
-  echo 'destino es: '.$destino.'<br>';
-  
+  $destinoReal="files/convocatorias/".$nombDoc.$codConv.".pdf"; 
   $esvalido = $gestion->validarExtensionArchivo($archivo);
   if($esvalido == TRUE){
       $gestion->guardarDocumento($origenDoc, $destino);
       $conex->subirDocumentos($codConv, $nombDoc, 0, 0, $destinoReal);
-      echo 'documento copiado con exito';
+      echo '<div class="alert alert-success">
+               Documento se subio con exito...
+            </div>';
     }else{
-        echo 'el formato del archivo no es pdf';
+        echo '<div class="alert alert-danger">
+               el formato del archivo no es PDF <br/>
+               o usted no subio ningun archivo...!!! 
+              </div>';
     }
 ?>
+
+

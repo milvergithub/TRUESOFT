@@ -6,7 +6,15 @@ function inicio(){
    updateSMSChat()
    updateSMSForo();
    soloNumerosTelefono();
+   sololetras();
    buscador();
+   
+   jQuery.validator.addMethod("lettersonly", function(value, element) {
+      return this.optional(element) || /^[ a-z]+$/i.test(value);
+   }, "Solo letras");
+    jQuery.validator.addMethod("lettersNumbersonly", function(value, element) {
+        return this.optional(element) || /^[ a-z 1-9]+$/i.test(value);
+    }, "Solo esta permitido letras y numeros");
 }
 function init(){
    $('input[type=file]').bootstrapFileInput();
@@ -167,6 +175,9 @@ function soloNumerosTelefono(){
    $("input[id^='nn']").keydown(soloNumeros);
    $(".numerico").keydown(soloNumeros);
    });
+}
+function sololetras(){
+   $(".campoNombres").validCampo(' abcdefghijklmnñopqrstuvwxyzáéiou');
 }
 function soloNumeros(event){
    if(event.shiftKey){

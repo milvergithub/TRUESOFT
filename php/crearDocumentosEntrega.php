@@ -35,14 +35,14 @@
                </div>
             </td>
             <td>
-               <input type="submit" class="btn btn-primary btn-sm"/>
+               <input type="submit" class="btn btn-primary btn-sm" value="crear documento"/>
             </td>
          </tr>
          
 
       </table>
    </form>
-   <div id="mensajeDocumentos">
+   <div id="mensajeDocumentos" class="col-lg-12">
       
    </div>
 </div>

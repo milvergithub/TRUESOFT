@@ -25,6 +25,7 @@
             <?php include 'php/darGruposDiponibles.php'; ?>
            
         </table>
+       <div id="mensajeGrupoCreado"></div>
     </div>     
 
 

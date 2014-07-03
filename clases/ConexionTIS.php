@@ -29,6 +29,13 @@ class  ConexionTIS
           pg_query($conex,$sql);
        }
     }
+    
+    /*:::::::::::::::::::: CONFIGURACION INICIAL DEL SISTEMA PARA ADMINISTRADOR ::::::::::::::::::*/
+    function settingsAdmin($cuenta,$pass,$nombres) {
+       $sqlSA="SELECT * FROM inicio_configuracion('".$cuenta."','".$pass."','".$nombres."')";
+       $this->Insertar($sqlSA);
+    }
+    /*:::::::::::::::::::: CONFIGURACION INICIAL DEL SISTEMA PARA ADMINISTRADOR ::::::::::::::::::*/
     function dameNombreRolUsuario($coduser){
         $sqlDNRU="SELECT * FROM  dame_nombre_rol(".$coduser.") AS nombrerol";
         $resDNRU=$this->Consultas($sqlDNRU);
@@ -93,6 +100,11 @@ class  ConexionTIS
       $sqlSRI="SELECT * FROM existeintegrantes(".$codemp.") AS existe";
       $resSRI=  $this->Consultas($sqlSRI);
       return $resSRI;
+    }
+    function siYaSeEligioHorario($codUser) {
+       $sqlSYEH="SELECT * FROM verificar_horario_elegido(".$codUser.") AS existe";
+       $resSYEH=  $this->Consultas($sqlSYEH);
+       return $resSYEH;
     }
     function getSimilarNombreEmpresa($cadena) {
       $sqlSNGE="SELECT * FROM similarnombrege('".$cadena."')";
@@ -672,6 +684,29 @@ class  ConexionTIS
        return $resDCV;
     }
     /*::::::::::::::::::::::::::: FINAL OBTENER CONVOCATORIAS :::::::::::::::::::::::::::::::*/
+    
+    
+    /*::::::::::::::::::::::::::: BEGIN OBTENER INICIO PANTALLA :::::::::::::::::::::::::::::*/
+    function inicioInfoEmpresas() {
+       $sqlIIE="SELECT * FROM dame_empresas_presentacion()";
+       $resIIE=  $this->Consultas($sqlIIE);
+       return $resIIE;
+    }
+    /*::::::::::::::::::::::::::: FINAL OBTENER INICIO PANTALLA :::::::::::::::::::::::::::::*/
+    
+    /*::::::::::::::::::::::::::: BEGIN REGISTRO HORARIO ELECCION :::::::::::::::::::::::::::::*/
+    function guardarHorarioElegido($codgrupo,$codhorario,$codhora,$coduser) {
+       $sqlGHE="SELECT * FROM guardar_horario_elegido(".$codgrupo.",".$codhorario.",".$codhora.",".$coduser.")";
+       $this->Insertar($sqlGHE);
+    }
+    
+    /*::::::::::::::::::::::::::: BEGIN REGISTRO HORARIO ELECCION :::::::::::::::::::::::::::::*/
+    /*:::::::::::::::::::::::::::      BEGIN SETTINGS SEMESTRAL    :::::::::::::::::::::::::::::*/
+    function configurarSemestre($codUsuDoc, $nroMax, $nroMin, $notaPres, $notaReun, $notaDocum, $notaDef, $notaFin) {
+        $sqlSC = "SELECT * FROM configurar_semestre(".$codUsuDoc.", ".$nroMax.", ".$nroMin.", ".$notaPres.", ".$notaReun.", ".$notaDocum.", ".$notaDef.", ".$notaFin.");";
+        $this->Insertar($sqlSC);
+    }
+    /*:::::::::::::::::::::::::::      BEGIN SETTINGS SEMESTRAL    :::::::::::::::::::::::::::::*/
     
 }
 //fin clase conexion

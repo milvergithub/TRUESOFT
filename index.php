@@ -1,6 +1,6 @@
 <?php
 session_start();
-session_register('coduser');
+//error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -111,7 +111,7 @@ session_register('coduser');
             
             //finale else
             else {
-               include_once './inc/inicio.html';
+               include_once './inc/inicio.php';
             }
             ?>
          <?php

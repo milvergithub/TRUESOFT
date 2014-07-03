@@ -26,6 +26,7 @@ class GrupoEmpresa {
               . '</tr>';
        }
     }
+    /*::::::::::::::::::::::::::::::::::::::::::::*/
     public function siYaRegistroEmpresa($codUser) {
        $resultadoSYRE=  $this->coneccion->siYaHizoUnRegistroEmpresa($codUser);
        while ($row = pg_fetch_assoc($resultadoSYRE)) {
@@ -47,6 +48,14 @@ class GrupoEmpresa {
        }
        return $resSRI;
     }
+    function siYaEligioHorario($codUser) {
+       $resultadoSEH=  $this->coneccion->siYaSeEligioHorario($codUser);
+       while ($regSEH = pg_fetch_assoc($resultadoSEH)) {
+          $resSEH=$regSEH['existe'];
+       }
+       return $resSEH;
+    }
+    /*::::::::::::::::::::::::::::::::::::::::::::*/
     public function getGrupoEmpresas($codus) {
         $codg=  $this->getCodGrupo($codus);
         $this->coneccion->getGruposDoc($codg);

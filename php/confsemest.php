@@ -4,7 +4,10 @@
       <h2><b>Configuracion Semestral</b></h2>
       <h4><b>Configuracion De Nro. De Integrantes Para Cada Grupo</b></h4>
    </div>
-    <form>
+   <div id="mensajeConfigSemestral">
+      
+   </div>
+   <form class="form" id="formularioSettingsSemestral" method="POST">
         <table class=" table table-hover">
             <tr>
                 <td>
@@ -16,21 +19,23 @@
             </tr>
             <tr>
                 <td>
-                   <input class="form-control" type="text" name="nromin" placeholder="nro. minimo"/> 
+                   <input class="form-control numerico" type="text" name="nromin" id="nromin" placeholder="nro. minimo"/> 
                 </td>
                 <td>
-                   <input class="form-control" type="text" name="nromin" placeholder="nro. maximo"/> 
+                   <input class="form-control numerico" type="text" name="nromax" id="nromax" placeholder="nro. maximo"/> 
                 </td>
                 
             </tr>
             
         </table>
     
+    
     <h4>
         <b>
             Configuracion De Primeras Presentaciones
         </b>
     </h4>
+    
         <table class=" table table-hover">
             <tr>
                 <td>
@@ -47,22 +52,24 @@
             
             <tr>
                 <td>
-                   <input class="form-control" type="text" name="nromin" placeholder="nota propuesta"/> 
+                   <input class="form-control numerico" type="text" name="notaPres" id="notaPres" placeholder="nota propuesta"/> 
                 </td>
                 <td>
-                   <input class="form-control" type="text" name="nromin" placeholder="nota reunion"/> 
+                   <input class="form-control numerico" type="text" name="notaReum" id="notaReum" placeholder="nota reunion"/> 
                 </td>
                 <td>
-                   <input class="form-control" type="text" name="nromin" placeholder="nota total"/> 
+                   <input class="form-control numerico" type="text" name="notaTotal" id="notaTotal" placeholder="nota total"/> 
                 </td>
             </tr>
             
         </table>
+    
     <h4>
         <b>
             Configuracion Segunda Presentacion
         </b>        
     </h4>
+    
         <table class=" table table-hover">
             <tr>
                 <td>
@@ -76,11 +83,11 @@
             
             <tr>
                 <td>
-                   <input class="form-control" type="text" name="nromin" placeholder="nota documentacion"/> 
+                   <input class="form-control numerico" type="text" name="notaDocum" id="notaDocum" placeholder="nota documentacion"/> 
                 </td>
                 <td>
-                   <input class="form-control" type="text" name="nromin" placeholder="nota defensa"/> 
-                </td>
+                   <input class="form-control numerico" type="text" name="notaDef" id="notaDef" placeholder="nota defensa"/> 
+                 </td>
             </tr>
             
         </table>

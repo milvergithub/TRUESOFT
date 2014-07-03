@@ -32,9 +32,116 @@ $(function(){
        });
     }
    /*VALIDACION DEL FORMULARIO CREAR DOCUMENTO DE ENTREGA  form[id^='formularioEvaluacionIndividual']*/
+
+    $("#formularioSettingsSemestral").validate({
+        rules:{
+            nromin:{
+                required:true,
+                number:true
+            },
+            nromax:{
+                required:true,
+                number:true
+            },
+            notaPres:{
+                required:true,
+                number:true
+            },
+            notaReum:{
+                required:true,
+                number:true
+            },
+            notaTotal:{
+                required:true,
+                number:true
+            },
+            notaDocum:{
+                required:true,
+                number:true
+            },
+            notaDef:{
+                required:true,
+                number:true
+            }
+        },
+        submitHandler:function(form){
+            var datoSetting=new FormData();
+            datoSetting.append("nromin",$('#nromin').val());
+            datoSetting.append("nromax",$('#nromax').val());
+            datoSetting.append("notaPres",$('#notaPres').val());
+            datoSetting.append("notaReum",$('#notaReum').val());
+            datoSetting.append("notaTotal",$('#notaTotal').val());
+            datoSetting.append("notaDocum",$('#notaDocum').val());
+            datoSetting.append("notaDef",$('#notaDef').val());
+            $.ajax({
+                type: "POST",
+                url:"update/subirConfSem.php",
+                enctype:'multipart/form-data',
+                data: datoSetting,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeConfigSemestral").html(data);
+                    $("#mensajeConfigSemestral").show();
+                }
+            });
+        }
+    });
     /*
     * =================== PARA EL FORO DE LA PAGINA*/
-    $("#formularioForo").validate({
+
+    $("#formularioSettings").validate({
+        rules:{
+            cuenta:{
+                required:true,
+                minlength:3,
+                maxlength:10,
+                lettersonly:true
+            },
+            nombres:{
+                required:true,
+                minlength:3,
+                maxlength:30,
+                lettersonly:true
+            },
+            pass:{
+                required:true,
+                minlength:5,
+                maxlength:16,
+                lettersNumbersonly:true
+            }
+        },
+        messages:{
+
+        },
+        submitHandler:function(form){
+            var datoSetting=new FormData();
+            datoSetting.append("cuenta",$('#cuenta').val());
+            datoSetting.append("nombres",$('#nombres').val());
+            datoSetting.append("pass",$('#pass').val());
+            $.ajax({
+                type: "POST",
+                url:"validateSettings.php",
+                enctype:'multipart/form-data',
+                data: datoSetting,
+                cache: false,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function(data){
+                    $("#mensajeSettings").html(data);
+                    $("#mensajeSettings").show();
+                    $("#cuenta").val("");
+                    $("#nombres").val("");
+                    $("#pass").val("");
+                }
+            });
+        }
+    });
+
+     $("#formularioForo").validate({
         rules:{
             contenidoForo:{
                 required:true,
@@ -73,7 +180,8 @@ $(function(){
        rules:{
            nombre:{
                required:true,
-               maxlength:30
+               maxlength:30,
+               lettersonly:true
            },
            archivo:{
                required:true
@@ -164,7 +272,8 @@ $(function(){
             nrogrupo:{
                 required:true,
                 number:true,
-                maxlength:3
+                maxlength:3,
+                lettersNumbersonly:true
             }
         },
         messages:{
@@ -189,6 +298,7 @@ $(function(){
                 success: function(data){
                     $("#tablagruposLibres").html(data);
                     $("#tablagruposLibres").show();
+                    document.location.reload(true);
                 }
             });
         },
@@ -280,7 +390,8 @@ $(function(){
             nombreGE:{
                 required:true,
                 minlength:3,
-                maxlength:30
+                maxlength:30,
+                lettersNumbersonly:true
             }
         },
         submitHandler:function(form){
@@ -368,7 +479,8 @@ $(function(){
            nombres:{
                required:true,
                minlength:3,
-               maxlength:25
+               maxlength:25,
+               lettersonly:true
            },
            carnets:{
                required:true,
@@ -441,10 +553,12 @@ $(function(){
         }
 
     });
+
     $("#formularioRegistroRep").validate({
        rules:{
            nombreuser: {
                required:true,
+               lettersonly:true,
                minlength:3,
                maxlength:25
            },
@@ -453,16 +567,19 @@ $(function(){
            },
            nombres:{
                required:true,
+               lettersonly:true,
                minlength:3,
                maxlength:25
            },
            apellidos:{
                required:true,
+               lettersonly:true,
                minlength:3,
                maxlength:25
            },
            password:{
                required:true,
+               lettersNumbersonly:true,
                minlength:3,
                maxlength:16
            },
@@ -593,7 +710,8 @@ $(function(){
          nombredoc:{
             required:true,
             minlength:3,
-            maxlength:25
+            maxlength:25,
+            lettersNumbersonly:true
          },
          archivo:{
             required:true
@@ -626,6 +744,9 @@ $(function(){
                 success: function(data){
                     $("#mensajeDocumentosLectura").html(data);
                     $("#mensajeDocumentosLectura").show();
+                    bootbox.alert(data, function() {
+
+                    });
                     //$("#formid").hide();
                 }
             });
@@ -643,7 +764,8 @@ $(function(){
          nombre :{
             required:true,
             minlength:3,
-            maxlength:25
+            maxlength:25,
+            lettersNumbersonly:true
          },
          calificacion :{
              required:true,
@@ -691,6 +813,9 @@ $(function(){
              success: function(data){
                  $("#mensajeDocumentos").html(data);
                  $("#mensajeDocumentos").show();
+                 bootbox.alert(data, function(){
+
+                 });
              }
          });   
       },
@@ -708,17 +833,20 @@ $(function(){
          nombreuser :{
             required : true, //para validar campo vacio
             minlength : 3, //para validar campo con minimo 3 caracteres
-            maxlength : 15  //para validar campo con maximo 9 caracteres
+            maxlength : 15,  //para validar campo con maximo 9 caracteres
+            lettersonly:true
          },
          nombres :{
             required : true,
             minlength : 3, //para validar campo con minimo 3 caracteres
-            maxlength : 20  //para validar campo con maximo 9 caracteres
+            maxlength : 20,  //para validar campo con maximo 9 caracteres
+            lettersonly:true
          },
          apellidos :{
             required : true,
             minlength : 3, //para validar campo con minimo 3 caracteres
-            maxlength : 20  //para validar campo con maximo 9 caracteres
+            maxlength : 20,  //para validar campo con maximo 9 caracteres
+            lettersonly:true
          },
          nrogrupo :{
             required : true
@@ -726,7 +854,8 @@ $(function(){
          password :{
             required : true,
             minlength : 3, //para validar campo con minimo 3 caracteres
-            maxlength : 16  //para validar campo con maximo 9 caracteres
+            maxlength : 16,  //para validar campo con maximo 9 caracteres
+            lettersNumbersonly:true
          },
          emailDoc :{
             email    : true  //para validar formato email

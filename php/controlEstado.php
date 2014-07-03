@@ -16,7 +16,7 @@ else{
             </script>';
    }
    else{
-      if(true){//si todavia no eligio un horario//registroEmpresaHorario
+      if($empresa->siYaEligioHorario($_SESSION['coduser'])=="t"){//si todavia no eligio un horario//registroEmpresaHorario
          echo '<script type="text/javascript">
                   window.location="../index.php?registroEmpresaHorario";
                </script>';

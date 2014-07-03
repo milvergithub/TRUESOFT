@@ -18,16 +18,14 @@ $destinoReal="files/convocatorias/".$nombre.$codConv.".pdf";
 if ($origenDoc==NULL) {
    $destino="nulo";
 }
-echo 'nombre ='.$nombre."<br>";
-echo 'tipo ='.$tipos."<br>";
-echo 'calificacion ='.$nota."<br>";
-echo 'nombre Doc ='.$documento."<br>";
-
 if ($nota>=0) {
    if ($gestionDoc->verificarNombreDocUnicoConv($codConv, $nombre)=='t') {
       if ((($gestionDoc->dameTotalNota($codConv))+$nota)<=100) {
          $conexGD->subirDocumentos($codConv, $nombre,$_POST['tipo'] , $nota, $destinoReal);
          $gestion->guardarDocumento($origenDoc, $destino);
+         echo '<div class="alert alert-success col-lg-8">
+                  documentado creado con exito
+               </div>';
       }
       else{
          echo '<div class="alert alert-danger col-lg-8">

@@ -1,10 +1,30 @@
+.informacionEmpresa{
+   background-color: rgba(143, 0, 0, 0.71);
+}
+.informacionEmpresa:hover{
+    background-color: rgba(143, 0, 0, 0.90);
+}
+.nombreEmp{
+   color: #FDFCFA;
+}
+.nombreEmp:hover{
+    color: #faf2cc;
+}
+.imagenlogo{
+   width: 400px;
+   height: 400px;
+}
+.carouselogo{
+   margin: 0px;
+   padding: 0px;
+}
 .titulo{
-   background-color: #9a1818;
+   background-color: #2c4466;
    color: white;
    height: 20%;
 }
 .subtitulo{
-   background-color: #9a1818;
+   background-color: #4970a7;
    color: white;
    height: 10%;
 }

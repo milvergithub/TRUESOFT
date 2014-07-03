@@ -142,7 +142,6 @@ class config
                 <input type="hidden" name="codigoconv" value="'.$regDFALEP['codconv'].'" id="codigoconv" />'
               . '<input type="hidden" name="codgrupo" value="'.$regDFALEP['codgrupo'].'" id="codgrupo" /> ';
        }
-       return $resDFALEP;
     }
     function dameFechaActualLimiteEntregaDocumen($coduser) {
        $resultadoDFALED=  $this->conex->dameFechaActualDocumentacion($coduser);
@@ -152,7 +151,6 @@ class config
                 <input type="hidden" name="codconv" value="'.$regDFALED['codconv'].'" id="codconv" />
                 <input type="hidden" name="codgrupo" value="'.$regDFALED['codgrupo'].'" id="codgrupo" />';
        }
-       return $resDFALED;
     }
 }
 ?>

@@ -5,6 +5,9 @@
    <link rel="shortcut icon" href="img/favicon.ico">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <link rel="stylesheet" href="css/bootstrap.css">
+   <link rel="stylesheet" href="css/bootstrap-theme.css" />
+   <link rel="stylesheet" href="css/bootstrap.css.map" />
+   <link rel="stylesheet" href="css/bootstrap-theme.css.map"  />
    <link rel="stylesheet" href="css/chat.css">
    
    <?php
@@ -21,6 +24,7 @@
    <script type="text/javascript" src="js/app.js"></script>
    <script type="text/javascript" src="js/validaciones.js"></script>
    <script type="text/javascript" src="js/bootbox.js"></script>
+   <script type="text/javascript" src="js/validCampo.js"></script>
    <link rel="stylesheet" href="css/redmond/jquery-ui-1.10.4.custom.css"/>
    <link rel="stylesheet" href="css/calendario.css"/>
    <script src="js/jquery.ui.core.js"></script>

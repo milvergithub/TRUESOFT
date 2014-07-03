@@ -54,7 +54,7 @@ else{
    <div class="">
       <ul class="pager">
          <li class="previous"><a href="">Grupo Empresa &rarr;</a></li>
-         <li class="previous"><a href="">&numsp;Integrantes  &rarr;&numsp;&numsp;</a></li>
+         <li class="previous"><a href="index.php?RegistroEmpresaAIntegrantes">&numsp;Integrantes  &rarr;&numsp;&numsp;</a></li>
          <li class="previous"><a href="">&numsp;&numsp;&numsp;Horario&rarr;&numsp;&numsp;&numsp;</a></li>
       </ul>
       <div class="progress progress-striped active">
@@ -102,11 +102,11 @@ else{
       <div class="" id="mensajeFormularioRegistroIntegrante">
 
       </div>
-      <label class="control-label subtitulo panel col-lg-8"><h3 class="h2">Formulario Registros Integrantes</h3></label>
-      <form class="form well col-lg-8" method="post" id="formularioRegistroIntegrantes">
+      <label class="control-label subtitulo panel col-lg-12"><h3 class="h2">Formulario Registros Integrantes</h3></label>
+      <form class="form well col-lg-6" method="post" id="formularioRegistroIntegrantes">
          <div class="control-group">
             <span class="">Nombres * :</span>
-            <input type='text' class='form-control input-sm' name='nombres' placeholder='nombre integrante' id="nombres" required='true'>
+            <input type='text' class='form-control input-sm ' name='nombres' placeholder='nombre integrante' id="nombres" required='true'>
          </div>
          <div class="control-group">
             <span class="">C.I. * : </span>
@@ -127,6 +127,7 @@ else{
          <input type="hidden" name="nombreGE" value="<?php echo $empresas->dameNombreEmpresa($_SESSION['coduser']); ?>" id="nombreGE"/>
          <button type="submit" id="btnRegistrar" class="btn btn-primary navbar-right">Registrar</button>
       </form>
+      <div class="well col-lg-6"></div>
    </div>
       <?php
    }

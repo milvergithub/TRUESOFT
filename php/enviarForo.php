@@ -6,9 +6,16 @@ include '../clases/GestionFiles.php';
 $archivo = $_FILES["anexo"]['name'];
 $origenDoc = $_FILES['anexo']['tmp_name'];
 $contenido=$_POST['contenidoForo'];
-$extencion=  strtolower(array_pop(explode(".", $archivo)));
-$destino =  "../files/foro/archivoForo".$extencion;
-$destinoReal="files/foro/archivoForo".$extencion;
+if ($archivo !=NULL){
+   $extencion=  strtolower(array_pop(explode(".", $archivo)));
+   $destino =  "../files/foro/archivoForo".date("d-m-y-H:i:s").".".$extencion;
+   $destinoReal="files/foro/archivoForo".date("d-m-y-H:i:s").".".$extencion;
+}
+else{
+   $destino =  "../files/foro/archivoForo";
+   $destinoReal="files/foro/archivoForo";
+}
+
 $gestion=new GestionFiles();
 $conexionforo=new ConexionTIS();
 try {
