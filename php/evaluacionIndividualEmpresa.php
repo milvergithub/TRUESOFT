@@ -2,16 +2,13 @@
 include 'clases/Evaluaciones.php';
 $evalInd=new Evaluaciones();
 ?>
-<h3 class="h3">Evaluacion Individual</h3>
 <div class="mensajeNota">
-Nota=      
 </div>
 <div class="table-responsive">
+   <div id="mensajeEvaluacionIndividual"></div>
    <table class="table table-bordered table-hover table-condensed table-striped panel-primary">
-      <caption class="caption panel-heading h3">Evaluacion Individual</caption>
-      <?php 
-         echo "codEmp=".$_POST['codEmp'];
-         echo "codUser=".$_SESSION['coduser']; 
+      <caption class="caption titulo h2 panel">Evaluacion Individual</caption>
+      <?php  
          $evalInd->imprimirEvaluacionPersonal($_POST['codEmp']) 
       ?>
    </table>

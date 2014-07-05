@@ -142,27 +142,34 @@ class GestionDocumentos {
    // funcion para dar documentos a configurar
    function darDocumentosConfiguracion($codConv, $codUsu) {
        $retsultDDC = $this->conexion->darDocumnetoSubir($codConv);
+       $contador=1;
        while ($restDDC = pg_fetch_assoc($retsultDDC)) {
-           echo '<form class="" method="POST" action="php/subirConfiguracionDocumento.php" enctype="multipart/form-data">
+           echo '<form class="" method="POST" action="javascript:saveSettingNotasDocumentos('.$contador.')" action="php/subirConfiguracionDocumento.php" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
-                     <div class="thumbnail">
-                        <img src="img/iconos/iconoPDF.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
-                     </div>
+                     <div class="thumbnail">';
+           if ($restDDC['nombtip']=="documentacion") {
+              echo '<img src="img/iconos/documentacion.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>';
+           }
+           else {
+              echo '<img src="img/iconos/iconoPDF.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>';
+           }
+           echo '</div>
                      <div class="caption">
                            <h3></h3>
                            <h3>'.$restDDC['nombdoc'].'</h3>
                            <h4>'.$restDDC['nombtip'].'</h4>
-                           <input name="codigoDoc" type="hidden" value="'.$restDDC['coddoc'].'"/>
-                           <input name="codigoTip" type="hidden" value="'.$restDDC['codtip'].'"/>
-                           <input name="codigoUsuario" type="hidden" value="'.$codUsu.'"/>
+                           <input name="codigoDoc'.$contador.'" id="codigoDoc'.$contador.'" type="hidden" value="'.$restDDC['coddoc'].'"/>
+                           <input name="codigoTip'.$contador.'" id="codigoTip'.$contador.'" type="hidden" value="'.$restDDC['codtip'].'"/>
+                           <input name="codigoUsuario'.$contador.'" id="codigoUsuario'.$contador.'" type="hidden" value="'.$codUsu.'"/>
                            <p>
                            <h4>Asignar Nota</h4>
-                           <input class="form-control col-lg-1 numerico" type="text" name="nota" placeholder="'.$restDDC['nota'].'"/><br>
+                           <input name="nota'.$contador.'" id="nota'.$contador.'" class="form-control col-lg-1 numerico" type="text" placeholder="'.$restDDC['nota'].'"/><br>
                            <input class="btn btn-primary" name="enviar" type="submit" value="Actualizar" />
                            </p>
                      </div>
                   </div>
                </form>';
+           $contador=$contador+1;
        }
    }
    // funcion para evaluar archivos de la empresa
@@ -194,9 +201,9 @@ class GestionDocumentos {
    //funcion para cargar archivos de cada empresa
    function devolverArchivoEmpresa($codEmp) {
        $resultDAE = $this->conexion->devolverArchivosEmpresa($codEmp);
-       
+       $contador=1;
        while ($restDAE = pg_fetch_assoc($resultDAE)) {
-           echo '<form  method="POST" action="php/subirEvaluacionGrupalEmpresa.php" enctype="multipart/form-data">
+           echo '<form  method="POST" action="javascript:saveEvaluationGrupal('.$contador.')" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
@@ -205,14 +212,15 @@ class GestionDocumentos {
                         <h3>'.$restDAE['nombrearch'].'</h3>
                         <p> Parte: '.$restDAE['partearch'].'</p>
                         <p>
-                           <input name="codigoArch" type="hidden" value="'.$restDAE['codarch'].'"/>
-                           <input name="codEmp" type="hidden" value="'.$codEmp.'" />
-                           <input class="form-control col-lg-1 numerico" type="text" name="nota" placeholder="nota"/><br>
+                           <input name="codigoArch'.$contador.'" id="codigoArch'.$contador.'" type="hidden" value="'.$restDAE['codarch'].'"/>
+                           <input name="codEmp'.$contador.'" id="codEmp'.$contador.'" type="hidden" value="'.$codEmp.'" />
+                           <input class="form-control col-lg-1 numerico" type="text" name="nota'.$contador.'" id="nota'.$contador.'" placeholder="nota"/><br>
                            <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
                         </p>
                      </div>
                   </div>
                 </form>';
+           $contador=$contador+1;
        }
    }
    function dameUltimaConvocatoria() {
@@ -271,7 +279,8 @@ class GestionDocumentos {
        $resultDAED = $this->conexion->dameArchivosDocumentacion($codEmp);
        
        while ($restDAED = pg_fetch_assoc($resultDAED)){
-           echo '<form  method="POST" action="subirEvaluacionGrupalEmpresa.php" enctype="multipart/form-data">
+          $contador=1;
+           echo '<form  method="POST" action="javascript:saveEvalucionDocumentacion('.$contador.')" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
                         <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
@@ -280,14 +289,15 @@ class GestionDocumentos {
                             <h3>'.$restDAED['nombrearch'].'</h3>
                             <p>'.$restDAED['partearch'].'</p>
                             <p>
-                           <input name="codigoArch" type="hidden" value="'.$restDAED['codarch'].'"/>
-                           <input name="codEmp" type="hidden" value="'.$codEmp.'" />
-                           <input class="form-control col-lg-1" type="text" name="nota" placeholder="nota"/><br>
+                           <input name="codigoArch'.$contador.'" id="codigoArch'.$contador.'" type="hidden" value="'.$restDAED['codarch'].'"/>
+                           <input name="codEmp'.$contador.'" id="codEmp'.$contador.'" type="hidden" value="'.$codEmp.'" />
+                           <input class="form-control col-lg-1" type="text" name="nota'.$contador.'" id="nota'.$contador.'" placeholder="nota"/><br>
                            <input class="btn btn-primary" name="enviar" type="submit" value="Subir" />
                         </p>
                      </div>
                   </div>
                 </form>';
+           $contador=$contador+1;
        }
    }
    //=============================================================================================================

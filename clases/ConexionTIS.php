@@ -707,7 +707,42 @@ class  ConexionTIS
         $this->Insertar($sqlSC);
     }
     /*:::::::::::::::::::::::::::      BEGIN SETTINGS SEMESTRAL    :::::::::::::::::::::::::::::*/
+    function minimoMaximoIntegrantes($coduser) {
+       $sqlMMI="SELECT * FROM settings_semestral_minmax(".$coduser.")";
+       $resMMI=  $this->Consultas($sqlMMI);
+       return $resMMI;
+    }
     
+    
+    //=================================== para funcion ver calificaciones de los archivos ==================
+    function daneCodigosIntegrante($codRep) {
+        $sqlDCI="SELECT * FROM datosiddocum(".$codRep.");";
+        $resulDCI= $this->Consultas($sqlDCI);
+        return $resulDCI;
+    }
+    function darCodigosRepres($codRep) {
+        $sqlDCR = "SELECT * FROM codigoscontratorep(".$codRep.");";
+        $resultDCR = $this->Consultas($sqlDCR);
+        return $resultDCR;
+        
+    }
+    //=================================== fin para funcion ver calificaciones de los archivos ==================
+    
+    
+    
+    //================= para la ver las notas finales de todo el grupo =========================================
+    function dameTodoDatoIntegrante($codEmp) {
+        $sqlDTDI = "SELECT * FROM dartododatointegrante(".$codEmp.");";
+        $resulDTDI = $this->Consultas($sqlDTDI);
+        return $resulDTDI;
+    }
+    
+    function notasFinalesIntegrantes($codEmp, $codIntg) {
+        $sqlNFI = "SELECT * FROM notasintegrante(".$codEmp.", ".$codIntg.");";
+        $resultNFI = $this->Consultas($sqlNFI);
+        return $resultNFI;
+    }
+    //===========================================================================================================
 }
 //fin clase conexion
 ?>

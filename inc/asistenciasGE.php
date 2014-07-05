@@ -1,24 +1,21 @@
-<!-- cremos variables iniciales-->
 <?php
-    include './php/head.php';
+session_start();
     include 'clases/ConexionTIS.php';
     $conex = new ConexionTIS();
     
-    $codEmp =1; // para cambiar cod empresa
+    $resultadoResp= $conex->darCodigosRepres($_SESSION['coduser']);
+    while ($reg = pg_fetch_assoc($resultadoResp)) {
+            $resp=$reg['codemp'];
+        }
+    
+    $codEmp =$resp; // para cambiar cod empresa
     
     $filas = $conex->getNroIntegrante($codEmp);  // estos son el nro de integrantes
     $columnas = $conex->getNroReuniones($codEmp); //estos son el nro de fechas
 ?>
-
-	<!-- para el titulo del la pagina -->
-    	<h1>
-            <b>
-            	Historial de Seguimiento De Asistencia
-            </b>
-        </h1>
-     
-        <!--para el llenado y creacion de la tabla con cada componente -->
-    <form method="post" action="webforms.php" enctype="multipart/form-data">
+<div class="panel titulo"><h1><b>Historial De Asistencias De La Grupo Empresa</b></h1></div>
+<a href="index.php" class="btn btn-primary"><span class="glyphicon glyphicon-backward"> Volver</span></a>
+<form method="post" action="webforms.php" class="panel" enctype="multipart/form-data">
         <div class="form-group table-responsive">
             <table class="table table-hover">
         	<tr>
@@ -110,7 +107,5 @@
                ?>               
         </table>
         </div>
-<br>    
-<a href="historialseguimiento.php">Volver atras</a>
 </form>    
         

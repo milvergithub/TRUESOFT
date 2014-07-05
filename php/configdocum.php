@@ -11,10 +11,11 @@ include 'clases/GestionDocumentos.php';
       </h2>
    </div>
    <div class=" container container-fluid panel panel-default col-lg-12">
-           <div class="">
-            <?php 
-                $gestion->darDocumentosConfiguracion($codc, $_SESSION['coduser']);
-            ?>
-           </div>
-        </div>
+      <div id="mensajeSettingsNotaEntregables"></div>
+      <div class="">
+       <?php 
+           $gestion->darDocumentosConfiguracion($codc, $_SESSION['coduser']);
+       ?>
+      </div>
+   </div>
 </div>

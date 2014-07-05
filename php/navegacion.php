@@ -32,12 +32,15 @@
                if ($_SESSION['nombreRol']=="docente") {
                   echo '<li><a href="index.php?seguimiento"><span class="glyphicon glyphicon-random"></span> Seguimiento semanal</a></li>';
                   echo '<li><a href="index.php?evaluararchivos"><span class="glyphicon glyphicon-file"></span> Evaluar Archivos partes</a></li>';
+                  echo '<li><a href="index.php?evaluardocumentacion"><span class="glyphicon glyphicon-file"></span> Evaluar Documentacion</a></li>';
                   echo '<li><a href="index.php?chat"><span class="glyphicon glyphicon-comment"></span> Abrir chat</a></li>';
                }
                if ($_SESSION['nombreRol']=="representante") {
                   echo '<li><a href="php/controlEstado.php"><span class="glyphicon glyphicon-registration-mark"></span> registro empresa</a></li>';
                   echo '<li><a href="index.php?propuestas"><span class="glyphicon glyphicon-upload"></span> Subir Propuestas</a></li>';
                   echo '<li><a href="index.php?subirdocumentacion"><span class="glyphicon glyphicon-upload"></span> Subir Documentacion</a></li>';
+                  echo '<li><a href="index.php?asistencias"><span class="glyphicon glyphicon-upload"></span> Ver asistencias</a></li>';
+                  echo '<li><a href="index.php?vernotas"><span class="glyphicon glyphicon-upload"></span> Ver notas</a></li>';
                   echo '<li><a href="index.php?chat"><span class="glyphicon glyphicon-comment"></span> Abrir chat</a></li>';
                }
             }

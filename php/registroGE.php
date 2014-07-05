@@ -55,7 +55,7 @@ else{
       <ul class="pager">
          <li class="previous"><a href="">Grupo Empresa &rarr;</a></li>
          <li class="previous"><a href="index.php?RegistroEmpresaAIntegrantes">&numsp;Integrantes  &rarr;&numsp;&numsp;</a></li>
-         <li class="previous"><a href="">&numsp;&numsp;&numsp;Horario&rarr;&numsp;&numsp;&numsp;</a></li>
+         <li class="previous"><a href="index.php?registroEmpresaHorario">&numsp;&numsp;&numsp;Horario&rarr;&numsp;&numsp;&numsp;</a></li>
       </ul>
       <div class="progress progress-striped active">
          <span class=""></span>

@@ -26,7 +26,7 @@ function init(){
      previsualizar(this);
    });
    $('.carousel').carousel({
-	interval:3000
+	interval:5000
    }); 
     
 }
@@ -217,9 +217,10 @@ function clickAsistencia(num){
    }
    else{
        justificacion.disabled=true;
-       observacion.disabled=false;
+       observacion.disabled=true;
        licencia.checked=false;
-       nota.disabled=false;
+       nota.disabled=true;
+       $("#taj"+num).val('');
    }
 
 }
@@ -243,6 +244,8 @@ function clickLicencia(num){
        nota.disabled=true;
        observacion.disabled=true;
        participacion.checked=false;
+       $("#tao"+num).val('');
+       $("#nn"+num).val('');
    }
 }
 function clickParticipacion(num){
@@ -264,6 +267,7 @@ function clickParticipacion(num){
        nota.disabled=false;
        observacion.disabled=false;
        licencia.checked=false;
+       $("#taj"+num).val('');
    }
 }
 function mostrarMensaje(mensaje){
@@ -329,6 +333,127 @@ function uploadDocumentacion(id){
             $("#mensajeUploadDocumentacion").text("error")
         }
     });
+}
+function saveEvaluationIndividual(id){
+   var nota=$('#nota'+id).val();
+   if (nota==""){
+      bootbox.alert("<div class='alert alert-danger' >ingrese una nota</div>");
+   }else{
+   var datoDoc=new FormData();//codigoArchivo
+   datoDoc.append("codigoArchivo",$('#codigoArchivo'+id).val());
+   datoDoc.append("codigoIntegrante",$('#codigoIntegrante'+id).val());
+   datoDoc.append("nota",$('#nota'+id).val());
+   $.ajax({
+        type: "POST",
+        url:"php/procesarNota.php",
+        enctype:'multipart/form-data',
+        data: datoDoc,
+        cache: false,
+        contentType: false,
+        processData: false,
+        mimeType: 'multipart/form-data',
+        success: function(data){
+            $("#mensajeEvaluacionIndividual").html(data);
+            $("#mensajeEvaluacionIndividual").show();
+            bootbox.alert(data, function() {
+
+            });
+        },
+        error: function(){
+            $("#mensajeUploadDocumentacion").text("error")
+        }
+   });
+  }
+}
+function saveEvaluationGrupal(id){
+   var nota=$('#nota'+id).val();
+   if (nota==""){
+      bootbox.alert("<div class='alert alert-danger' >ingrese una nota</div>");
+   }else{
+   var datoDoc=new FormData();//codigoArchivo
+   datoDoc.append("codigoArch",$('#codigoArch'+id).val());
+   datoDoc.append("codEmp",$('#codEmp'+id).val());
+   datoDoc.append("nota",$('#nota'+id).val());
+   $.ajax({
+        type: "POST",
+        url:"php/subirEvaluacionGrupalEmpresa.php",
+        enctype:'multipart/form-data',
+        data: datoDoc,
+        cache: false,
+        contentType: false,
+        processData: false,
+        mimeType: 'multipart/form-data',
+        success: function(data){
+            $("#mensajeEvaluacionGrupal").html(data);
+            $("#mensajeEvaluacionGrupal").show();
+            bootbox.alert(data, function() {
+
+            });
+        },
+        error: function(){
+            $("#mensajeUploadDocumentacion").text("error")
+        }
+   });
+  }
+}
+
+function saveSettingNotasDocumentos(id){
+   var nota=$('#nota'+id).val();
+   if (nota==""){
+      bootbox.alert("<div class='alert alert-danger' >ingrese una nota</div>");
+   }else{
+   var datoDoc=new FormData();//codigoArchivo
+   datoDoc.append("codigoDoc",$('#codigoDoc'+id).val());
+   datoDoc.append("codigoTip",$('#codigoTip'+id).val());
+   datoDoc.append("codigoUsuario",$('#codigoUsuario'+id).val());
+   datoDoc.append("nota",$('#nota'+id).val());
+   $.ajax({
+        type: "POST",
+        url:"php/subirConfiguracionDocumento.php",
+        enctype:'multipart/form-data',
+        data: datoDoc,
+        cache: false,
+        contentType: false,
+        processData: false,
+        mimeType: 'multipart/form-data',
+        success: function(data){
+            $("#mensajeSettingsNotaEntregables").html(data);
+            $("#mensajeSettingsNotaEntregables").show();
+        },
+        error: function(){
+            $("#mensajeUploadDocumentacion").text("error")
+        }
+   });
+  }
+}
+
+function saveEvalucionDocumentacion(id){
+   var nota=$('#nota'+id).val();
+   if (nota==""){
+      bootbox.alert("<div class='alert alert-danger' >ingrese una nota</div>");
+   }else{
+   var datoDoc=new FormData();//codigoArchivo
+   datoDoc.append("codigoArch",$('#codigoArch'+id).val());
+   datoDoc.append("codEmp",$('#codEmp'+id).val());
+   datoDoc.append("nota",$('#nota'+id).val());
+   $.ajax({
+        type: "POST",
+        url:"upload/subirEvaluacionGrupalEmpresa.php",
+        enctype:'multipart/form-data',
+        data: datoDoc,
+        cache: false,
+        contentType: false,
+        processData: false,
+        mimeType: 'multipart/form-data',
+        success: function(data){
+            $("#mensajesubidanotadocumentacion").html(data);
+            $("#mensajesubidanotadocumentacion").show();
+        },
+        error: function(){
+            $("#mensajeUploadDocumentacion").text("error")
+        }
+   });
+  }
 }
 
 

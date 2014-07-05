@@ -41,9 +41,9 @@ else{
 }
 
 $registroI=new RegistroTIS();    
-
+$minmax=$registroI->MinimoMaximoDeIntegrantes($_SESSION['coduser']);
 if ($registroI->verificarCIUnicoIntegrante($carnetsVal,$_POST['nombreGE'])=="t") {
-      if ($registroI->cuantosIntegrantesTieneEmpresa($_POST['nombreGE'])<5) {
+      if ($registroI->cuantosIntegrantesTieneEmpresa($_POST['nombreGE'])<$minmax[1]) {
          $conexion=new ConexionTIS();
          $conexion->registrarIntegrantes($_POST['nombreGE'], $nombresVal, $carnetsVal, $telefonosVal, $emailsVal, $fotos);
          echo "<div class='alert alert-success col-lg-8'>

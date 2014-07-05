@@ -51,7 +51,7 @@ session_start();
             }
             elseif(isset($_REQUEST[md5("codEmpH")])) {
                if (is_numeric($_GET[md5("codEmpH")])) {
-                  include_once './historialseguimiento.php';
+                  include_once 'inc/historialseguimiento.php';
                }
                else{
                   include_once './php/error.php';
@@ -108,8 +108,19 @@ session_start();
             elseif(isset($_REQUEST[md5("consultaNombreEmpresas")])) {
                include_once 'php/consultaGE.php';
             }
-            
-            //finale else
+            elseif(isset($_REQUEST['asistencias'])) {
+               include_once './inc/asistenciasGE.php';
+            }
+            elseif(isset($_REQUEST['evaluardocumentacion'])) {
+               include_once './php/EmpresaEvaluarDocumentacion.php';
+            }
+            elseif(isset($_REQUEST['evaluaciondocumentacion'])) {
+               include_once './php/evaluacionDocumentacionEmpresa.php';
+            }
+            elseif(isset($_REQUEST['vernotas'])) {
+               include_once './php/notasEmpresa.php';
+            }
+            //vernotas
             else {
                include_once './inc/inicio.php';
             }

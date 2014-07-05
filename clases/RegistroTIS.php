@@ -24,6 +24,14 @@ class RegistroTIS {
          echo '<option value="'.$regDDA['codgrupo'].'">'.$regDDA['nombre'].'</option>';
       }
    }
+   function MinimoMaximoDeIntegrantes($coduser) {
+      $resultadoMMDI=  $this->conexion->minimoMaximoIntegrantes($coduser);
+      while ($regMMDI = pg_fetch_assoc($resultadoMMDI)) {
+         $resMMDI[0]=$regMMDI['minimo'];
+         $resMMDI[1]=$regMMDI['maximo'];
+      }
+      return $resMMDI;
+   }
    function grupoUsado($codGrupo) {
       $resultadoGU=  $this->conexion->verificarSiGrupoEsUSado($codGrupo);
       while ($regGU = pg_fetch_assoc($resultadoGU)) {

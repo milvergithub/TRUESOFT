@@ -2,9 +2,10 @@
 include 'clases/GrupoEmpresas.php';
 $cod=$_GET[md5('codEmp')];
 ?>
-<form method="post" action="php/proceval.php" name="evaluar" role="form">
-   <div class="control-group">
-      <span class="label label-default">Tipo Evaluacion</span>
+<div></div>
+<form method="post" action="php/proceval.php" name="evaluar" role="form" class="panel">
+   <div class="panel panel-success">
+      <div class="subtitulo panel h4">Seleccione tipo Evaluacion</div>
       <select name="tipo" class="form-control">
          <?php
             $empres=new GrupoEmpresa();
@@ -14,7 +15,7 @@ $cod=$_GET[md5('codEmp')];
    </div> 
    <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered table-condensed">
-           <caption class="caption panel-heading h2">Evaluacion de seguimiento semanal</caption>
+           <caption class="caption titulo panel h3">Evaluacion de seguimiento semanal</caption>
             <thead>
                <tr><th>foto</th><th></th><th class="h4">INTEGRANTE</th><th class="h4">ASISTENCIA</th><th class="h4">LICENCIA</th><th class="h4">PARTICIPACION</th><th class="h4">JUSTIFICACION</th><th class="h4">CALIFICACION</th><th class="h4">OBSERVACIONES</th></tr>
             </thead>

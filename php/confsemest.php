@@ -2,13 +2,13 @@
 <div class="table table-responsive panel panel-default panelaso">
    <div class="panel titulo">
       <h2><b>Configuracion Semestral</b></h2>
-      <h4><b>Configuracion De Nro. De Integrantes Para Cada Grupo</b></h4>
    </div>
    <div id="mensajeConfigSemestral">
       
    </div>
    <form class="form" id="formularioSettingsSemestral" method="POST">
         <table class=" table table-hover">
+           <caption class="panel subtitulo"><h4><b>Configuracion De Nro. De Integrantes Para Cada Grupo</b></h4></caption>
             <tr>
                 <td>
                     <span class="glyphicon"><h5><b>NRO. MINIMO INTEGRANTES</b></h5></span>
@@ -28,16 +28,9 @@
             </tr>
             
         </table>
-    
-    
-    <h4>
-        <b>
-            Configuracion De Primeras Presentaciones
-        </b>
-    </h4>
-    
         <table class=" table table-hover">
-            <tr>
+           <caption class="panel subtitulo"><h4><b>Configuracion De Primeras Presentaciones</b></h4></caption> 
+           <tr>
                 <td>
                     <span class="glyphicon"><h5><b>NOTA PRESENTACION PROPUESTA</b></h5></span>
                 </td>
@@ -63,15 +56,9 @@
             </tr>
             
         </table>
-    
-    <h4>
-        <b>
-            Configuracion Segunda Presentacion
-        </b>        
-    </h4>
-    
         <table class=" table table-hover">
-            <tr>
+           <caption class="panel subtitulo"><h4><b>Configuracion Segunda Presentacion</b></h4></caption> 
+           <tr>
                 <td>
                     <span class="glyphicon"><h5><b>NOTA DOCUMENTACION FINAL</b></h5></span>
                 </td>
@@ -92,7 +79,7 @@
             
         </table>
         
-        <input class="btn btn-primary btn-sm" type="submit" value="enviar"/>
+        <input class="btn btn-primary btn-sm" type="submit" value="Guardar configuracion"/>
     </form>
 </div>
 
