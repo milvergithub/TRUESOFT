@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0);
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -131,5 +131,58 @@ session_start();
          ?>  
         </div>
       </div>
+      <div class="footer-container"><!-- Begin Footer -->
+    	<div class="container">
+        	<div class="row footer-row">
+                <div class="span3 footer-col">
+                    <h5>About Us</h5>
+                    <img src="img/fotos/foto.png" width="50" height="50" alt="Piccolo" /><br /><br />
+                    <address>
+                        <strong>Design Team</strong><br />
+                        Brigstar Soft<br />
+                        Sistema apoyo TIS<br />
+                    </address>
+                   
+                </div>
+                <div class="span3 footer-col">
+                    <h5>Desarrolladores</h5>
+                    <ul>
+                        <li><a href="#">@Milver flores acevedo</a> Programador Web,Disenador Web y base de datos.</li>
+                        <li><a href="#">@Juan Carlos Guzman</a> Programador Web y Base de datos.</li>
+                        <li><a href="#">@Maicol Acha Calle</a> Programador Web, Edicion de imagen.</li>
+                        <li><a href="#">@Riber Mollinedo Pedraza</a> Tester.</li>
+                    </ul>
+                </div>
+                <div class="span3 footer-col">
+                    <h5>Fotos Circulos</h5>
+                    <ul class="img-feed">
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright "></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                       <li><a href="#"><img src="img/fotos/foto.png" width="50" height="50" class="img-circle showbox slideright"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row"><!-- Begin Sub Footer -->
+                <div class="span12 footer-col footer-sub">
+                    <div class="row no-margin">
+                        <div class="span6"><span class="left glyphicon glyphicon-copyright-mark">Copyright 2014 Desarrollado pos Brigstar Soft.</span></div>
+                        <div class="span6">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Sub Footer -->
+
+        </div>
+    </div><!-- End Footer --> 
    </body>
 </html>
+
+

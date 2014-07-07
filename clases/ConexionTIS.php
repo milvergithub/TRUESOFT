@@ -743,6 +743,12 @@ class  ConexionTIS
         return $resultNFI;
     }
     //===========================================================================================================
+    
+    function notaNotaArchivo($codEmp,$codArchivo) {
+       $sqlNNA="SELECT * FROM nota_archivo(".$codEmp.",".$codArchivo.") AS notamax;";
+       $resNNA=  $this->Consultas($sqlNNA);
+       return $resNNA;
+    }
 }
 //fin clase conexion
 ?>

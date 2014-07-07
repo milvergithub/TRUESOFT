@@ -85,6 +85,15 @@ $(function(){
                 success: function(data){
                     $("#mensajeConfigSemestral").html(data);
                     $("#mensajeConfigSemestral").show();
+                    bootbox.alert('<div class="alert alert-success">\n\
+                                    <b>Numero minimo integrantes </b>:'+$('#nromin').val()+'<br>\n\
+                                    <b>Numero maximo integrantes </b>:'+$('#nromax').val()+'<br>\n\
+                                    <b>Nota propuestas sobre 100 </b>:'+$('#notaPres').val()+'<br>\n\
+                                    <b>Nota seguimiento sobre 100 </b>:'+$('#notaReum').val()+'<br>\n\
+                                    <b>Nota documentacion sobre 100 </b>:'+$('#notaDocum').val()+'<br>\n\
+                                    <b>Nota defensa sobre 100 </b>:'+$('#notaDef').val()+'<br>\n\
+                                    <b>Nota sobre la cual se califica  </b>:'+$('#notaTotal').val()+'<br>\n\
+                                   </div>');
                 }
             });
         }
@@ -710,7 +719,7 @@ $(function(){
          nombredoc:{
             required:true,
             minlength:3,
-            maxlength:25,
+            maxlength:40,
             lettersNumbersonly:true
          },
          archivo:{
@@ -721,7 +730,7 @@ $(function(){
          nombredoc :{
             required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">Ingrese un nombre</p>',
             minlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como minimo 3 caracteres</p>',
-            maxlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como maximo de 25 caracteres</p>'
+            maxlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como maximo de 40 caracteres</p>'
          },
          archivo :{
             required:'<p style="color: rgba(170, 0, 0, 0.76)">Cargue un archivo</p>'
@@ -764,7 +773,7 @@ $(function(){
          nombre :{
             required:true,
             minlength:3,
-            maxlength:25,
+            maxlength:40,
             lettersNumbersonly:true
          },
          calificacion :{
@@ -782,7 +791,7 @@ $(function(){
          nombre :{
             required:'<p class="err" style="color: rgba(170, 0, 0, 0.76)">Ingrese un nombre</p>',
             minlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como minimo 3 caracteres</p>',
-            maxlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como maximo de 25 caracteres</p>'
+            maxlength:'<p style="color: rgba(170, 0, 0, 0.76)">tener como maximo de 40 caracteres</p>'
          },
          calificacion :{
             required:'<p style="color: rgba(170, 0, 0, 0.76)">Ingrese una nota</p>',

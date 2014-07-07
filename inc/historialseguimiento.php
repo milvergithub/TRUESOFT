@@ -67,7 +67,6 @@
                                        {
                                            ?>
                                            <td>
-                                              <span class="glyphicon glyphicon-ok-circle h3"></span>
                                               <img src="img/image/ok.png" width="50" height="50"/>
                                            </td>
                                            <?php
@@ -76,7 +75,7 @@
                                        {
                                            ?>
                                            <td>
-                                              <span class="glyphicon glyphicon-remove-circle h3"></span>
+                                              <img src="img/image/error.png" width="50" height="50"/>
                                            </td>
                                            <?php
                                        }

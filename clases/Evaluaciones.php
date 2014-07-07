@@ -18,11 +18,11 @@ class Evaluaciones {
             <div class="col-sm-5 col-md-3 col-xs-10 ">
                <div class="thumbnail">
                   <?php
-                        echo "<img  src='img/logos/logo2.jpg' class='img-rounded col-xs-8 col-sm-10 col-md-10' />";
+                        echo "<img  src='img/logos/logo3.jpg' class='img-rounded col-xs-8 col-sm-10 col-md-10' />";
                   ?>
                </div>
                <div class="caption">
-                  <h3> <?php echo $regIEAEA['nombreemp']; ?></h3>
+                  <h2> <?php echo "<b class='nombreEmpresa movimiento'>".$regIEAEA['nombreemp']."</b>"; ?></h2>
                   <p>
                      <?php
                            echo '<input type="hidden" name="codEmp" value="'.$regIEAEA['codemp'].'"/>';

@@ -116,6 +116,10 @@ class GestionDocumentos {
        $contador=1;
        //action="upload/upload.php"
        while ($restDTDS = pg_fetch_assoc($retsultDTDS)) {
+          if ($restDTDS['nombtip']=="documentacion") {
+             
+          }
+          else{
            echo '<form method="POST" action="javascript:uploadPropuestas('.$contador.')" enctype="multipart/form-data">
                   <div class="well col-xs-8 col-sm-4 col-md-3">
                      <div class="thumbnail">
@@ -136,6 +140,7 @@ class GestionDocumentos {
                   </div>
                </form>';
            $contador=$contador+1;
+         }
        }
    }
    
@@ -206,11 +211,12 @@ class GestionDocumentos {
            echo '<form  method="POST" action="javascript:saveEvaluationGrupal('.$contador.')" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
-                        <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
+                        <img src="img/iconos/iconoPDF2.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
                      </div>
                      <div class="caption">
                         <h3>'.$restDAE['nombrearch'].'</h3>
                         <p> Parte: '.$restDAE['partearch'].'</p>
+                        <p>'.$this->dameNotaArchivo($codEmp, $restDAE['codarch']).'</p>
                         <p>
                            <input name="codigoArch'.$contador.'" id="codigoArch'.$contador.'" type="hidden" value="'.$restDAE['codarch'].'"/>
                            <input name="codEmp'.$contador.'" id="codEmp'.$contador.'" type="hidden" value="'.$codEmp.'" />
@@ -222,6 +228,13 @@ class GestionDocumentos {
                 </form>';
            $contador=$contador+1;
        }
+   }
+   function dameNotaArchivo($codEmp,$codArchivo) {
+      $resultadoDNA=  $this->conexion->notaNotaArchivo($codEmp, $codArchivo);
+      while ($regDNA = pg_fetch_assoc($resultadoDNA)) {
+         $resDNA=$regDNA['notamax'];
+      }
+      return $resDNA;
    }
    function dameUltimaConvocatoria() {
       $resultadoDCUC=  $this->conexion->dameCodigoUltimaConvocatoria();
@@ -277,13 +290,13 @@ class GestionDocumentos {
    //funcion para cargar archivos de cada empresa
    function devolverArchivoEmpresaDocumentacion($codEmp) {
        $resultDAED = $this->conexion->dameArchivosDocumentacion($codEmp);
-       
+       $contador=1;
        while ($restDAED = pg_fetch_assoc($resultDAED)){
-          $contador=1;
+          
            echo '<form  method="POST" action="javascript:saveEvalucionDocumentacion('.$contador.')" enctype="multipart/form-data">
                   <div class="col-sm-4 col-md-3">
                      <div class="thumbnail">
-                        <img src="img/logos/logo3.jpg" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
+                        <img src="img/iconos/documentacionok.png" class="img-rounded col-sm-10 col-md-10" alt="Generic placeholder thumbnail"/>
                      </div>
                      <div class="caption">
                             <h3>'.$restDAED['nombrearch'].'</h3>
@@ -360,7 +373,7 @@ class GestionDocumentos {
                     </td>
                     
                     <td>
-                        0
+                        '.$resNFI['notagrup2'].'
                     </td>
                     
                     <td>

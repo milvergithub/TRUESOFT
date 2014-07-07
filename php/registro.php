@@ -12,7 +12,7 @@
       <div class="" id="mensajeRegistroRepresentante">
 
       </div>
-      <form class="form-group col-lg-6 well"  method="post" id="formularioRegistroRep">
+      <form class="form-group col-lg-6  col-md-6 well"  method="post" id="formularioRegistroRep">
          <div class="control-group">
             <span class="glyphicon glyphicon-user">Usuario:</span>  
             <input class="form-control input-sm" type="text" name="nombreuser" id="nombreuser"/>
@@ -46,5 +46,5 @@
          </div>
             <input class="btn btn-primary" type="submit" value="Registrar" />
 	</form>
-    
+    <?php include 'inc/ayuda.php'; ?>
    </div>

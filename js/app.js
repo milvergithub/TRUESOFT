@@ -419,6 +419,7 @@ function saveSettingNotasDocumentos(id){
         success: function(data){
             $("#mensajeSettingsNotaEntregables").html(data);
             $("#mensajeSettingsNotaEntregables").show();
+            bootbox.alert('<div class="alert alert-success">Nota asignada= '+$('#nota'+id).val()+'</div>');
         },
         error: function(){
             $("#mensajeUploadDocumentacion").text("error")
@@ -448,6 +449,7 @@ function saveEvalucionDocumentacion(id){
         success: function(data){
             $("#mensajesubidanotadocumentacion").html(data);
             $("#mensajesubidanotadocumentacion").show();
+            bootbox.alert('<div class="alert alert-success">Nota asignada= '+$('#nota'+id).val()+'</div>')
         },
         error: function(){
             $("#mensajeUploadDocumentacion").text("error")

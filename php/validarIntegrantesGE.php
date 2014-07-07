@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(E_ALL^E_NOTICE);
 include '../clases/RegistroTIS.php';
 include '../clases/GestionFiles.php';
 $codUserRep=$_SESSION['coduser'];

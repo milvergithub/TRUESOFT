@@ -2,8 +2,10 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-         <button type="button" class="close btn btn-default" data-dismiss="modal" aria-hidden="true">x</button>
-         <h4 class="modal-title">Login</h4>
+            <button type="button" class="close btn btn-default" data-dismiss="modal" aria-hidden="true">
+               <span class="glyphicon glyphicon-remove"></span>
+            </button>
+         <h4 class="modal-title">Formulario Logeo</h4>
          </div>
          <div class="modal-body">
             <form class="form-group well" role="form" action="php/logear.php" method="post">
@@ -23,7 +25,7 @@
             </form>
          </div>
          <div class="modal-footer">
-            &copy; 2014 Derechos reservados TIS
+            <span class="glyphicon glyphicon-copyright-mark"></span> 2014 Derechos reservados TIS
          </div>
       </div>
    </div>

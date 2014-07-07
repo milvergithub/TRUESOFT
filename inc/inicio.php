@@ -8,7 +8,7 @@ function printIntegrantes($codemp) {
    $res="";
    $resultadoInteg=$conexionInteg->getIntegrantesRepresentante($codemp);
    while ($regInteg = pg_fetch_assoc($resultadoInteg)) {
-      $res=$res."<tr class='fila'><td><img class='fotoInt showbox slideright' src='img/fotos/".$regInteg['foto']."' width='50' height='50'/></td><td><b class='nombreInt'> ".$regInteg['nombre']."</b></td></tr>";
+      $res=$res."<tr class='fila'><td><img class='fotoInt showbox slideright img-circle' src='img/fotos/".$regInteg['foto']."' width='50' height='50'/></td><td><b class='nombreInt'> ".$regInteg['nombre']."</b></td></tr>";
    }
    return $res;
 }
@@ -34,11 +34,11 @@ function printIntegrantes($codemp) {
                   <h3><b class="nombreEmp">Nombre de la Empresa</b></h3>
                   <h4><b class="nombreEmp">representante</b></h4>
                   <table class="table">
-                     <tr class="fila"><td><img class="fotoInt showbox slideright" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 1</b></td></tr>
-                     <tr class="fila"><td><img class="fotoInt showbox slideright" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 2</b></td></tr>
-                     <tr class="fila"><td><img class="fotoInt showbox slideright" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 3</b></td></tr>
-                     <tr class="fila"><td><img class="fotoInt showbox slideright" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 4</b></td></tr>
-                     <tr class="fila"><td><img class="fotoInt showbox slideright" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 5</b></td></tr>
+                     <tr class="fila"><td><img class="fotoInt showbox slideright img-circle" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 1</b></td></tr>
+                     <tr class="fila"><td><img class="fotoInt showbox slideright img-circle" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 2</b></td></tr>
+                     <tr class="fila"><td><img class="fotoInt showbox slideright img-circle" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 3</b></td></tr>
+                     <tr class="fila"><td><img class="fotoInt showbox slideright img-circle" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 4</b></td></tr>
+                     <tr class="fila"><td><img class="fotoInt showbox slideright img-circle" src="img/fotos/foto.png" width='50' height='50'/></td><td><b class='nombreInt'>integrante 5</b></td></tr>
                   </table>
                </div>
             </div>
