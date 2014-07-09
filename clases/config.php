@@ -43,7 +43,7 @@ class config
                       '.$reg['grupo'].'
                   </td>
                   <td>
-                     <select class="form-control col-lg-6" name="dia">
+                     <select class="form-control col-lg-6 combo" name="dia">
                       <option value="'.$reg['dia'].'" selected>'.$reg['dia'].'</option>
                       <option value="lunes" >lunes</option>
                       <option value="martes">martes</option>
@@ -54,7 +54,7 @@ class config
                   </select>
                       </td>
                   <td>
-                  <select class="form-control" name="hora">
+                  <select class="form-control combo" name="hora">
                      <option value="'.$reg['hora'].'" selected>'.$reg['hora'].'</option>
                      <option value="06:45:00">06:45:00 - 08:15:00</option>
                      <option value="08:15:00">08:15:00 - 09:45:00</option>

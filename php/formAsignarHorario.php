@@ -30,7 +30,7 @@ $horarioEnd=array("08:15:00","09:45:00","11:15:00","12:45:00","14:15:00","15:45:
          <?php echo '<input type="hidden" value="'.$codgrupo.'" name="codigogrupo">'; ?>
       </td>
       <td>
-         <select class="form-control" name="horario">
+         <select class="form-control combo" name="horario">
          <?php
          for ($index = 0; $index < count($horarioIni); $index++) {
             echo "<option value='".$horarioIni[$index]."'>".$horarioIni[$index]." - ".$horarioEnd[$index]."</option>";

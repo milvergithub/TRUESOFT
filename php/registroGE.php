@@ -28,19 +28,19 @@ else{
       <form class="form col-lg-6" action="" method="POST" id="formularioRegistroHorario">
          <div class="control-group">
             <span class="glyphicon">grupo</span>
-            <select id="elegirgrupo"  class="form-control" name="grupoDoc" onchange="enviarGrupo(this.value)">
+            <select id="elegirgrupo"  class="form-control combo" name="grupoDoc" onchange="enviarGrupo(this.value)">
                <?php include 'docentes.php'; ?>
             </select>
          </div>
          <div class="control-group">
             <span class="glyphicon">dia</span>
-            <select id="elegirdia"  class="form-control" name="dia" onchange="enviarDia(this.value)">
+            <select id="elegirdia"  class="form-control combo" name="dia" onchange="enviarDia(this.value)">
                <option value="">seleccione grupo</option> 
             </select>
          </div>
          <div class="control-group">
             <span class="glyphicon">hora</span>
-            <select id="elegirhorario"  class="form-control" name="horario">
+            <select id="elegirhorario"  class="form-control combo" name="horario">
                <option value="">seleccione dia</option>
             </select>
          </div><br/>

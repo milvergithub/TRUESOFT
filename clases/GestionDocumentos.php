@@ -458,6 +458,30 @@ class GestionDocumentos {
       return $resVGU;
    }
    // =================================================================================================================================
-  
+   function dameDocumentosDescarga($codgest,$codconv,$codtipo,$limite,$modo,$cadena){
+      $resultadoDDD=  $this->conexion->dameDownloadsDocument($codgest, $codconv, $codtipo, $limite, $modo, $cadena);
+      echo '<caption class="caption panel h3 titulo">Documentos para descargar</caption>';
+      echo '<tr><th>Nombre</th><th>tipo</th><th>gestion</th><th>convocatoria</th><th>opcion</th></tr>';
+      while ($regDDD = pg_fetch_assoc($resultadoDDD)) {
+         echo '<tr>'
+               . '<td>'.$regDDD['nombre'].'</td>'
+               . '<td>'.$regDDD['tipo'].'</td>'
+               . '<td>'.$regDDD['gestion'].'</td>'
+               . '<td>'.$regDDD['convocatoria'].'</td>'
+               . '<td><a href="'.$regDDD['ruta'].'" class="btn btn-link">Descargar</a></td>'
+            . '</tr>';
+      }
+   }
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+

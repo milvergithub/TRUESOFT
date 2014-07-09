@@ -749,6 +749,13 @@ class  ConexionTIS
        $resNNA=  $this->Consultas($sqlNNA);
        return $resNNA;
     }
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    function dameDownloadsDocument($codgest,$codconv,$codtipo,$limite,$modo,$cadena) {
+       $sqlDDD="SELECT * FROM dame_archivos_descarga(".$codgest.",".$codconv.",".$codtipo.",".$limite.",'".$modo."','".$cadena."')";
+       $resDDD=  $this->Consultas($sqlDDD);
+       return $resDDD;
+    }
 }
 //fin clase conexion
 ?>

@@ -18,7 +18,7 @@
          <ul class="dropdown-menu">
             <?php
             echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'"><span class="glyphicon glyphicon-search"></span> buscar nombre empresas</a></li>';
-            echo '<li><a href="index.php?'.md5("consultaNombreEmpresas").'"><span class="glyphicon glyphicon-download"></span> bajar archivos convocatoria</a></li>';
+            echo '<li><a href="index.php?'.md5("descargarfiles").'"><span class="glyphicon glyphicon-download"></span> bajar archivos convocatoria</a></li>';
             if ($_SESSION['coduser']!=NULL) {
                if ($_SESSION['nombreRol']=="administrador") {
                   echo '<li><a href="index.php?registrodocentes"><span class="glyphicon glyphicon-registration-mark"></span> Registrar docente</a></li>';

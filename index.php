@@ -120,7 +120,10 @@ error_reporting(0);
             elseif(isset($_REQUEST['vernotas'])) {
                include_once './php/notasEmpresa.php';
             }
-            //vernotas
+            elseif(isset($_REQUEST[md5('descargarfiles')])) {
+               include_once './php/formDownloadFiles.php';
+            }
+            //vernotas descargarfiles
             else {
                include_once './inc/inicio.php';
             }

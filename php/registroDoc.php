@@ -20,7 +20,7 @@
          </div>
          <div class="control-group">
             <span class="glyphicon" > NroGrupo</span> *
-            <select class="form-control" name="nrogrupo" id="nrogrupo">
+            <select class="form-control combo" name="nrogrupo" id="nrogrupo">
                <?php
                include_once 'php/GruposDisponibles.php';
                ?>

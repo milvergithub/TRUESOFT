@@ -19,7 +19,7 @@
          </div>
          <div class="control-group">
             <span class="glyphicon">Grupo:</span>
-            <select class="form-control input-sm" name="grupo" id="grupo">
+            <select class="form-control input-sm combo" name="grupo" id="grupo">
                 <option value="">Selecione su grupo</option>
                <?php $registro->dameDocentesActivos() ?>
             </select> 

@@ -18,7 +18,7 @@
             </td>
             <td>
                <div class="control-group">
-                  <select class="form-control" name="tipo" id="tipo">
+                  <select class="form-control combo" name="tipo" id="tipo">
                      <option value="">selecionar</option>
                      <?php $gestioDoc->dameDocumentosTipoPresentacion(); ?>
                   </select>

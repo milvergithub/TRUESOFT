@@ -28,7 +28,7 @@ function init(){
    $('.carousel').carousel({
 	interval:5000
    }); 
-    
+   $(".combo").select2(); 
 }
 function updateSMSChat(){
    setInterval(function(){

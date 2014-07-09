@@ -8,8 +8,8 @@
    <link rel="stylesheet" href="css/bootstrap-theme.css" />
    <link rel="stylesheet" href="css/bootstrap.css.map" />
    <link rel="stylesheet" href="css/bootstrap-theme.css.map"  />
-   <link rel="stylesheet" href="css/chat.css">
-   
+   <link rel="stylesheet" href="css/chat.css" />
+   <link rel="stylesheet" href="css/select2.css" />
    <?php
    if (isset($_REQUEST['seguimiento'])) {
    ?>
@@ -25,6 +25,8 @@
    <script type="text/javascript" src="js/validaciones.js"></script>
    <script type="text/javascript" src="js/bootbox.js"></script>
    <script type="text/javascript" src="js/validCampo.js"></script>
+   <script type="text/javascript" src="js/select2.js"></script>
+   
    <link rel="stylesheet" href="css/redmond/jquery-ui-1.10.4.custom.css"/>
    <link rel="stylesheet" href="css/calendario.css"/>
    <script src="js/jquery.ui.core.js"></script>
