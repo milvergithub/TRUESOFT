@@ -458,6 +458,18 @@ function saveEvalucionDocumentacion(id){
   }
 }
 
+function cargarCategoria(){
+   var escogido=$("#categoria").val();
+   $("#codigos").load("php/tipodoc.php",{categoria:escogido});
+}
+function cargarbusqueda(){
+   var escogido=$("#categoria").val();
+   var codigo=$("#codigos").val();
+   var cantidad=$("#cantidad").val();
+   var cadena=$("#cadena").val();
+   $("#contenidoDescarga").load("php/cargarFilesDownload.php",{categoria:escogido,codigo:codigo,cantidad:cantidad,cadena:cadena});
+}
+
 
 
 

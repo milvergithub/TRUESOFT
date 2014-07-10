@@ -1,7 +1,7 @@
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
    <div class="modal-dialog">
       <div class="modal-content">
-         <div class="modal-header">
+         <div class="modal-header panel">
             <button type="button" class="close btn btn-default" data-dismiss="modal" aria-hidden="true">
                <span class="glyphicon glyphicon-remove"></span>
             </button>

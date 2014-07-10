@@ -1,6 +1,4 @@
 <?php
-include 'clases/GestionDocumentos.php';
-$gestionDoc=new GestionDocumentos();
 ?>
 <div class="panel col-lg-12">
    <div class="panel col-lg-12 col-md-12 col-sm-12 col-xs-12 titulo">
@@ -8,7 +6,7 @@ $gestionDoc=new GestionDocumentos();
    </div>
    <div class="col-lg-3 col-md-3 col-sm-3">
       <label class="label label-default">Buscar por :</label>
-      <select name="categoria" id="categoria" class="form-control combo col-lg-4 col-md-4">
+      <select name="categoria" id="categoria" class="form-control combo col-lg-4 col-md-4" onchange="cargarCategoria()">
          <option value="any">cualquiera</option>
          <option value="convocatoria">convocatoria</option>
          <option value="gestion">gestion</option>
@@ -32,11 +30,15 @@ $gestionDoc=new GestionDocumentos();
    </div>
    <div class="input-group col-lg-5 col-md-5 col-sm-5">
       <label class="label label-default">texto a buscar</label>
-      <input type="text" class="form-control input-sm">
+      <input type="text" name="cadena" id="cadena" onkeyup="cargarbusqueda()" class="form-control input-sm">
    </div>
    <div class="panel table-responsive">
       <table class="table" id="contenidoDescarga">
-         <?php $gestionDoc->dameDocumentosDescarga(1, 1, 1, 100, "a", "") ?>
+         <?php
+            include 'clases/GestionDocumentos.php';
+            $gestionDoc=new GestionDocumentos();
+            $gestionDoc->dameDocumentosDescarga(1, 1, 1, 100, "a", ""); 
+         ?>
       </table>
    </div>
 </div>

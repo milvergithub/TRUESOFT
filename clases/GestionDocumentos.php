@@ -216,7 +216,8 @@ class GestionDocumentos {
                      <div class="caption">
                         <h3>'.$restDAE['nombrearch'].'</h3>
                         <p> Parte: '.$restDAE['partearch'].'</p>
-                        <p>'.$this->dameNotaArchivo($codEmp, $restDAE['codarch']).'</p>
+                        <p><b>Nota maxima : '.$this->dameNotaArchivo($codEmp, $restDAE['coddoc']).'</b></p>
+                        <p><a href="'.$restDAE['ruta'].'" class="btn btn-link">Ver Archivo</a></p>
                         <p>
                            <input name="codigoArch'.$contador.'" id="codigoArch'.$contador.'" type="hidden" value="'.$restDAE['codarch'].'"/>
                            <input name="codEmp'.$contador.'" id="codEmp'.$contador.'" type="hidden" value="'.$codEmp.'" />
@@ -301,6 +302,7 @@ class GestionDocumentos {
                      <div class="caption">
                             <h3>'.$restDAED['nombrearch'].'</h3>
                             <p>'.$restDAED['partearch'].'</p>
+                            <p><a href="'.$restDAED['ruta'].'" class="btn btn-link">Descargar <span class="glyphicon glyphicon-compressed"></span></a></p>
                             <p>
                            <input name="codigoArch'.$contador.'" id="codigoArch'.$contador.'" type="hidden" value="'.$restDAED['codarch'].'"/>
                            <input name="codEmp'.$contador.'" id="codEmp'.$contador.'" type="hidden" value="'.$codEmp.'" />

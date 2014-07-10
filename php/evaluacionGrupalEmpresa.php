@@ -2,12 +2,12 @@
     include 'clases/GestionDocumentos.php';
     
     $gestion = new GestionDocumentos();
-    $codEmp =$_POST['codEmp'];    
+    $codEmp =$_POST['codEmp'];
 ?>
 <h2 class="panel titulo">Evaluacion Grupal De La Empresa</h2>   
-<div class="container container-fluid">
-   <div id="mensajeEvaluacionGrupal"></div>
-       <div class="">
+<div class="container container-fluid panel">
+   <div id="mensajeEvaluacionGrupal" class="panel"></div>
+       <div class="panel">
         <?php 
             $gestion->devolverArchivoEmpresa($codEmp);
         ?>

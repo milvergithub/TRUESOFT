@@ -187,5 +187,3 @@ error_reporting(0);
     </div><!-- End Footer --> 
    </body>
 </html>
-
-
